@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://codermali.github.io/malideLibrary.github.io/</id>
     <title>malide Library</title>
-    <updated>2019-06-24T17:39:04.891Z</updated>
+    <updated>2019-07-11T18:46:16.411Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://codermali.github.io/malideLibrary.github.io/"/>
     <link rel="self" href="https://codermali.github.io/malideLibrary.github.io//atom.xml"/>
@@ -275,35 +275,37 @@ State。
 <h2 id="前言">前言</h2>
 <p>最近公司入职了一个新的iOS开发，趁着这个时机，把旧电脑安排给了新员工，然后换了一台新 MacBook Pro。这样，就涉及到资料的备份和转移，还好以往我把公司资料直接保存在icloud，这就省了很多时间。但是除了资料，mac上的开发环境、配置等等就需要重新配置了。</p>
 <p>回想一下，重装电脑很多次了，每次都要查资料，重新配置。一方面是太麻烦了，另一方面，这样也会把自己很多配置文件丢失，比如：Xcode中的snips，ssh方面的常用的服务器，git和svn中的配置等等。因此希望将这次系统重装流程记录下来，并建立一个备份的资料库，作为自己的积累。</p>
-<h3 id="一-重置系统">一、重置系统</h3>
+<p>本文基于 <strong>macOS 10.14.5</strong> 。</p>
+<h2 id="1-重装系统">1、重装系统</h2>
+<h4 id="11-macos-恢复系统">1.1 macOS 恢复系统</h4>
 <p>mac开机时有根据不同的命令，可以分别进入不同的模式。(参考<a href="https://support.apple.com/zh-cn/HT201255">Mac 的启动组合键</a>)。</p>
 <ul>
 <li>
-<p>command + r</p>
+<p><strong>command + r</strong></p>
 <ul>
-<li>进入内置的<font color=#0099ff face ="微软雅黑">“ mac OS 恢复系统”</font>。只有在系统恢复盘还存在的时候使用。安装您的 Mac 上装有的最新 macOS。</li>
+<li>进入内置的 <strong>macOS 恢复系统</strong>。只有在系统恢复盘还存在的时候使用。安装您的 Mac 上装有的最新 macOS。</li>
 </ul>
 </li>
 <li>
-<p>command/shift + option + r</p>
+<p><strong>command + option + r</strong></p>
 <ul>
-<li>进入内置的<font color=#0099ff face ="微软雅黑">“ mac OS 恢复系统”</font>。即使系统恢复盘报废，也可以恢复系统。升级到与您的 Mac 兼容的最新 macOS。</li>
+<li>进入内置的 <strong>macOS 恢复系统</strong>。即使系统恢复盘报废，也可以恢复系统。升级到与您的 Mac 兼容的最新 macOS。</li>
 </ul>
 </li>
 <li>
-<p>command + shift + option + r</p>
+<p><strong>command + shift + option + r</strong></p>
 <ul>
-<li>进入内置的<font color=#0099ff face ="微软雅黑">“ mac OS 恢复系统”</font>。即使系统恢复盘报废，也可以恢复系统。安装 Mac 随附的 macOS 或与它最接近且仍在提供的版本。</li>
+<li>进入内置的 <strong>macOS 恢复系统</strong>。即使系统恢复盘报废，也可以恢复系统。安装 Mac 随附的 macOS 或与它最接近且仍在提供的版本。</li>
 </ul>
 </li>
 <li>
-<p>option</p>
+<p><strong>option</strong></p>
 <ul>
-<li>进入<font color=#0099ff face ="微软雅黑">“启动管理器”</font>。如果该电脑安装了多个系统，那么就可以在这里选择启动盘。</li>
+<li>进入 <strong>启动管理器</strong>。如果该电脑安装了多个系统，那么就可以在这里选择启动盘。</li>
 </ul>
 </li>
 <li>
-<p>command + option + p + r</p>
+<p><strong>command + option + p + r</strong></p>
 <ul>
 <li>重置 NVRAM 或 PRAM。
 <blockquote>
@@ -316,9 +318,9 @@ NVRAM（非易失性随机访问存储器）是一小部分内存，Mac 使用�
 </ul>
 </li>
 <li>
-<p>shift</p>
+<p><strong>shift</strong></p>
 <ul>
-<li>以<font color=#0099ff face ="微软雅黑">“安全模式”</font>启动。它会执行某些检查并防止某些软件自动载入或打开。根据apple官方文档。
+<li>以 <strong>安全模式</strong> 启动。它会执行某些检查并防止某些软件自动载入或打开。根据apple官方文档。
 <blockquote>
 <p>根据apple官方文档(<a href="https://support.apple.com/zh-cn/HT201262">使用安全模式查明 Mac 的相关问题
 </a>)</p>
@@ -338,18 +340,78 @@ NVRAM（非易失性随机访问存储器）是一小部分内存，Mac 使用�
 </ul>
 </li>
 </ul>
-<p>正常情况，一般使用 <font color=#0099ff face ="微软雅黑">“command + r”</font> 命令就可以满足需求了。</p>
-<h3 id="二-安装-homebrew">二、安装 homebrew</h3>
-<p>在mac OS系统下，是没有类似于windows旗下的那么多。</p>
-<h4 id="1homebrew简介">1，homebrew简介。</h4>
+<p>正常情况，一般使用 <strong>command + r</strong> 命令就可以满足需求了。</p>
+<h4 id="12-格式化硬盘">1.2 格式化硬盘</h4>
+<p>进入 <strong>安全模式</strong> 之后，选择 <strong>macOS实用工具</strong> -&gt;  <strong>磁盘工具</strong> ，然后在菜单栏中选择 <strong>查看</strong> -&gt; <strong>显示所有设备</strong>，选中硬盘进行格式化，需要自定义磁盘名称，磁盘格式和方案选择默认就可以了。</p>
+<h4 id="13-在线重装系统">1.3 在线重装系统</h4>
+<p>格式化硬盘之后，返回 <strong>macOS实用工具</strong> ，选择 <strong>重新安装mac OS</strong> ，点击继续，选择安装磁盘，点击继续。在线安装根据网络状态，需要的时间也不等。在安装过程中，请保持电源连接，不要合上上盖，以便安装完成。</p>
+<h2 id="2系统配置">2.系统配置</h2>
+<p>系统重装完成之后，重新激活系统。可以选择从 <strong>Time Mechine</strong> 中还原系统，不过有个小问题。如果你使用icloud，备份的系统中 <strong>icloud drive</strong> 文件如果不是最新，那么会很麻烦。<strong>icloud drive</strong> 坑还是比较多的。在这里，我选择暂不传输，当做一台新电脑来折腾。
+进入系统之后，首先将mac自带的软件用一个文件夹装起来，毕竟原生的APP很多都不是很顺手。接下来，真正的工作就要开始了。
+首先我们来对mac进行一些配置。</p>
+<h4 id="21-允许运行第三方应用">2.1 允许运行第三方应用。</h4>
+<pre><code>malideMacBook-Pro:Downloads mali$ sudo spctl --master-disable
+Password:
+malideMacBook-Pro:Downloads mali$ 
+</code></pre>
+<h4 id="22-显示隐藏文件">2.2 显示隐藏文件</h4>
+<pre><code>defaults write com.apple.finder AppleShowAllFiles Yes &amp;&amp; killall Finder //显示隐藏文件
+defaults write com.apple.finder AppleShowAllFiles No &amp;&amp; killall Finder //不显示隐藏文件
+</code></pre>
+<p>在 <strong>macOS Sierra</strong> 系统之后，直接使用 <strong>command + shift + .</strong> 就可以快速切换。</p>
+<h4 id="23-生成公钥私钥">2.3 生成公钥私钥</h4>
+<p>在Mac上有多种方式来生成公钥和私钥。</p>
+<ol>
+<li>openssl。macOS系统自带openssl，</li>
+<li>ssh_keygen</li>
+</ol>
+<pre><code> ✘ mali@malideMacBook-Pro  ~  ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/mali/.ssh/id_rsa):
+Created directory '/Users/mali/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /Users/mali/.ssh/id_rsa.
+Your public key has been saved in /Users/mali/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:qNJ/iRrfK66Qd0hG1f1JvkeyB4IfiuwP9lYqN7Vz1vw mali@malideMacBook-Pro.local
+The key's randomart image is:
++---[RSA 2048]----+
+|      .. .       |
+|     .  . . .    |
+|    .    . + .   |
+|   .   .. o * .  |
+|    o...So o *   |
+|   = oo . + o o  |
+|  + *.+. = . =   |
+|   + *=+B o o o  |
+|    o++B=o +   .E|
++----[SHA256]-----+
+ mali@malideMacBook-Pro  ~ 
+</code></pre>
+<h2 id="3-装机必备">3 装机必备</h2>
+<p>配置完成之后，就要开始安装常用的软件了。</p>
+<h4 id="31-输入法">3.1 输入法</h4>
+<p>首先就是输入法，apple自带的输入法我是用不惯的，还是搜狗拼音顺手，多平台同步词库。</p>
+<h4 id="32-1password">3.2 1password</h4>
+<p>在当前时代，每个人都有巨量的账号。那么，账号密码的管理就是个大问题。1password就是一款密码管理的保险箱。
+除了支付宝、微信、以及各大银行的手机银行，我所有的账号密码都是由1password来管理。如果不安装1password，那我根本就不记得我的密码。平时需要做的，只是根据1password的提示更新密码等就可以了。
+另外，1password支持多平台，iphone，mac，windows，chrome插件等。据说windows下体验很差，不过我很少用，所以无所谓啦。
+当然，也存在一些问题，比如说mac客户端和chrome插件的重叠。mac客户端可以日常使用，覆盖整个电脑。不过，在有些网站，密码输入框是禁止复制的，chrome插件则可以强行写入。二者缺一不可，所以只能多次输入主密码来解密了。</p>
+<h4 id="33-chrome-lantern">3.3 chrome + lantern</h4>
+<p>chrome是浏览器，lantern是一款VPN。</p>
+<p>safari很好用，但是毕竟只能在apple生态内用，有着太多局限性。作为一个开发人员，虽然不是前端，当然也是使用chrome啦。对于我这种懒人来说，最重要的就是多端同步，在任何一台机器上登陆账号，都可以同步所有配置、拓展。当然，chrome也有坑，就是官方下载chrome需要翻墙，登陆google账号同步个人数据时也需要翻墙。我是在本地保存了chrome的安装包和democross的安装文件，安装之后就可以使用了。</p>
+<p><a href="https://github.com/getlantern/lantern">lantern</a>，我一般是直接上GitHub下载。不过，在现在的大环境下，lantern也不是很好用了，经常性的连不上。我目前是用的免费版，每个月500M流量，同步chrome数据够用了。</p>
+<p>当然，作为程序员，翻墙是基本需求了，lantern这每个月500M肯定是不够用的。所以我另外用了一个工具， <strong>DemoCross</strong> ，是chrome中的一个extention，巨稳定，也很便宜，9块一个月；当然，也有缺陷，只能在chrome中使用。基本满足我的需求了。</p>
+<h4 id="34-homebrew">3.4 homebrew</h4>
 <p>homebrew是一款 Mac OS 系统下的第三方软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多使用的功能。homebrew会将软件包安装到独立目录，并将其文件symlink（软连接）到 /usr/local/Cellar 路径下。</p>
-<h4 id="2安装homebrew-官方命令">2，安装homebrew。(官方命令)</h4>
+<h5 id="341-安装homebrew">3.4.1 安装homebrew</h5>
 <pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
 </code></pre>
-<h4 id="3卸载homebrew-官方命令">3，卸载homebrew。(官方命令)</h4>
+<h5 id="342-卸载homebrew">3.4.2 卸载homebrew</h5>
 <pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)&quot;  
 </code></pre>
-<h4 id="4homebrew常用命令及使用">4，homebrew常用命令，及使用。</h4>
+<h5 id="343-homebrew常用命令及使用">3.4.3 homebrew常用命令，及使用。</h5>
 <pre><code>brew help                  //帮助
 brew update                //更新homebrew软件，把所有的Formula目录更新，并且会对本机已经安装并有更新的软件标明。
 brew upgrade               //更新homebrew软件，更新所有安装的Formula。
@@ -360,14 +422,158 @@ brew install [FORMULA]     //安装Formula。
 brew uninstall [FORMULA]   //卸载Formula。
 brew list                  //展示目前安装的软件。
 </code></pre>
-<h3 id="三-iterm2-搭配-oh-my-zsh">三、<code>iterm2</code> 搭配 <code>oh my zsh</code></h3>
-<p>mac OS 默认使用bash，</p>
-<h4 id="四-alfred">四、Alfred</h4>
-<h3 id="五-ios开发环境配置">五、iOS开发环境配置</h3>
-<h4 id="1-xcode安装">1. Xcode安装</h4>
+<h5 id="344-常用formula">3.4.4 常用Formula</h5>
+<p>版本管理：git</p>
+<pre><code>malideMacBook-Pro:~ mali$ brew install git
+</code></pre>
+<p>预览插件( <a href="https://github.com/sindresorhus/quick-look-plugins">quick-look-plugins</a> )：</p>
+<blockquote>
+<p>qlcolorcode    预览代码时代码高亮。
+qlstephen   支持预览没有后缀的文本文件。
+qlmarkdown  预览markdown文件的渲染效果。
+quicklook-json    对json文件的格式化和高亮预览。
+betterzip   预览压缩文件内部的内容，并支持自定义解压缩的行为；收费。
+qlimagesize    图片预览时展示分辨率和大小。
+webpquicklook  支持预览webP格式的图片。
+qlvideo  预览更多格式的视频文件。
+provisionql 可以预览.app或者.ipa文件的程序。
+quicklookapk   预览安卓.apk的程序。</p>
+</blockquote>
+<pre><code>malideMacBook-Pro:~ mali$ brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize webpquicklook qlvideo provisionql quicklookapk
+</code></pre>
+<p>下载利器：wget</p>
+<pre><code>malideMacBook-Pro:~ mali$ brew install wget
+</code></pre>
+<h4 id="35-alfred-dropbox">3.5 Alfred + dropbox</h4>
+<p><strong>Alfred</strong> 是 <strong>Mac</strong> 平台上一款著名的效率提升工具，包含功能众多。它分为免费版和付费版。一般用户使用免费版就够了。
+<strong>dropbox</strong> 是境外的云盘服务，需要配备VPN才能使用。我使用它的唯一原因，只是因为Alfred配置文件同步只支持dropbox。一般保持一周更新一次的频率。</p>
+<p><strong>Alfred</strong>的使用，我就不介绍了，太多文章了。这里列一些我收藏的。
+<a href="https://sspai.com/post/32979">从零开始学习 Alfred：基础功能及设置</a>
+<a href="https://sspai.com/post/55098">一切为了让效率更进一步，Alfred 4.0 更新详解</a>
+<a href="https://sspai.com/post/34468">它已不仅仅是一款 Mac 效率启动器：Alfred 3.0 新版详解</a>
+<a href="https://sspai.com/post/32680">5 款提高文件处理效率的 Alfred 扩展</a>
+<a href="https://sspai.com/post/32281">4 款「本地化」的 Alfred 扩展分享</a>
+<a href="https://sspai.com/post/47063">妙用 Alfred 让你最近使用的文件触手可及</a>
+<a href="https://sspai.com/post/28137">OS X 效率启动器 Alfred 的最佳伴侣：Alfred Remote for iOS 上手详解</a>
+<a href="https://sspai.com/post/27929">OS X 效率启动器 Alfred 的 5 个实用扩展推荐（二）</a>
+<a href="https://sspai.com/post/47063">妙用 Alfred 让你最近使用的文件触手可及</a></p>
+<h4 id="36-cheat-sheet">3.6 cheat sheet</h4>
+<p><strong>cheat sheet</strong> 是macOS平台上一款用来查看当前页面的可用快捷键的APP，可以极大的提高效率。
+使用比较简单，安装完毕之后，在 <strong>系统偏好设置</strong> -&gt; <strong>安全性与隐私</strong> -&gt; <strong>辅助功能</strong> 中添加权限，就可以正常使用啦，长按 <strong>command</strong>键即可。</p>
+<h4 id="37-cleanmymac">3.7 cleanmymac</h4>
+<p><strong>cleanmymac</strong> 是 macOS 平台上的电脑管家，可以进行清理缓存垃圾，卸载APP等操作。我主要把它当做一个卸载器。
+收费软件，请自己考量。</p>
+<h4 id="38-iterm2-oh-my-zsh">3.8 iterm2 + oh my zsh</h4>
+<p>作为程序员，会有非常多的场景用到命令行。macOS系统自带的terminal有时候不是很顺手，我们可以选择另外一个更好用的命令行工具 <strong>iterm2</strong>。可以使用homebrew安装。</p>
+<pre><code>malideMacBook-Pro:Downloads mali$ brew cask install iterm2
+Updating Homebrew...
+==&gt; Satisfying dependencies
+==&gt; Downloading https://iterm2.com/downloads/stable/iTerm2-3_2_9.zip
+######################################################################## 100.0%
+==&gt; Verifying SHA-256 checksum for Cask 'iterm2'.
+==&gt; Installing Cask iterm2
+==&gt; Moving App 'iTerm.app' to '/Applications/iTerm.app'.
+🍺  iterm2 was successfully installed!
+malideMacBook-Pro:Downloads mali$ 
+</code></pre>
+<p><strong>iterm2</strong> 安装完毕之后，开始安装 <strong><a href="https://ohmyz.sh/">oh my zsh</a></strong>。</p>
+<pre><code>//curl安装
+malideMacBook-Pro:~ mali$ sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
+
+//wget安装
+malideMacBook-Pro:~ mali$ sh -c &quot;$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;
+</code></pre>
+<h5 id="381-为什么用zsh">3.8.1 为什么用zsh</h5>
+<p>zsh和bash都是shell的一种，不过zsh在使用中，更加便利。对我来说，仅仅是zsh的自动补全就足以让我选择用它了。向更进一步了解，可以查看下列文章。
+<a href="https://www.zhihu.com/question/21418449">为什么说 zsh 是 shell 中的极品？</a>
+<a href="https://www.xshell.net/shell/bash_zsh.html">Zsh和Bash，究竟有何不同 坑很深</a></p>
+<h5 id="382-为什么用oh-my-zsh">3.8.2 为什么用oh my zsh</h5>
+<p>zsh的配置需要花费大量的时间，而 <strong>oh my zsh</strong> 相当于是一个提供了预设个性配置的zsh，大大减少了我们配置的时间，非常推荐使用。
+<a href="https://www.jianshu.com/p/d194d29e488c?open_source=weibo_search">oh-my-zsh,让你的终端从未这么爽过</a></p>
+<h5 id="383-oh-my-zsh-基本使用">3.8.3 oh my zsh 基本使用</h5>
+<pre><code>//查看当前使用的shell
+➜  ~ echo $SHELL
+/bin/zsh
+➜  ~
+
+
+//查看当前zsh版本
+➜  ~ zsh --version
+zsh 5.3 (x86_64-apple-darwin18.0)
+➜  ~
+
+
+//切换shell，从bash切换到zsh，需要重启iterm
+➜  ~ chsh -s /bin/zsh
+Changing shell for mali.
+Password for mali:
+➜  ~ 
+
+
+//切换shell，从zsh切换到bash，需要重启iterm
+➜  ~ chsh -s /bin/bash
+Changing shell for mali.
+Password for mali:
+➜  ~
+
+
+//查看当前环境安装了哪些shell
+➜  ~ cat /etc/shells
+# List of acceptable shells for chpass(1).
+# Ftpd will not allow users to connect who are not using
+# one of these shells.
+
+/bin/bash
+/bin/csh
+/bin/ksh
+/bin/sh
+/bin/tcsh
+/bin/zsh
+➜  ~
+
+
+//修改主题
+oh my zsh 的配置文件路径是：~/.zshrc
+进入配置文件，找到 ZSH_THEME 字段，修改为 ZSH_THEME=&quot;agnoster&quot;。
+agnoster主题，需要Powerline字体库的支持。
+
+//从github拉取[Powerline字体库](https://github.com/powerline/fonts)，拉取完成之后，运行install.sh文件安装。
+然后设置iterm字体为 Meslo LG S DZ for Powerline 即可。
+</code></pre>
+<h5 id="384-iterm-基本使用">3.8.4 iterm 基本使用</h5>
+<p>恢复原始配置</p>
+<pre><code>~ ➤ defaults delete com.googlecode.iterm2
+~ ➤
+然后重启iterm即可。
+</code></pre>
+<h4 id="39-ssh-copy-id">3.9 ssh-copy-id</h4>
+<p>SSH 是 Secure Shell 的缩写，其实就是远程 Shell 登录。只要能远程登录到某台机器的 Shell 上，大到 Mac 笔记本，小到树莓派和智能路由器，我们就可以上传或下载文件、执行脚本等等，几乎掌握了设备的控制权。一般来说，配置自己的云服务器，都需要ssh登陆。
+ssh登陆时，需要制定ip地址和登录名，例如<code>ssh 192.168.1.1@root</code>，就是指登陆ip为192.168.1.1的主机的用户root。ssh协议默认端口为22，不用填写；如果设备为了安全修改了端口为1234，则必须输入，例如<code>ssh -p 1234 192.168.1.1@root</code>。接下来输入密码就可以登陆了。
+不过记忆密码是一件非常麻烦的事，好在ssh支持使用RSA的公钥和私钥来验证身份。具体就是指将自己的公钥文件（ ~/.ssh/id_rsa.pub ）的内容复制到目标服务器（ ~/.ssh/authorized_keys ）文件中。这样其实也很繁琐。
+<strong>ssh-copy-id</strong> 就是一款简化过程，方便我们使用的工具。
+另外，可以通过ssh的配置文件配置来设置云服务器的别名，省去了记忆ip、用户名、端口号的麻烦。基本格式如下</p>
+<pre><code>Host malitest
+    HostName 192.168.1.1
+    User root
+    Port 22
+    IdentityFile ~/.ssh/id_rsa
+</code></pre>
+<h4 id="310-irvue">3.10 irvue</h4>
+<p><strong>irvue</strong> 是一款壁纸APP，基于 Unsplash ，有很多精美的图片。
+其实基于 Unsplash 的壁纸APP还有好几款，不过 <strong>irvue</strong> 最让我满意的地方是，在存在多个桌面时，可以同时修改多个桌面的壁纸。
+了解更多，可以参考少数派的这篇文章：<a href="https://sspai.com/post/41665">你只需要欣赏桌面，把换壁纸的事交给 Irvue 就好了</a></p>
+<h4 id="311-keka">3.11 <a href="https://www.keka.io/en/">keka</a></h4>
+<p>macOS 系统自身只支持zip格式，如果碰到其他格式的压缩文件，那么就需要keka来帮助你。kake是一款非常好用的压缩程序，支持各种压缩格式，支持分卷压缩，支持设置解压缩密码。</p>
+<h4 id="312-iina">3.12 <a href="https://www.iina.io/">iina</a></h4>
+<p>mac OS 平台上非常好用的播放器。几乎支持全部格式视频，而且小巧，轻便，界面美观。</p>
+<h4 id="313-omnidisksweeper">3.13 <a href="https://www.omnigroup.com/more">OmniDiskSweeper</a></h4>
+<p>一款非常轻量级的清理软件，界面简单，功能强大，而且免费！！！</p>
+<h2 id="4-ios开发环境配置">4 iOS开发环境配置</h2>
+<p>ios开发， 一般来说，都是使用apple提供的IDE，Xcode。另外，我习惯使用了cocoapods作为第三方库管理工具。</p>
+<h4 id="41-xcode安装">4.1. Xcode安装</h4>
 <p>现在一些辅助的工具安装完毕，作为一个iOS开发工程师，接下来首先要做的肯定是配置开发环境啦。
 首先是Xcode。自从2015年 <code>Xcode ghost</code>事件之后，下载 <a href="https://itunes.apple.com/us/app/xcode/id497799835?mt=12">Xcode</a> 还是建议直接到mac的App Store去下载了，，非常方便，历史版本，可以直接上苹果开发者网站下载(<a href="https://developer.apple.com/download/more/?=xcode">More Downloads for Apple Developers</a>)。Xcode作为苹果官方出品的IDE，如果不是Xcode8以后禁了插件，我会更爱它。</p>
-<h4 id="2-xcode模拟器安装">2. Xcode模拟器安装</h4>
+<h4 id="42-xcode模拟器安装">4.2. Xcode模拟器安装</h4>
 <p>模拟器安装本来是个很简单的工作，在「Xcode -&gt; Preferences -&gt; Components」中选择想要安装的模拟器就可以了。但是，apple的服务器着实不稳定，有时候会慢的让你怀疑人生。因此，我在想会不会又更方便的安装方式呢？检索资料之后，找到了这篇文章：<a href="https://www.jianshu.com/p/fd7c40b15192">解决直接在xcode下载模拟器慢的方案</a>。感谢作者分享。
 我大致介绍一下。</p>
 <ol>
@@ -381,8 +587,8 @@ brew list                  //展示目前安装的软件。
 <li>下载完成之后，进入路径<code>~/Library/Caches</code>，右击<code>com.apple.dt.Xcode</code>文件，选择<code>显示包内容</code>。再进入<code>Downloads</code>路径（没有就自己创建一个），将下载好的文件放入。</li>
 <li>再次进入「Xcode -&gt; Preferences -&gt; Components」，再次点击下载。</li>
 </ol>
-<h4 id="3-cocoapods">3. <a href="https://cocoapods.org/">Cocoapods</a></h4>
-<h5 id="31-cocoapods简介">3.1. <code>Cocoapods</code>简介</h5>
+<h4 id="43-cocoapods">4.3. <a href="https://cocoapods.org/">Cocoapods</a></h4>
+<h5 id="431-cocoapods简介">4.3.1. <code>Cocoapods</code>简介</h5>
 <blockquote>
 <p>CocoaPods is a dependency manager for Swift and Objective-C Cocoa projects. It has over 62 thousand libraries and is used in over 3 million apps. CocoaPods can help you scale your projects elegantly.</p>
 </blockquote>
@@ -399,14 +605,14 @@ brew list                  //展示目前安装的软件。
 <p>如果想多了解<code>Cocoapods</code>，可以看下这些文章：
 <a href="https://juejin.im/post/5b1cfaff6fb9a01e417b6051">我所理解的 CocoaPods</a>
 <a href="http://www.code4app.com/article/cocoapods-install-usage">CocoaPods安装和使用教程</a></p>
-<h5 id="32-cocoapods的安装">3.2. <code>Cocoapods</code>的安装</h5>
+<h5 id="432-cocoapods的安装">4.3.2. <code>Cocoapods</code>的安装</h5>
 <p><code>Cocoapods</code>本质上是一个Ruby项目，由若干gems组成。因此本地需要配置Ruby环境才可以运行。在Mac系统中，是自带Ruby的。使用命令<code>Ruby -v</code>查看当前版本。</p>
 <pre><code>➜  ~ Ruby -v
 ruby 2.3.7p456 (2018-03-28 revision 63024) [universal.x86_64-darwin18]
 ➜  ~
 </code></pre>
 <p>如果系统版本过低，导致系统自带的ruby版本太低，是无法安装<code>cocoapods</code>的，需要升级ruby才可以。我们通常使用RVM(Ruby Verssion Manager)来管理ruby的版本。</p>
-<h6 id="321-安装rmv">3.2.1 安装rmv</h6>
+<h6 id="4321-安装rmv">4.3.2.1 安装rmv</h6>
 <pre><code>➜  ~ curl -L get.rvm.io | bash -s stable
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -433,7 +639,7 @@ Please consider donating to our open collective to help us maintain RVM.
 ➜  ~ source ~/.bash_profile
 ➜  ~
 </code></pre>
-<h6 id="322-rvm的基本使用">3.2.2 rvm的基本使用</h6>
+<h6 id="4322-rvm的基本使用">4.3.2.2 rvm的基本使用</h6>
 <p><strong>查看rvm版本</strong></p>
 <pre><code>➜  ~ rvm -v
 rvm 1.29.8 (latest) by Michal Papis, Piotr Kuczynski, Wayne E. Seguin [https://rvm.io]
@@ -482,7 +688,28 @@ Ruby was built without documentation, to build it run: rvm docs generate-ri
 Using /Users/mali/.rvm/gems/ruby-2.6.3
 ➜  ~
 </code></pre>
-<h6 id="323-安装cocoapods">3.2.3 安装<code>cocoapods</code></h6>
+<p><strong>更换国内源<code>https://gems.ruby-china.com/</code></strong>
+由于墙的存在，因此默认的源是非常非常慢的，需要切换的国内的镜像源。</p>
+<pre><code>// 移除自带源，因为国内被墙了
+➜  ~ gem sources --remove https://rubygems.org/
+https://rubygems.org/ removed from sources
+➜  ~
+
+
+//添加国内镜像源
+➜  ~ gem source -a https://gems.ruby-china.com/
+https://gems.ruby-china.com/ added to sources
+➜  ~
+
+
+// 查看是否更换成功
+➜  ~ gem sources -l
+*** CURRENT SOURCES ***
+
+https://gems.ruby-china.com/
+➜  ~
+</code></pre>
+<h6 id="4323-安装cocoapods">4.3.2.3 安装<code>cocoapods</code></h6>
 <pre><code>// 安装cocoapods
 ➜  ~ sudo gem install cocoapods
 Password:
@@ -624,29 +851,8 @@ Setting up CocoaPods master repo
   HEAD is now at 082ed90868f [Add] WrapModel 1.0.8
 Setup completed
 ➜  ~
-
 </code></pre>
-<p><strong>更换国内源<code>https://gems.ruby-china.com/</code></strong></p>
-<pre><code>// 移除自带源，因为国内被墙了
-➜  ~ gem sources --remove https://rubygems.org/
-https://rubygems.org/ removed from sources
-➜  ~
-
-
-//添加国内镜像源
-➜  ~ gem source -a https://gems.ruby-china.com/
-https://gems.ruby-china.com/ added to sources
-➜  ~
-
-
-// 查看是否更换成功
-➜  ~ gem sources -l
-*** CURRENT SOURCES ***
-
-https://gems.ruby-china.com/
-➜  ~
-</code></pre>
-<h6 id="324-cocoapods常用命令">3.2.4 <code>cocoapods</code>常用命令</h6>
+<h6 id="4324-cocoapods常用命令">4.3.2.4 <code>cocoapods</code>常用命令</h6>
 <pre><code>// 当前使用 pod 版本
 pod –version
 // 更新到最新稳定版本
@@ -670,7 +876,6 @@ pod update [组件名]
 // 更新本地依赖
 pod repo update
 </code></pre>
-<p>到这里，iOS开发的基础环境配置就结束了，其他个性化的工具，如AppCode，CodeRunner等等，就不再具体介绍，后面有机会再讲。</p>
 ]]></content>
     </entry>
     <entry>
