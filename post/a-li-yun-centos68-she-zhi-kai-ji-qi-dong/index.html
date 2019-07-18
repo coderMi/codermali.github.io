@@ -1,0 +1,520 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>
+    阿里云centOS6.8 设置开机启动 | malide Library
+</title>
+<link rel="shortcut icon" href="https://codermali.github.io/malideLibrary.github.io//favicon.ico?v=1563445588593">
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://codermali.github.io/malideLibrary.github.io//styles/main.css">
+<!-- js -->
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://codermali.github.io/malideLibrary.github.io//media/js/jquery.sticky-sidebar.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+        
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+    <div class="nav">
+        <div class="logo">
+            <a href="https://codermali.github.io/malideLibrary.github.io/">
+                <img class="avatar" src="https://codermali.github.io/malideLibrary.github.io//images/avatar.png?v=1563445588593" alt="">
+            </a>
+            <div class="site-title">
+                <h1>
+                    malide Library
+                </h1>
+            </div>
+        </div>
+        <span class="menu-btn fa fa-align-justify"></span>
+        <div class="menu-container">
+            <ul>
+                
+                    
+                            <li>
+                                <a href="/" class="menu">
+                                    首页
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="/archives" class="menu">
+                                    归档
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="/tags" class="menu">
+                                    标签
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="/post/about" class="menu">
+                                    关于
+                                </a>
+                            </li>
+                            
+                                
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $(".menu-btn").click(function() {
+            $(".menu-container").slideToggle();
+        });
+        $(window).resize(function() {
+
+            if (window.matchMedia('(min-width: 960px)').matches) {
+                $(".menu-container").css('display', 'block')
+            } else {
+                $(".menu-container").css('display', 'none')
+            }
+
+        });
+    });
+</script>
+
+            <div id="main-content" class="post-detail main-container">
+                <!-- left -->
+                <div id="content" class="main-container-left">
+                    <article class="post i-card">
+                        <h2 class="post-title">
+                            阿里云centOS6.8 设置开机启动
+                        </h2>
+                        <div class="post-info">
+                            <time class="post-time">2019-07-18</time>
+                            
+                                <a href="https://codermali.github.io/malideLibrary.github.io//tag/APN8Ay21f" class="post-tag i-tag
+                            i-tag-warning">
+                            #Aliyun centOS
+                        </a>
+                                
+                        </div>
+                        
+                                <div class="post-content">
+                                    <h4 id="基础知识">基础知识</h4>
+<pre><code>chkconfig是管理系统服务(service)的命令行工具。所谓系统服务(service)，就是随系统启动而启动，随系统关闭而关闭的程序。
+chkconfig命令主要用来更新（启动或停止）和查询系统服务的运行级信息。谨记chkconfig不是立即自动禁止或激活一个服务，它只是简单的改变了符号连接。
+chkconfig提供5个功能：	
+</code></pre>
+<ol>
+<li>设置service启动信息</li>
+</ol>
+<pre><code>//on、off、reset用于改变service的启动信息。 
+//on表示开启，off表示关闭，reset表示重置。 
+//默认情况下，on和off开关只对运行级2，3，4，5有效，reset可以对所有运行级有效。
+chkconfig name on/off/reset
+</code></pre>
+<ol start="2">
+<li>设置service运行级别</li>
+</ol>
+<pre><code>//指定运行级为2,3,4,5 
+//等级0表示：表示关机 
+//等级1表示：单用户模式 
+//等级2表示：无网络连接的多用户命令行模式 
+//等级3表示：有网络连接的多用户命令行模式 
+//等级4表示：不可用 
+//等级5表示：带图形界面的多用户模式 
+//等级6表示：重新启动
+chkconfig --level 2345 name on
+</code></pre>
+<ol start="3">
+<li>添加service</li>
+</ol>
+<pre><code>chkconfig --add name
+</code></pre>
+<ol start="4">
+<li>移除service</li>
+</ol>
+<pre><code>chkconfig --del name
+</code></pre>
+<ol start="5">
+<li>列出service的启动信息</li>
+</ol>
+<pre><code>chkconfig --list [name]
+</code></pre>
+<h2 id="设置mysql开启自启动">设置mysql开启自启动</h2>
+<ol>
+<li>将mysql安装目录下/support目录下的mysql.server文件复制到/etc/init.d/目录下，并改名为mysqld</li>
+</ol>
+<pre><code>cp /software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/support-files/mysql.server /etc/init.d/mysqld
+</code></pre>
+<ol start="2">
+<li>设置mysqld文件的执行权限</li>
+</ol>
+<pre><code>chmod a+x /etc/init.d/mysqld
+</code></pre>
+<ol start="3">
+<li>此时，我们可以通过该文件启动和停止mysql服务</li>
+</ol>
+<pre><code>[root@iZwz9cngn5wj3bafyrd539Z /]# /etc/init.d/mysqld start
+Starting MySQL.                                            [  OK  ]
+[root@iZwz9cngn5wj3bafyrd539Z /]# /etc/init.d/mysqld stop
+Shutting down MySQL..                                      [  OK  ]
+[root@iZwz9cngn5wj3bafyrd539Z /]#
+</code></pre>
+<ol start="4">
+<li>将mysqld服务添加到chkconfig管理列表,然后就可以通过service对mysql进行启动和停止了</li>
+</ol>
+<pre><code>[root@iZwz9cngn5wj3bafyrd539Z /]# chkconfig --add mysqld
+
+[root@iZwz9cngn5wj3bafyrd539Z /]# service mysqld start
+Starting MySQL.                                            [  OK  ]
+[root@iZwz9cngn5wj3bafyrd539Z /]# service mysqld stop
+Shutting down MySQL..                                      [  OK  ]
+[root@iZwz9cngn5wj3bafyrd539Z /]# 
+</code></pre>
+<ol start="5">
+<li>设置终端模式开机启动</li>
+</ol>
+<pre><code>[root@iZwz9cngn5wj3bafyrd539Z /]# chkconfig mysqld on
+</code></pre>
+<h2 id="设置tomcat自动启动">设置tomcat自动启动</h2>
+<ol>
+<li>编辑startup.sh文件</li>
+</ol>
+<pre><code>//到tomcat/bin目录下，在#!/bin/sh这一行下面，也就是第二行，添加如下内容
+#chkconfig: 2345 80 90    
+#description:tomcat auto start    
+#processname: tomcat
+</code></pre>
+<ol start="2">
+<li>编辑catalina.sh文件</li>
+</ol>
+<pre><code>//搜索export位置,在后面添加
+export CATALINA_BASE=/usr/local/tomcat
+export CATALINA_HOME=/usr/local/tomcat
+export CATALINA_TMPDIR=/usr/local/tomcat
+
+//在#!/bin/sh这一行下面，也就是第二行,添加Java路径
+export JAVA_HOME=/software/java/jdk1.8.0_171
+export JER_HOME=/software/java/jdk1.8.0_171/jre
+</code></pre>
+<ol start="3">
+<li>链接starup.sh文件到/etc/init.d/目录下,并添加操作权限</li>
+</ol>
+<pre><code>ln -s /software/tomcat/apache-tomcat-8.5.32/bin/startup.sh /etc/init.d/tomcat8
+
+chmod a+x /etc/init.d/tomcat8
+</code></pre>
+<ol start="4">
+<li>添加tomcat8文件到开机启动服务列表</li>
+</ol>
+<pre><code>chkconfig --add tomcat8
+
+chkconfig tomcat8 on 
+
+chkconfig --list
+</code></pre>
+<h2 id="设置nginx开机自启动">设置nginx开机自启动</h2>
+<ol>
+<li>编辑自启动脚本文件，并保存到/etc/init.d/nginx</li>
+</ol>
+<pre><code>//nginx官方链接：https://www.nginx.com/resources/wiki/start/topics/examples/redhatnginxinit/
+
+//需要修改的地方
+nginx=”/usr/sbin/nginx” 修改成nginx执行程序的路径。
+NGINX_CONF_FILE=”/etc/nginx/nginx.conf” 修改成配置文件的路径。
+
+#!/bin/sh
+#
+# nginx - this script starts and stops the nginx daemon
+#
+# chkconfig:   - 85 15
+# description:  NGINX is an HTTP(S) server, HTTP(S) reverse \
+#               proxy and IMAP/POP3 proxy server
+# processname: nginx
+# config:      /etc/nginx/nginx.conf
+# config:      /etc/sysconfig/nginx
+# pidfile:     /var/run/nginx.pid
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+# Source networking configuration.
+. /etc/sysconfig/network
+
+# Check that networking is up.
+[ &quot;$NETWORKING&quot; = &quot;no&quot; ] &amp;&amp; exit 0
+
+nginx=&quot;/usr/sbin/nginx&quot;
+prog=$(basename $nginx)
+
+NGINX_CONF_FILE=&quot;/etc/nginx/nginx.conf&quot;
+
+[ -f /etc/sysconfig/nginx ] &amp;&amp; . /etc/sysconfig/nginx
+
+lockfile=/var/lock/subsys/nginx
+
+make_dirs() {
+   # make required directories
+   user=`$nginx -V 2&gt;&amp;1 | grep &quot;configure arguments:.*--user=&quot; | sed 's/[^*]*--user=\([^ ]*\).*/\1/g' -`
+   if [ -n &quot;$user&quot; ]; then
+      if [ -z &quot;`grep $user /etc/passwd`&quot; ]; then
+         useradd -M -s /bin/nologin $user
+      fi
+      options=`$nginx -V 2&gt;&amp;1 | grep 'configure arguments:'`
+      for opt in $options; do
+          if [ `echo $opt | grep '.*-temp-path'` ]; then
+              value=`echo $opt | cut -d &quot;=&quot; -f 2`
+              if [ ! -d &quot;$value&quot; ]; then
+                  # echo &quot;creating&quot; $value
+                  mkdir -p $value &amp;&amp; chown -R $user $value
+              fi
+          fi
+       done
+    fi
+}
+
+start() {
+    [ -x $nginx ] || exit 5
+    [ -f $NGINX_CONF_FILE ] || exit 6
+    make_dirs
+    echo -n $&quot;Starting $prog: &quot;
+    daemon $nginx -c $NGINX_CONF_FILE
+    retval=$?
+    echo
+    [ $retval -eq 0 ] &amp;&amp; touch $lockfile
+    return $retval
+}
+
+stop() {
+    echo -n $&quot;Stopping $prog: &quot;
+    killproc $prog -QUIT
+    retval=$?
+    echo
+    [ $retval -eq 0 ] &amp;&amp; rm -f $lockfile
+    return $retval
+}
+
+restart() {
+    configtest || return $?
+    stop
+    sleep 1
+    start
+}
+
+reload() {
+    configtest || return $?
+    echo -n $&quot;Reloading $prog: &quot;
+    killproc $nginx -HUP
+    RETVAL=$?
+    echo
+}
+
+force_reload() {
+    restart
+}
+
+configtest() {
+  $nginx -t -c $NGINX_CONF_FILE
+}
+
+rh_status() {
+    status $prog
+}
+
+rh_status_q() {
+    rh_status &gt;/dev/null 2&gt;&amp;1
+}
+
+case &quot;$1&quot; in
+    start)
+        rh_status_q &amp;&amp; exit 0
+        $1
+        ;;
+    stop)
+        rh_status_q || exit 0
+        $1
+        ;;
+    restart|configtest)
+        $1
+        ;;
+    reload)
+        rh_status_q || exit 7
+        $1
+        ;;
+    force-reload)
+        force_reload
+        ;;
+    status)
+        rh_status
+        ;;
+    condrestart|try-restart)
+        rh_status_q || exit 0
+            ;;
+    *)
+        echo $&quot;Usage: $0 {start|stop|status|restart|condrestart|try-restart|reload|force-reload|configtest}&quot;
+        exit 2
+esac
+</code></pre>
+<ol start="2">
+<li>设置文件的执行权限</li>
+</ol>
+<pre><code>chmod a+x /etc/init.d/nginx
+</code></pre>
+<ol start="3">
+<li>添加nginx到chkconfig</li>
+</ol>
+<pre><code>[root@iZwz9cngn5wj3bafyrd539Z ~]# chkconfig --add nginx
+[root@iZwz9cngn5wj3bafyrd539Z ~]# chkconfig --list
+[root@iZwz9cngn5wj3bafyrd539Z ~]# chkconfig --level 2345 nginx on
+</code></pre>
+<h2 id="设置redis开机自启动">设置redis开机自启动</h2>
+<ol>
+<li>复制redis安装目录下的/redis/utils/redis_init_script到/etc/init.d/redis</li>
+</ol>
+<pre><code>cp /software/redis/redis-3.2.12/utils/redis_init_script /etc/init.d/redis
+</code></pre>
+<ol start="2">
+<li>编辑redis文件</li>
+</ol>
+<pre><code>//1.在#！/bin/sh下一行，添加chkconfig配置
+//redis服务必须在运行级2，3，4，5下被启动或关闭，启动的优先级是90，关闭的优先级是10
+# chkconfig: 2345 10 90  
+# description: Start and Stop redis
+
+//2.修改redis安装的相关目录
+REDISPORT=6379
+EXEC=/software/redis/redis-3.2.12/src/redis-server
+CLIEXEC=/software/redis/redis-3.2.12/src/redis-cli
+
+PIDFILE=/var/run/redis_${REDISPORT}.pid
+CONF=&quot;/software/redis/redis-3.2.12/redis.conf&quot;
+</code></pre>
+<ol start="3">
+<li>设置文件的执行权限</li>
+</ol>
+<pre><code>chmod a+x /etc/init.d/redis
+</code></pre>
+<ol start="4">
+<li>添加nginx到chkconfig</li>
+</ol>
+<pre><code>[root@iZwz9cngn5wj3bafyrd539Z ~]# chkconfig --add redis
+[root@iZwz9cngn5wj3bafyrd539Z ~]# chkconfig --list
+[root@iZwz9cngn5wj3bafyrd539Z ~]# chkconfig redis on
+</code></pre>
+
+                                </div>
+                    </article>
+                    <!--  -->
+                    
+                        <div class="next-post">
+                            <div class="next">下一篇</div>
+                            <a href="https://codermali.github.io/malideLibrary.github.io//post/a-li-yun-centos68-ji-chu-huan-jing-pei-zhi">
+                                <h3 class="post-title">
+                                    阿里云CentOS6.8 基础环境配置
+                                </h3>
+                            </a>
+                        </div>
+                        
+                            <div id="disqus_thread"></div>
+                            <div id="gitalk-container"></div>
+                </div>
+                <!-- middle -->
+                <div class="main-container-middle"></div>
+                <!-- right -->
+                <div id="sidebar" class="main-container-right">
+                    
+                        <!-- toc -->
+                        
+    <div class="toc-card i-card ">
+        <div class="toc-title i-card-title">目录</div>
+        <div class="toc-content">
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86">基础知识</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E8%AE%BE%E7%BD%AEmysql%E5%BC%80%E5%90%AF%E8%87%AA%E5%90%AF%E5%8A%A8">设置mysql开启自启动</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AEtomcat%E8%87%AA%E5%8A%A8%E5%90%AF%E5%8A%A8">设置tomcat自动启动</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AEnginx%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8">设置nginx开机自启动</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AEredis%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8">设置redis开机自启动</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+        <script>
+            function locateCatelogList() {
+                /*获取文章目录集合,可通过:header过滤器*/
+                var alis = $('.post-content :header');
+                /*获取侧边栏目录列表集合**/
+                var sidebar_alis = $('.markdownIt-TOC a');
+                /*获取滚动条到顶部的距离*/
+                var scroll_height = $(window).scrollTop();
+                for (var i = 0; i < alis.length; i++) {
+                    /*获取锚点集合中的元素分别到顶点的距离*/
+                    var a_height = $(alis[i]).offset().top;
+                    if (a_height < scroll_height) {
+                        /*高亮显示*/
+                        sidebar_alis.removeClass('on');
+                        $(sidebar_alis[i]).addClass('on');
+                    }
+                }
+            }
+            $(function() {
+                /*绑定滚动事件 */
+                $(window).bind('scroll', locateCatelogList);
+            });
+        </script>
+    </div>
+    
+                            
+
+                </div>
+
+
+
+
+            </div>
+
+
+            <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://codermali.github.io/malideLibrary.github.io//atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+
+    </div>
+    <script>
+        $('#sidebar').stickySidebar({
+            topSpacing: 80,
+            // bottomSpacing: 60
+        });
+    </script>
+    
+</body>
+
+</html>
