@@ -7,7 +7,7 @@
 <title>
     malide Library
 </title>
-<link rel="shortcut icon" href="https://codermali.github.io/malideLibrary.github.io//favicon.ico?v=1563446262904">
+<link rel="shortcut icon" href="https://codermali.github.io/malideLibrary.github.io//favicon.ico?v=1563461784496">
 <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
 <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -27,7 +27,7 @@
     <div class="nav">
         <div class="logo">
             <a href="https://codermali.github.io/malideLibrary.github.io/">
-                <img class="avatar" src="https://codermali.github.io/malideLibrary.github.io//images/avatar.png?v=1563446262904" alt="">
+                <img class="avatar" src="https://codermali.github.io/malideLibrary.github.io//images/avatar.png?v=1563461784496" alt="">
             </a>
             <div class="site-title">
                 <h1>
@@ -107,7 +107,7 @@
                     <time class="post-time">2019-07-18</time>
                     
                         <a href="https://codermali.github.io/malideLibrary.github.io//tag/APN8Ay21f" class="post-tag i-tag
-                            i-tag-info">
+                            i-tag-warning">
             #Aliyun centOS
         </a>
                         
@@ -437,7 +437,7 @@ chmod a+x /etc/init.d/redis
                     <time class="post-time">2019-07-18</time>
                     
                         <a href="https://codermali.github.io/malideLibrary.github.io//tag/APN8Ay21f" class="post-tag i-tag
-                            i-tag-other_4">
+                            i-tag-error">
             #Aliyun centOS
         </a>
                         
@@ -448,7 +448,9 @@ chmod a+x /etc/init.d/redis
                                 
                                         <div class="post-content-content">
                                             阿里云CentOS6.8 基础环境配置
+本文是基于 阿里云服务器CentOS 6.8版本系统 ，搭建一个基本的APP云环境。
 1、安装jdk
+JDK是 Java 语言的软件开发工具包，主要用于移动设备、嵌入式设备上的java应用程序。JDK是整个java开发的核心，它包含了JAVA的运行环境（JVM+Java系统类库）和JAVA工具。
 1.1、首先检查系统是否安装了jdk
 java -version
 
@@ -480,6 +482,7 @@ java -version
 java version “1.8.0_171”Java(TM) SE Runtime Environment (build 1.8.0_171-b11)Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode)
 
 2、安装mysql
+MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下产品。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。
 2.1、检查是否已经安装了mysql
 //whereis mysql
 
@@ -594,6 +597,7 @@ MySQL5.7的版本，需要设置sql_mode，否则非聚集列group by查询会�
 Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column &#39;XXX.XXX&#39; which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
 
 3、安装tomcat
+Tomcat是Apache 软件基金会（Apache Software Foundation）的Jakarta 项目中的一个核心项目，由Apache、Sun 和其他一些公司及个人共同开发而成。由于有了Sun 的参与和支持，最新的Servlet 和JSP 规范总是能在Tomcat 中得到体现，Tomcat 5支持最新的Servlet 2.4 和JSP 2.0 规范。因为Tomcat 技术先进、性能稳定，而且免费，因而深受Java 爱好者的喜爱并得到了部分软件开发商的认可，成为目前比较流行的Web 应用服务器。
 3.1解压
 [root@iZwz9cngn5wj3bafyrd539Z tomcat]# tar -zxvf apache-tomcat-8.5.32.tar.gz
 apache-tomcat-8.5.32/conf/
@@ -1399,6 +1403,7 @@ redirectPort=&amp;quot;8443&amp;quot; /&amp;gt;
 [root@iZwz9cngn5wj3bafyrd539Z bin]# cd ../bin;./startup.sh
 
 4、安装nginx
+Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时也提供了IMAP/POP3/SMTP服务。Nginx是由伊戈尔·赛索耶夫为俄罗斯访问量第二的Rambler.ru站点（俄文：Рамблер）开发的，第一个公开版本0.1.0发布于2004年10月4日。
 4.1、使用yum命令，安装相关的编译工具和库文件
 //升级所有软件包
 yum -y update
@@ -1446,6 +1451,7 @@ index index.html index.htm;
 ./nginx -s reload
 
 5、安装redis
+Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。从2010年3月15日起，Redis的开发工作由VMware主持。从2013年5月开始，Redis的开发由Pivotal赞助。
 5.1、解压编译安装
 //解压
 [root@iZwz9cngn5wj3bafyrd539Z redis]# tar -zxvf redis-3.2.12.tar.gz
@@ -1501,7 +1507,7 @@ bind 127.0.0.1
                     <time class="post-time">2019-07-18</time>
                     
                         <a href="https://codermali.github.io/malideLibrary.github.io//tag/sz0pYtLDt" class="post-tag i-tag
-                            i-tag-banana">
+                            i-tag-other_1">
             #Manager
         </a>
                         
@@ -1592,7 +1598,7 @@ mob开放平台（开发资质已认证，APP转让完成）
                     <time class="post-time">2019-06-25</time>
                     
                         <a href="https://codermali.github.io/malideLibrary.github.io//tag/SftxX1qB0" class="post-tag i-tag
-                            i-tag-error">
+                            i-tag-success">
             #iOS
         </a>
                         
@@ -1868,7 +1874,7 @@ iOS的App实现状态恢复
                     <time class="post-time">2019-06-24</time>
                     
                         <a href="https://codermali.github.io/malideLibrary.github.io//tag/KU_zYv-Gf" class="post-tag i-tag
-                            i-tag-other_4">
+                            i-tag-primary">
             #MacOS
         </a>
                         
@@ -2575,7 +2581,7 @@ Dash 是一个API文档浏览器。配合 Alfred 可以快速查询api。
                     <time class="post-time">2019-06-21</time>
                     
                         <a href="https://codermali.github.io/malideLibrary.github.io//tag/oFw_688GE" class="post-tag i-tag
-                            i-tag-info">
+                            i-tag-warning">
             #Wechat
         </a>
                         
@@ -2632,7 +2638,7 @@ Dash 是一个API文档浏览器。配合 Alfred 可以快速查询api。
                     <!-- 个人信息 -->
                     
     <div class="id_card i-card">
-        <div class="id_card-avatar" style="background-image: url(https://codermali.github.io/malideLibrary.github.io//images/avatar.png?v=1563446262904)">
+        <div class="id_card-avatar" style="background-image: url(https://codermali.github.io/malideLibrary.github.io//images/avatar.png?v=1563461784496)">
         </div>
         <h1 class="id_card-title">
             malide Library
