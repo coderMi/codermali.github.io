@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://codermali.github.io/malideLibrary.github.io/</id>
     <title>malide Library</title>
-    <updated>2019-07-18T09:56:32.958Z</updated>
+    <updated>2019-07-18T09:58:45.399Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://codermali.github.io/malideLibrary.github.io/"/>
     <link rel="self" href="https://codermali.github.io/malideLibrary.github.io//atom.xml"/>
@@ -271,38 +271,37 @@ State。
         <link href="https://codermali.github.io/malideLibrary.github.io//post/mac-xi-tong-chong-zhuang-zhi-nan">
         </link>
         <updated>2019-06-24T11:02:37.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="mac-系统重装指南">Mac 系统重装指南</h1>
-<h2 id="前言">前言</h2>
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2>
 <p>最近公司入职了一个新的iOS开发，趁着这个时机，把旧电脑安排给了新员工，然后换了一台新 MacBook Pro。这样，就涉及到资料的备份和转移，还好以往我把公司资料直接保存在icloud，这就省了很多时间。但是除了资料，mac上的开发环境、配置等等就需要重新配置了。</p>
 <p>回想一下，重装电脑很多次了，每次都要查资料，重新配置。一方面是太麻烦了，另一方面，这样也会把自己很多配置文件丢失，比如：Xcode中的snips，ssh方面的常用的服务器，git和svn中的配置等等。因此希望将这次系统重装流程记录下来，并建立一个备份的资料库，作为自己的积累。</p>
 <p>本文基于 <strong>macOS 10.14.5</strong> 。</p>
-<h2 id="1-重装系统">1、重装系统</h2>
-<h4 id="11-macos-恢复系统">1.1 macOS 恢复系统</h4>
+<h3 id="1-重装系统">1、重装系统</h3>
+<h4 id="11-macos-恢复系统">1.1、macOS 恢复系统</h4>
 <p>mac开机时有根据不同的命令，可以分别进入不同的模式。(参考<a href="https://support.apple.com/zh-cn/HT201255">Mac 的启动组合键</a>)。</p>
 <ul>
 <li>
 <p><strong>command + r</strong></p>
-<ul>
-<li>进入内置的 <strong>macOS 恢复系统</strong>。只有在系统恢复盘还存在的时候使用。安装您的 Mac 上装有的最新 macOS。</li>
-</ul>
+</li>
+<li>
+<p>进入内置的 <strong>macOS 恢复系统</strong>。只有在系统恢复盘还存在的时候使用。安装您的 Mac 上装有的最新 macOS。</p>
 </li>
 <li>
 <p><strong>command + option + r</strong></p>
-<ul>
-<li>进入内置的 <strong>macOS 恢复系统</strong>。即使系统恢复盘报废，也可以恢复系统。升级到与您的 Mac 兼容的最新 macOS。</li>
-</ul>
+</li>
+<li>
+<p>进入内置的 <strong>macOS 恢复系统</strong>。即使系统恢复盘报废，也可以恢复系统。升级到与您的 Mac 兼容的最新 macOS。</p>
 </li>
 <li>
 <p><strong>command + shift + option + r</strong></p>
-<ul>
-<li>进入内置的 <strong>macOS 恢复系统</strong>。即使系统恢复盘报废，也可以恢复系统。安装 Mac 随附的 macOS 或与它最接近且仍在提供的版本。</li>
-</ul>
+</li>
+<li>
+<p>进入内置的 <strong>macOS 恢复系统</strong>。即使系统恢复盘报废，也可以恢复系统。安装 Mac 随附的 macOS 或与它最接近且仍在提供的版本。</p>
 </li>
 <li>
 <p><strong>option</strong></p>
-<ul>
-<li>进入 <strong>启动管理器</strong>。如果该电脑安装了多个系统，那么就可以在这里选择启动盘。</li>
-</ul>
+</li>
+<li>
+<p>进入 <strong>启动管理器</strong>。如果该电脑安装了多个系统，那么就可以在这里选择启动盘。</p>
 </li>
 <li>
 <p><strong>command + option + p + r</strong></p>
@@ -341,28 +340,29 @@ NVRAM（非易失性随机访问存储器）是一小部分内存，Mac 使用�
 </li>
 </ul>
 <p>正常情况，一般使用 <strong>command + r</strong> 命令就可以满足需求了。</p>
-<h4 id="12-格式化硬盘">1.2 格式化硬盘</h4>
+<h4 id="12-格式化硬盘">1.2、格式化硬盘</h4>
 <p>进入 <strong>安全模式</strong> 之后，选择 <strong>macOS实用工具</strong> -&gt;  <strong>磁盘工具</strong> ，然后在菜单栏中选择 <strong>查看</strong> -&gt; <strong>显示所有设备</strong>，选中硬盘进行格式化，需要自定义磁盘名称，磁盘格式和方案选择默认就可以了。</p>
-<h4 id="13-在线重装系统">1.3 在线重装系统</h4>
+<h4 id="13-在线重装系统">1.3、在线重装系统</h4>
 <p>格式化硬盘之后，返回 <strong>macOS实用工具</strong> ，选择 <strong>重新安装mac OS</strong> ，点击继续，选择安装磁盘，点击继续。在线安装根据网络状态，需要的时间也不等。在安装过程中，请保持电源连接，不要合上上盖，以便安装完成。</p>
-<h2 id="2系统配置">2.系统配置</h2>
+<h3 id="2-系统配置">2、系统配置</h3>
 <p>系统重装完成之后，重新激活系统。可以选择从 <strong>Time Mechine</strong> 中还原系统，不过有个小问题。如果你使用icloud，备份的系统中 <strong>icloud drive</strong> 文件如果不是最新，那么会很麻烦。<strong>icloud drive</strong> 坑还是比较多的。在这里，我选择暂不传输，当做一台新电脑来折腾。<br>
-进入系统之后，首先将mac自带的软件用一个文件夹装起来，毕竟原生的APP很多都不是很顺手。接下来，真正的工作就要开始了。<br>
+进入系统之后，首先将 <code>mac</code> 自带的软件用一个文件夹装起来，毕竟原生的APP很多都不是很顺手。接下来，真正的工作就要开始了。<br>
 首先我们来对mac进行一些配置。</p>
-<h4 id="21-允许运行第三方应用">2.1 允许运行第三方应用。</h4>
+<h4 id="21-允许运行第三方应用">2.1、允许运行第三方应用。</h4>
+<p>允许 <code>mac</code> 安装第三方的应用， 避免出现安装的应用不能运行，或者提示“已损坏”。</p>
 <pre><code>malideMacBook-Pro:Downloads mali$ sudo spctl --master-disable
 Password:
 malideMacBook-Pro:Downloads mali$ 
 </code></pre>
-<h4 id="22-显示隐藏文件">2.2 显示隐藏文件</h4>
+<h4 id="22-显示隐藏文件">2.2、显示隐藏文件</h4>
+<p>在 <strong>macOS Sierra</strong> 系统之后，直接使用 <strong>command + shift + .</strong> 就可以快速切换。</p>
 <pre><code>defaults write com.apple.finder AppleShowAllFiles Yes &amp;&amp; killall Finder //显示隐藏文件
 defaults write com.apple.finder AppleShowAllFiles No &amp;&amp; killall Finder //不显示隐藏文件
 </code></pre>
-<p>在 <strong>macOS Sierra</strong> 系统之后，直接使用 <strong>command + shift + .</strong> 就可以快速切换。</p>
-<h4 id="23-生成公钥私钥">2.3 生成公钥私钥</h4>
+<h4 id="23-生成公钥私钥">2.3、生成公钥私钥</h4>
 <p>在Mac上有多种方式来生成公钥和私钥。</p>
 <ol>
-<li>openssl。macOS系统自带openssl，</li>
+<li>openssl。macOS系统自带openssl。</li>
 <li>ssh_keygen</li>
 </ol>
 <pre><code> ✘ mali@malideMacBook-Pro  ~  ssh-keygen
@@ -389,191 +389,111 @@ The key's randomart image is:
 +----[SHA256]-----+
  mali@malideMacBook-Pro  ~ 
 </code></pre>
-<h2 id="3-装机必备">3 装机必备</h2>
-<p>配置完成之后，就要开始安装常用的软件了。</p>
-<h4 id="31-输入法">3.1 输入法</h4>
-<p>首先就是输入法，apple自带的输入法我是用不惯的，还是搜狗拼音顺手，多平台同步词库。</p>
-<h4 id="32-1password">3.2 1password</h4>
-<p>在当前时代，每个人都有巨量的账号。那么，账号密码的管理就是个大问题。1password就是一款密码管理的保险箱。<br>
-除了支付宝、微信、以及各大银行的手机银行，我所有的账号密码都是由1password来管理。如果不安装1password，那我根本就不记得我的密码。平时需要做的，只是根据1password的提示更新密码等就可以了。<br>
-另外，1password支持多平台，iphone，mac，windows，chrome插件等。据说windows下体验很差，不过我很少用，所以无所谓啦。<br>
-当然，也存在一些问题，比如说mac客户端和chrome插件的重叠。mac客户端可以日常使用，覆盖整个电脑。不过，在有些网站，密码输入框是禁止复制的，chrome插件则可以强行写入。二者缺一不可，所以只能多次输入主密码来解密了。</p>
-<h4 id="33-chrome-lantern">3.3 chrome + lantern</h4>
-<p>chrome是浏览器，lantern是一款VPN。</p>
-<p>safari很好用，但是毕竟只能在apple生态内用，有着太多局限性。作为一个开发人员，虽然不是前端，当然也是使用chrome啦。对于我这种懒人来说，最重要的就是多端同步，在任何一台机器上登陆账号，都可以同步所有配置、拓展。当然，chrome也有坑，就是官方下载chrome需要翻墙，登陆google账号同步个人数据时也需要翻墙。我是在本地保存了chrome的安装包和democross的安装文件，安装之后就可以使用了。</p>
-<p><a href="https://github.com/getlantern/lantern">lantern</a>，我一般是直接上GitHub下载。不过，在现在的大环境下，lantern也不是很好用了，经常性的连不上。我目前是用的免费版，每个月500M流量，同步chrome数据够用了。</p>
-<p>当然，作为程序员，翻墙是基本需求了，lantern这每个月500M肯定是不够用的。所以我另外用了一个工具， <strong>DemoCross</strong> ，是chrome中的一个extention，巨稳定，也很便宜，9块一个月；当然，也有缺陷，只能在chrome中使用。基本满足我的需求了。</p>
-<h4 id="34-homebrew">3.4 homebrew</h4>
-<p>homebrew是一款 Mac OS 系统下的第三方软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多使用的功能。homebrew会将软件包安装到独立目录，并将其文件symlink（软连接）到 /usr/local/Cellar 路径下。</p>
-<h5 id="341-安装homebrew">3.4.1 安装homebrew</h5>
-<pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
-</code></pre>
-<h5 id="342-卸载homebrew">3.4.2 卸载homebrew</h5>
-<pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)&quot;  
-</code></pre>
-<h5 id="343-homebrew常用命令及使用">3.4.3 homebrew常用命令，及使用。</h5>
-<pre><code>brew help                  //帮助
-brew update                //更新homebrew软件，把所有的Formula目录更新，并且会对本机已经安装并有更新的软件标明。
-brew upgrade               //更新homebrew软件，更新所有安装的Formula。
-brew upgrade [Formula]     //更新homebrew软件，更新某个Formula。
-brew info [FORMULA...]     //展示某个Formula的信息。
-brew search [TEXT|/REGEX/] //搜索某个Formula，支持正则表达式。
-brew install [FORMULA]     //安装Formula。
-brew uninstall [FORMULA]   //卸载Formula。
-brew list                  //展示目前安装的软件。
-</code></pre>
-<h5 id="344-常用formula">3.4.4 常用Formula</h5>
-<p>版本管理：git</p>
-<pre><code>malideMacBook-Pro:~ mali$ brew install git
-</code></pre>
-<p>预览插件( <a href="https://github.com/sindresorhus/quick-look-plugins">quick-look-plugins</a> )：</p>
-<blockquote>
-<p>qlcolorcode    预览代码时代码高亮。<br>
-qlstephen   支持预览没有后缀的文本文件。<br>
-qlmarkdown  预览markdown文件的渲染效果。<br>
-quicklook-json    对json文件的格式化和高亮预览。<br>
-betterzip   预览压缩文件内部的内容，并支持自定义解压缩的行为；收费。<br>
-qlimagesize    图片预览时展示分辨率和大小。<br>
-webpquicklook  支持预览webP格式的图片。<br>
-qlvideo  预览更多格式的视频文件。<br>
-provisionql 可以预览.app或者.ipa文件的程序。<br>
-quicklookapk   预览安卓.apk的程序。</p>
-</blockquote>
-<pre><code>malideMacBook-Pro:~ mali$ brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize webpquicklook qlvideo provisionql quicklookapk
-</code></pre>
-<p>下载利器：wget</p>
-<pre><code>malideMacBook-Pro:~ mali$ brew install wget
-</code></pre>
-<h4 id="35-alfred-dropbox">3.5 Alfred + dropbox</h4>
+<h3 id="3-装机必备">3、装机必备</h3>
+<p>配置完成之后，就要开始安装必备的软件了。</p>
+<h4 id="31-输入法">3.1、输入法</h4>
+<p>输入法，是一个多平台都需要使用的工具，比如手机，mac，pc等等。</p>
+<p>苹果自带的输入法，性能当然是最好的。不过有一个问题，就是只能在apple生态内用，另外联想功能不是很好。所以我还是习惯性的使用 <strong>sougou输入法</strong> ，可以多平台同步，之前的输入习惯都可以同步过来。</p>
+<h4 id="32-1password">3.2、<a href="https://1password.com/">1password</a></h4>
+<p>在当前时代，每个人都有巨量的账号。那么，账号密码的管理就是个大问题。如果多平台都使用同一个密码，很容易就会被撞库导致数据泄露；但是针对不同平台设置不同的密码，是一件耗时耗力的事情。</p>
+<p><strong>1password</strong> 就是一款密码管理的保险箱，只需要记住一个主密码，用来登陆 <strong>1password</strong> ，其他所有的账号密码都由 <strong>1password</strong> 来保存，需要使用时，直接调取使用就可以。同时，<strong>1password</strong> 还会检查密码的泄露情况和其他安全问题，及时提示用户修改。</p>
+<p>目前，除了支付宝、微信、以及各大银行的手机银行，我所有的账号密码都是由<strong>1password</strong> 来管理。如果不安装<strong>1password</strong> ，那我根本就不记得我的密码。平时需要做的，只是根据<strong>1password</strong> 的提示更新密码等就可以了。<br>
+另外，<strong>1password</strong> 支持多平台，<strong>iphone</strong> ，<strong>mac</strong> ，<strong>windows</strong> ，<strong>chrome</strong> 插件等，多平台实时同步。据说windows下体验很差，不过我很少用，所以无所谓啦。</p>
+<h4 id="33-chrome-lantern">3.3、 <a href="https://www.google.cn/chrome/">chrome</a>  + <a href="https://github.com/getlantern/lantern">lantern</a></h4>
+<p><strong>chrome</strong> 是浏览器，<strong>lantern</strong> 是一款VPN。</p>
+<p><strong>macOS</strong> 自带的 <strong>safari</strong> 很好用，但是只能在apple生态内用，有着太多局限性。作为一个开发人员，虽然不是前端，当然也是使用 <strong>chrome</strong> 啦。对于我这种懒人来说，最重要的就是多端同步，在任何一台机器上登陆账号，都可以同步所有配置、拓展。当然， <strong>chrome</strong> 也有坑，就是官方下载 <strong>chrome</strong> 需要翻墙，登陆google账号同步个人数据时也需要翻墙。我是在本地保存了 <strong>chrome</strong> 的安装包和 <strong>democross</strong> 的安装文件，安装之后就可以使用了。</p>
+<p><strong>lantern</strong> ，我一般是直接上 **GitHub **下载。不过，在现在的大环境下，lantern也不是很好用了，经常性的连不上。我目前是用的免费版，每个月500M流量，同步 <strong>chrome</strong> 数据够用了。</p>
+<p>当然，作为程序员，翻墙是基本需求了，<strong>lantern</strong> 这每个月500M肯定是不够用的。所以我另外用了一个工具， <strong>DemoCross</strong> ，是 <strong>chrome</strong> 中的一个 **extention ** ，巨稳定，也很便宜，9块一个月；当然，也有缺陷，只能在 <strong>chrome</strong> 中使用。基本满足我的需求了。</p>
+<h4 id="34-alfred-dropbox">3.4、<a href="https://www.alfredapp.com/">Alfred</a> + <a href="https://www.dropbox.com/">dropbox</a></h4>
 <p><strong>Alfred</strong> 是 <strong>Mac</strong> 平台上一款著名的效率提升工具，包含功能众多。它分为免费版和付费版。一般用户使用免费版就够了。<br>
 <strong>dropbox</strong> 是境外的云盘服务，需要配备VPN才能使用。我使用它的唯一原因，只是因为Alfred配置文件同步只支持dropbox。一般保持一周更新一次的频率。</p>
-<p><strong>Alfred</strong>的使用，我就不介绍了，太多文章了。这里列一些我收藏的。<br>
-<a href="https://sspai.com/post/32979">从零开始学习 Alfred：基础功能及设置</a><br>
-<a href="https://sspai.com/post/55098">一切为了让效率更进一步，Alfred 4.0 更新详解</a><br>
-<a href="https://sspai.com/post/34468">它已不仅仅是一款 Mac 效率启动器：Alfred 3.0 新版详解</a><br>
-<a href="https://sspai.com/post/32680">5 款提高文件处理效率的 Alfred 扩展</a><br>
-<a href="https://sspai.com/post/32281">4 款「本地化」的 Alfred 扩展分享</a><br>
-<a href="https://sspai.com/post/47063">妙用 Alfred 让你最近使用的文件触手可及</a><br>
-<a href="https://sspai.com/post/28137">OS X 效率启动器 Alfred 的最佳伴侣：Alfred Remote for iOS 上手详解</a><br>
-<a href="https://sspai.com/post/27929">OS X 效率启动器 Alfred 的 5 个实用扩展推荐（二）</a><br>
-<a href="https://sspai.com/post/47063">妙用 Alfred 让你最近使用的文件触手可及</a></p>
-<h4 id="36-cheat-sheet">3.6 cheat sheet</h4>
+<p><strong>Alfred</strong>的使用，我就不介绍了，太多文章了。这里列一些我收藏的。</p>
+<p><a href="https://sspai.com/post/32979">从零开始学习 Alfred：基础功能及设置</a></p>
+<p><a href="https://sspai.com/post/55098">一切为了让效率更进一步，Alfred 4.0 更新详解</a></p>
+<p><a href="https://sspai.com/post/34468">它已不仅仅是一款 Mac 效率启动器：Alfred 3.0 新版详解</a></p>
+<p><a href="https://sspai.com/post/32680">5 款提高文件处理效率的 Alfred 扩展</a></p>
+<p><a href="https://sspai.com/post/32281">4 款「本地化」的 Alfred 扩展分享</a></p>
+<p><a href="https://sspai.com/post/47063">妙用 Alfred 让你最近使用的文件触手可及</a></p>
+<p><a href="https://sspai.com/post/28137">OS X 效率启动器 Alfred 的最佳伴侣：Alfred Remote for iOS 上手详解</a></p>
+<p><a href="https://sspai.com/post/27854">OS X 效率启动器 Alfred 的 5 个实用扩展推荐（一）</a></p>
+<p><a href="https://sspai.com/post/27929">OS X 效率启动器 Alfred 的 5 个实用扩展推荐（二）</a></p>
+<p><a href="https://sspai.com/post/47063">妙用 Alfred 让你最近使用的文件触手可及</a></p>
+<h4 id="35-keka">3.5、<a href="https://www.keka.io/en/">keka</a></h4>
+<p><strong>macOS</strong> 系统自身只支持zip格式的解压和压缩。</p>
+<p>但是，在工作和生活中，我们总是会碰到其他的压缩格式，7Z、gz、tar等等，这个时候就需要第三方的软件支持。<strong>kake</strong> 就是一款非常好用的压缩程序，支持各种压缩格式，支持分卷压缩，支持设置解压缩密码。</p>
+<h4 id="36-macos-空间清理">3.6、macOS 空间清理</h4>
+<p>清理垃圾，一般是指清除系统和各APP运行时产生的缓存。实际上，如果硬盘空间够用，是不用清理的。但是，mac硬盘空间太贵了，那么提高硬盘使用率就很有必要了。</p>
+<ul>
+<li>
+<p><a href="https://www.omnigroup.com/more">OmniDiskSweeper</a>  一款非常轻量级的清理软件，界面简单，功能强大，而且免费！！！</p>
+</li>
+<li>
+<p><a href="https://cleanmymac.com/">CleanMyMac</a> 一款非常优秀的垃圾清理软件，集成了很多系统提供的 Automator ，收费，并且价值不菲。</p>
+</li>
+</ul>
+<h4 id="37-ntfs-for-mac">3.7、NTFS for mac</h4>
+<p>在操作系统中，<strong>windows</strong> 才是主流，<strong>macOS</strong> 毕竟算是小众。因此，在日常工作生活中，经常会有在 <strong>macOS</strong> 和 <strong>windows</strong> 系统之间进行数据传输的需求。然而，由于 <strong>NTFS</strong> 属于微软的私有格式，已经被注册为知识产权产品，因此 <strong>macOS</strong> 系统将 <strong>NTFS</strong> 格式的写入功能屏蔽了。目前 <strong>macOS</strong> 系统只支持 <strong>NTFS</strong> 的读取，不支持写入。为了解决这个问题，这个时候我们就需要提供 <strong>NTFS for mac</strong> 服务的软件来帮助我们实现对外置硬盘或者U盘中数据的读写等操作。</p>
+<p>目前主流的软件有：<a href="https://www.paragon-software.com/home/ntfs-mac/">paragon NTFS</a> 和 <a href="https://www.tuxera.com/products/tuxera-ntfs-for-mac/">tuxera NTFS</a>。</p>
+<p>具体比较可以看这篇文章：<a href="https://www.lizhi.io/blog/92878401">Tuxera vs Paragon: Mac 上的 NTFS 磁盘读写工具怎么选？</a></p>
+<h4 id="38-office-wps">3.8、office || wps</h4>
+<p>日常办公软件，当然也是必须的。据说现在 <strong>wps</strong> 的使用体验已经很好了，不过我已经用惯了 <strong>office</strong> ，因此就不考虑 <strong>wps</strong> 了。</p>
+<p>在使用 <strong>office</strong> 的过程中，我碰到过一个问题，在 <strong>office</strong> 的偏好设置里设置语言是无效的，只能跟随系统语言。查资料发现，是可以调整的。以word 为例，在命令行中输入 <code>defaults write com.microsoft.Word AppleLanguages '(&quot;zh-tw&quot;)'</code> ，然后重启即可。具体可以查看这篇文章： <a href="https://www.jianshu.com/p/96f930d2ffca">Office for Mac 语言设置问题</a> 。</p>
+<h3 id="4-其他常用软件">4、其他常用软件</h3>
+<h4 id="41-印象笔记">4.1、印象笔记</h4>
+<p>我把印象笔记作为一款收集软件，意思是说，只做收藏，不做编辑。</p>
+<h4 id="42-pocket">4.2、pocket</h4>
+<p><strong>pocket</strong>是一款主流的稍后读APP，全平台支持，能够随时随地的将内容保存到APP内。</p>
+<h4 id="43-百度网盘">4.3、百度网盘</h4>
+<p>其实是真不想安装，不过很多资源分享都是通过百度网盘，而不安装的话，根本不能下载，百度这招真的很恶心人。</p>
+<h4 id="44-teamviewer">4.4、teamviewer</h4>
+<p>远程必备。</p>
+<h4 id="45-macsfancontrol">4.5、macsfancontrol</h4>
+<p>可以自由控制mac的风扇。</p>
+<h4 id="46-截屏与录屏">4.6、截屏与录屏</h4>
+<p><code>macOS</code>系统本身已经提供了截屏和录屏功能。 进入 <strong>System Preference</strong> -&gt;  <strong>keyboard</strong> -&gt; <strong>Shortcuts</strong> -&gt; <strong>Screenshots</strong> 查看。</p>
+<ul>
+<li><code>⌘ + ⇧ + 3</code> 截取全屏，并保存在桌面。</li>
+<li><code>⌃ + ⌘ + ⇧ + 3</code> 截取全屏，并保存到粘贴板。</li>
+<li><code>⌘ + ⇧ + 4</code> 截取选择区域，并保存在桌面。</li>
+<li><code>⌃ + ⌘ + ⇧ + 4</code> 截取选择区域，并保存到粘贴板。</li>
+<li><code>⌘ + ⇧ + 4</code> 进入截屏、录屏选择界面。</li>
+</ul>
+<p>系统的功能已经非常强大，能够满足基本的需求。更多了解可以查看以下文章。</p>
+<p><a href="https://support.apple.com/zh-cn/HT201361">如何在 Mac 上拍摄屏幕快照</a></p>
+<p><a href="https://www.jianshu.com/p/1acc00625d03">Mac OS小技巧：如何用好自带的截图工具</a></p>
+<p>另外，QQ和微信也内置了截图服务，登陆之后，使用快捷键 <code>⌘ + ⌃ + A</code> 。效果类似于一款腾讯出品的软件：<a href="https://apps.apple.com/cn/app/%E6%88%AA%E5%9B%BE-jietu-%E5%BF%AB%E9%80%9F%E6%A0%87%E6%B3%A8-%E4%BE%BF%E6%8D%B7%E5%88%86%E4%BA%AB%E7%9A%84%E6%88%AA%E5%B1%8F%E5%B7%A5%E5%85%B7/id1059334054?mt=12">截图</a> 。</p>
+<p>如果对这些都不满意，可以选择另一款腾讯出品的截图软件： <a href="https://snip.qq.com/">snip</a> 。</p>
+<p>至于录屏，可以使用 <a href="https://www.cockos.com/licecap/">LICEcap</a> ，这是一款简介医用的动画屏幕录制软件，可以捕捉屏幕的区域并保存为gif动画或lcf格式。</p>
+<h4 id="47-远程桌面-远程文件传输">4.7、远程桌面、远程文件传输</h4>
+<p>和云服务器的文件传输，一般使用ftp或者sftp。</p>
+<ul>
+<li>文件传输协议（File Transfer Protocol，FTP）是用于在<a href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C">网络</a>上进行文件传输的一套标准协议，它工作在 OSI 模型的第七层， TCP 模型的第四层， 即应用层， 使用 TCP 传输而不是 UDP， 客户在和服务器建立连接前要经过一个“三次握手”的过程， 保证客户与服务器之间的连接是可靠的， 而且是面向连接， 为数据传输提供可靠保证。 FTP允许用户以文件操作的方式（如文件的增、删、改、查、传送等）与另一主机相互通信。然而， 用户并不真正登录到自己想要存取的计算机上面而成为完全用户， 可用FTP程序访问远程资源， 实现用户往返传输文件、目录管理以及访问电子邮件等等， 即使双方计算机可能配有不同的操作系统和文件存储方式。</li>
+<li>sftp是SSH File Transfer Protocol的缩写，安全<a href="https://baike.baidu.com/item/%E6%96%87%E4%BB%B6%E4%BC%A0%E9%80%81%E5%8D%8F%E8%AE%AE">文件传送协议</a>。可以为传输文件提供一种安全的网络的加密方法。sftp 与 ftp 有着几乎一样的语法和功能。SFTP 为 <a href="https://baike.baidu.com/item/SSH/10407">SSH</a>的其中一部分，是一种传输档案至 Blogger 伺服器的安全方式。其实在SSH软件包中，已经包含了一个叫作SFTP(Secure File Transfer Protocol)的安全文件信息传输子系统，SFTP本身没有单独的<a href="https://baike.baidu.com/item/%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B/966835">守护进程</a>，它必须使用sshd守护进程（<a href="https://baike.baidu.com/item/%E7%AB%AF%E5%8F%A3">端口</a>号默认是22）来完成相应的连接和答复操作，所以从某种意义上来说，SFTP并不像一个<a href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8">服务器</a>程序，而更像是一个客户端程序。SFTP同样是使用加密传输认证信息和传输的数据，所以，使用SFTP是非常安全的。但是，由于这种传输方式使用了加密/<a href="https://baike.baidu.com/item/%E8%A7%A3%E5%AF%86%E6%8A%80%E6%9C%AF/10808578">解密技术</a>，所以<a href="https://baike.baidu.com/item/%E4%BC%A0%E8%BE%93%E6%95%88%E7%8E%87/7856651">传输效率</a>比普通的<a href="https://baike.baidu.com/item/FTP/13839">FTP</a>要低得多。</li>
+</ul>
+<p>目前阿里云ECS centOS系统，内置了sftp服务，可以直接通过sftp方式传输文件。如果需要使用ftp，需要自行在云服务器上安装ftp服务了。</p>
+<p>在macOS 可以使用命令行来实现数据的传输。具体可以查看以下文章。</p>
+<p><a href="https://blog.csdn.net/chuangxin/article/details/80839322">Mac如何使用SSH远程连接linux及使用SCP、SFTP和Filezilla进行文件上传、下载</a></p>
+<p>当然，我更习惯使用GUI的客户端。这里有两个推荐。远程桌面使用 <a href="https://apps.apple.com/cn/app/parallels-client/id600925318?l=en&amp;mt=12">Parallels Client</a> 。文件传输，本来是购买的yummy ftp pro。不过在某个版本更新之后，我的购买就失效了，无奈之中。替换成 <a href="https://apps.apple.com/cn/app/forklift-file-manager-and-ftp-sftp-webdav-amazon-s3-client/id412448059?mt=12">ForkLift</a> ，除了每次都需要输入账号密码，其他的都挺好用的。</p>
+<h4 id="48-cheat-sheet">4.8、cheat sheet</h4>
 <p><strong>cheat sheet</strong> 是macOS平台上一款用来查看当前页面的可用快捷键的APP，可以极大的提高效率。<br>
 使用比较简单，安装完毕之后，在 <strong>系统偏好设置</strong> -&gt; <strong>安全性与隐私</strong> -&gt; <strong>辅助功能</strong> 中添加权限，就可以正常使用啦，长按 <strong>command</strong>键即可。</p>
-<h4 id="37-cleanmymac">3.7 cleanmymac</h4>
-<p><strong>cleanmymac</strong> 是 macOS 平台上的电脑管家，可以进行清理缓存垃圾，卸载APP等操作。我主要把它当做一个卸载器。<br>
-收费软件，请自己考量。</p>
-<h4 id="38-iterm2-oh-my-zsh">3.8 iterm2 + oh my zsh</h4>
-<p>作为程序员，会有非常多的场景用到命令行。macOS系统自带的terminal有时候不是很顺手，我们可以选择另外一个更好用的命令行工具 <strong>iterm2</strong>。可以使用homebrew安装。</p>
-<pre><code>malideMacBook-Pro:Downloads mali$ brew cask install iterm2
-Updating Homebrew...
-==&gt; Satisfying dependencies
-==&gt; Downloading https://iterm2.com/downloads/stable/iTerm2-3_2_9.zip
-######################################################################## 100.0%
-==&gt; Verifying SHA-256 checksum for Cask 'iterm2'.
-==&gt; Installing Cask iterm2
-==&gt; Moving App 'iTerm.app' to '/Applications/iTerm.app'.
-🍺  iterm2 was successfully installed!
-malideMacBook-Pro:Downloads mali$ 
-</code></pre>
-<p><strong>iterm2</strong> 安装完毕之后，开始安装 <strong><a href="https://ohmyz.sh/">oh my zsh</a></strong>。</p>
-<pre><code>//curl安装
-malideMacBook-Pro:~ mali$ sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
-
-//wget安装
-malideMacBook-Pro:~ mali$ sh -c &quot;$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;
-</code></pre>
-<h5 id="381-为什么用zsh">3.8.1 为什么用zsh</h5>
-<p>zsh和bash都是shell的一种，不过zsh在使用中，更加便利。对我来说，仅仅是zsh的自动补全就足以让我选择用它了。向更进一步了解，可以查看下列文章。<br>
-<a href="https://www.zhihu.com/question/21418449">为什么说 zsh 是 shell 中的极品？</a><br>
-<a href="https://www.xshell.net/shell/bash_zsh.html">Zsh和Bash，究竟有何不同 坑很深</a></p>
-<h5 id="382-为什么用oh-my-zsh">3.8.2 为什么用oh my zsh</h5>
-<p>zsh的配置需要花费大量的时间，而 <strong>oh my zsh</strong> 相当于是一个提供了预设个性配置的zsh，大大减少了我们配置的时间，非常推荐使用。<br>
-<a href="https://www.jianshu.com/p/d194d29e488c?open_source=weibo_search">oh-my-zsh,让你的终端从未这么爽过</a></p>
-<h5 id="383-oh-my-zsh-基本使用">3.8.3 oh my zsh 基本使用</h5>
-<pre><code>//查看当前使用的shell
-➜  ~ echo $SHELL
-/bin/zsh
-➜  ~
-
-
-//查看当前zsh版本
-➜  ~ zsh --version
-zsh 5.3 (x86_64-apple-darwin18.0)
-➜  ~
-
-
-//切换shell，从bash切换到zsh，需要重启iterm
-➜  ~ chsh -s /bin/zsh
-Changing shell for mali.
-Password for mali:
-➜  ~ 
-
-
-//切换shell，从zsh切换到bash，需要重启iterm
-➜  ~ chsh -s /bin/bash
-Changing shell for mali.
-Password for mali:
-➜  ~
-
-
-//查看当前环境安装了哪些shell
-➜  ~ cat /etc/shells
-# List of acceptable shells for chpass(1).
-# Ftpd will not allow users to connect who are not using
-# one of these shells.
-
-/bin/bash
-/bin/csh
-/bin/ksh
-/bin/sh
-/bin/tcsh
-/bin/zsh
-➜  ~
-
-
-//修改主题
-oh my zsh 的配置文件路径是：~/.zshrc
-进入配置文件，找到 ZSH_THEME 字段，修改为 ZSH_THEME=&quot;agnoster&quot;。
-agnoster主题，需要Powerline字体库的支持。
-
-//从github拉取[Powerline字体库](https://github.com/powerline/fonts)，拉取完成之后，运行install.sh文件安装。
-然后设置iterm字体为 Meslo LG S DZ for Powerline 即可。
-</code></pre>
-<h5 id="384-iterm-基本使用">3.8.4 iterm 基本使用</h5>
-<p>恢复原始配置</p>
-<pre><code>~ ➤ defaults delete com.googlecode.iterm2
-~ ➤
-然后重启iterm即可。
-</code></pre>
-<h4 id="39-ssh-copy-id">3.9 ssh-copy-id</h4>
-<p>SSH 是 Secure Shell 的缩写，其实就是远程 Shell 登录。只要能远程登录到某台机器的 Shell 上，大到 Mac 笔记本，小到树莓派和智能路由器，我们就可以上传或下载文件、执行脚本等等，几乎掌握了设备的控制权。一般来说，配置自己的云服务器，都需要ssh登陆。<br>
-ssh登陆时，需要制定ip地址和登录名，例如<code>ssh 192.168.1.1@root</code>，就是指登陆ip为192.168.1.1的主机的用户root。ssh协议默认端口为22，不用填写；如果设备为了安全修改了端口为1234，则必须输入，例如<code>ssh -p 1234 192.168.1.1@root</code>。接下来输入密码就可以登陆了。<br>
-不过记忆密码是一件非常麻烦的事，好在ssh支持使用RSA的公钥和私钥来验证身份。具体就是指将自己的公钥文件（ ~/.ssh/id_rsa.pub ）的内容复制到目标服务器（ ~/.ssh/authorized_keys ）文件中。这样其实也很繁琐。<br>
-<strong>ssh-copy-id</strong> 就是一款简化过程，方便我们使用的工具。<br>
-另外，可以通过ssh的配置文件配置来设置云服务器的别名，省去了记忆ip、用户名、端口号的麻烦。基本格式如下</p>
-<pre><code>Host malitest
-    HostName 192.168.1.1
-    User root
-    Port 22
-    IdentityFile ~/.ssh/id_rsa
-</code></pre>
-<h4 id="310-irvue">3.10 irvue</h4>
-<p><strong>irvue</strong> 是一款壁纸APP，基于 Unsplash ，有很多精美的图片。<br>
-其实基于 Unsplash 的壁纸APP还有好几款，不过 <strong>irvue</strong> 最让我满意的地方是，在存在多个桌面时，可以同时修改多个桌面的壁纸。<br>
-了解更多，可以参考少数派的这篇文章：<a href="https://sspai.com/post/41665">你只需要欣赏桌面，把换壁纸的事交给 Irvue 就好了</a></p>
-<h4 id="311-keka">3.11 <a href="https://www.keka.io/en/">keka</a></h4>
-<p>macOS 系统自身只支持zip格式，如果碰到其他格式的压缩文件，那么就需要keka来帮助你。kake是一款非常好用的压缩程序，支持各种压缩格式，支持分卷压缩，支持设置解压缩密码。</p>
-<h4 id="312-iina">3.12 <a href="https://www.iina.io/">iina</a></h4>
+<h4 id="49-irvue">4.9、<a href="https://apps.apple.com/cn/app/irvue/id1039633667?mt=12">irvue</a></h4>
+<p><strong>irvue</strong> 是一款壁纸APP，基于 Unsplash ，有很多精美的图片。</p>
+<p>其实基于 Unsplash 的壁纸APP还有好几款，不过 <strong>irvue</strong> 最让我满意的地方是，在存在多个桌面时，可以同时修改多个桌面的壁纸。</p>
+<p>了解更多，可以参考少数派的这篇文章：<a href="https://sspai.com/post/41665">你只需要欣赏桌面，把换壁纸的事交给 Irvue 就好了</a> 。</p>
+<h4 id="410-iina">4.10、<a href="https://www.iina.io/">iina</a></h4>
 <p>mac OS 平台上非常好用的播放器。几乎支持全部格式视频，而且小巧，轻便，界面美观。</p>
-<h4 id="313-omnidisksweeper">3.13 <a href="https://www.omnigroup.com/more">OmniDiskSweeper</a></h4>
-<p>一款非常轻量级的清理软件，界面简单，功能强大，而且免费！！！</p>
-<h2 id="4-ios开发环境配置">4 iOS开发环境配置</h2>
-<p>ios开发， 一般来说，都是使用apple提供的IDE，Xcode。另外，我习惯使用了cocoapods作为第三方库管理工具。</p>
-<h4 id="41-xcode安装">4.1. Xcode安装</h4>
+<h4 id="411-istat-menus">4.11、<a href="https://bjango.com/mac/istatmenus/">iStat Menus</a></h4>
+<p><strong>iStat Menus</strong> 是一款非常强大的系统监控软件。通过它，可以最直观的了解几乎所有硬件的运行状态，它主要运行在系统状态栏。<br>
+具体使用可以参考以下文章：<br>
+<a href="https://sspai.com/post/41089">不仅系统监控要做得更出色，iStat Menu 6 还能让你在状态栏看天气了</a><br>
+<a href="https://sspai.com/post/26754">OS X 是了不起的操作系统：全能系统监测工具 iStat Menus 5 体验详解</a></p>
+<h3 id="5-ios开发环境配置">5、iOS开发环境配置</h3>
+<p>ios开发， 一般来说，都是使用apple提供的IDE： <strong>Xcode</strong> 。另外，我习惯了使用 <strong>cocoapods</strong> 作为第三方库管理工具。</p>
+<h4 id="51-xcode安装">5.1、Xcode安装</h4>
 <p>现在一些辅助的工具安装完毕，作为一个iOS开发工程师，接下来首先要做的肯定是配置开发环境啦。<br>
 首先是Xcode。自从2015年 <code>Xcode ghost</code>事件之后，下载 <a href="https://itunes.apple.com/us/app/xcode/id497799835?mt=12">Xcode</a> 还是建议直接到mac的App Store去下载了，，非常方便，历史版本，可以直接上苹果开发者网站下载(<a href="https://developer.apple.com/download/more/?=xcode">More Downloads for Apple Developers</a>)。Xcode作为苹果官方出品的IDE，如果不是Xcode8以后禁了插件，我会更爱它。</p>
-<h4 id="42-xcode模拟器安装">4.2. Xcode模拟器安装</h4>
+<h4 id="52-xcode模拟器安装">5.2、Xcode模拟器安装</h4>
 <p>模拟器安装本来是个很简单的工作，在「Xcode -&gt; Preferences -&gt; Components」中选择想要安装的模拟器就可以了。但是，apple的服务器着实不稳定，有时候会慢的让你怀疑人生。因此，我在想会不会又更方便的安装方式呢？检索资料之后，找到了这篇文章：<a href="https://www.jianshu.com/p/fd7c40b15192">解决直接在xcode下载模拟器慢的方案</a>。感谢作者分享。<br>
 我大致介绍一下。</p>
 <ol>
@@ -587,8 +507,8 @@ ssh登陆时，需要制定ip地址和登录名，例如<code>ssh 192.168.1.1@ro
 <li>下载完成之后，进入路径<code>~/Library/Caches</code>，右击<code>com.apple.dt.Xcode</code>文件，选择<code>显示包内容</code>。再进入<code>Downloads</code>路径（没有就自己创建一个），将下载好的文件放入。</li>
 <li>再次进入「Xcode -&gt; Preferences -&gt; Components」，再次点击下载。</li>
 </ol>
-<h4 id="43-cocoapods">4.3. <a href="https://cocoapods.org/">Cocoapods</a></h4>
-<h5 id="431-cocoapods简介">4.3.1. <code>Cocoapods</code>简介</h5>
+<h4 id="53-cocoapods">5.3、<a href="https://cocoapods.org/">Cocoapods</a></h4>
+<h5 id="531-cocoapods简介">5.3.1、<code>Cocoapods</code>简介</h5>
 <blockquote>
 <p>CocoaPods is a dependency manager for Swift and Objective-C Cocoa projects. It has over 62 thousand libraries and is used in over 3 million apps. CocoaPods can help you scale your projects elegantly.</p>
 </blockquote>
@@ -605,14 +525,14 @@ ssh登陆时，需要制定ip地址和登录名，例如<code>ssh 192.168.1.1@ro
 <p>如果想多了解<code>Cocoapods</code>，可以看下这些文章：<br>
 <a href="https://juejin.im/post/5b1cfaff6fb9a01e417b6051">我所理解的 CocoaPods</a><br>
 <a href="http://www.code4app.com/article/cocoapods-install-usage">CocoaPods安装和使用教程</a></p>
-<h5 id="432-cocoapods的安装">4.3.2. <code>Cocoapods</code>的安装</h5>
+<h5 id="532-cocoapods的安装">5.3.2、<code>Cocoapods</code>的安装</h5>
 <p><code>Cocoapods</code>本质上是一个Ruby项目，由若干gems组成。因此本地需要配置Ruby环境才可以运行。在Mac系统中，是自带Ruby的。使用命令<code>Ruby -v</code>查看当前版本。</p>
 <pre><code>➜  ~ Ruby -v
 ruby 2.3.7p456 (2018-03-28 revision 63024) [universal.x86_64-darwin18]
 ➜  ~
 </code></pre>
 <p>如果系统版本过低，导致系统自带的ruby版本太低，是无法安装<code>cocoapods</code>的，需要升级ruby才可以。我们通常使用RVM(Ruby Verssion Manager)来管理ruby的版本。</p>
-<h6 id="4321-安装rmv">4.3.2.1 安装rmv</h6>
+<h6 id="5321-安装rmv">5.3.2.1、安装rmv</h6>
 <pre><code>➜  ~ curl -L get.rvm.io | bash -s stable
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -639,7 +559,7 @@ Please consider donating to our open collective to help us maintain RVM.
 ➜  ~ source ~/.bash_profile
 ➜  ~
 </code></pre>
-<h6 id="4322-rvm的基本使用">4.3.2.2 rvm的基本使用</h6>
+<h6 id="5322-rvm的基本使用">5.3.2.2、rvm的基本使用</h6>
 <p><strong>查看rvm版本</strong></p>
 <pre><code>➜  ~ rvm -v
 rvm 1.29.8 (latest) by Michal Papis, Piotr Kuczynski, Wayne E. Seguin [https://rvm.io]
@@ -709,7 +629,7 @@ https://gems.ruby-china.com/ added to sources
 https://gems.ruby-china.com/
 ➜  ~
 </code></pre>
-<h6 id="4323-安装cocoapods">4.3.2.3 安装<code>cocoapods</code></h6>
+<h6 id="5323-安装cocoapods">5.3.2.3、安装<code>cocoapods</code></h6>
 <pre><code>// 安装cocoapods
 ➜  ~ sudo gem install cocoapods
 Password:
@@ -852,7 +772,7 @@ Setting up CocoaPods master repo
 Setup completed
 ➜  ~
 </code></pre>
-<h6 id="4324-cocoapods常用命令">4.3.2.4 <code>cocoapods</code>常用命令</h6>
+<h6 id="5324-cocoapods常用命令">5.3.2.4、<code>cocoapods</code>常用命令</h6>
 <pre><code>// 当前使用 pod 版本
 pod –version
 // 更新到最新稳定版本
@@ -876,6 +796,160 @@ pod update [组件名]
 // 更新本地依赖
 pod repo update
 </code></pre>
+<h4 id="54-git-svn">5.4、git &amp;&amp; svn</h4>
+<h5 id="541-svn">5.4.1、svn</h5>
+<p><code>mac</code>是自带svn的，直接使用命令行可能是最便捷的方式了。如果需要GUI，可以使用cornerStore。</p>
+<h5 id="542-git">5.4.2、git</h5>
+<p>通过<code>homebrew</code>安装git，直接使用命令行。如果需要GUI，可以使用sourcetree。</p>
+<h4 id="55-蒲公英">5.5、<a href="https://www.pgyer.com/">蒲公英</a></h4>
+<p>由于iOS系统的特殊性，在测试阶段，真机测试是个非常麻烦的。蒲公英提供了一种相对简单的方式，简化了我们的流程。</p>
+<h4 id="56-charles">5.6、<a href="https://www.charlesproxy.com/">Charles</a></h4>
+<p><code>Charles</code>是一款Mac上常用的抓包工具，在移动开发过程中，我们常常需要调试与服务端的网络通讯协议，截取网络封包。<code>Charles</code>是通过将自己设置成系统的网络访问代理服务器，使得所有的网络访问都通过它来完成，从而实现了网络封包的抓取。</p>
+<h4 id="57-app-icon-gear-prepo">5.7、<a href="%5Bhttps://apps.apple.com/cn/app/app-icon-gear-xcode%E5%9B%BE%E6%A0%87%E8%B5%84%E6%BA%90%E5%8A%A9%E6%89%8B/id989646576?mt=12%5D(https://apps.apple.com/cn/app/app-icon-gear-xcode%E5%9B%BE%E6%A0%87%E8%B5%84%E6%BA%90%E5%8A%A9%E6%89%8B/id989646576?mt=12)">app icon gear</a> || <a href="https://apps.apple.com/cn/app/prepo/id476533227?l=en&amp;mt=12">prepo</a></h4>
+<p>这两款软件都是帮助生成APP开发中需要的icon的软件。当你对公司UI绝望的时候，这类软件会让你重获新生。</p>
+<h3 id="6-其他好用的开发工具">6、其他好用的开发工具</h3>
+<h4 id="61-homebrew">6.1、homebrew</h4>
+<p>homebrew是一款 Mac OS 系统下的第三方软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多使用的功能。homebrew会将软件包安装到独立目录，并将其文件symlink（软连接）到 /usr/local/Cellar 路径下。</p>
+<h5 id="611-安装homebrew">6.1.1、安装homebrew</h5>
+<pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+</code></pre>
+<h5 id="612-卸载homebrew">6.1.2、卸载homebrew</h5>
+<pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)&quot;  
+</code></pre>
+<h5 id="613-homebrew常用命令及使用">6.1.3、homebrew常用命令，及使用。</h5>
+<pre><code>brew help                  //帮助
+brew update                //更新homebrew软件，把所有的Formula目录更新，并且会对本机已经安装并有更新的软件标明。
+brew upgrade               //更新homebrew软件，更新所有安装的Formula。
+brew upgrade [Formula]     //更新homebrew软件，更新某个Formula。
+brew info [FORMULA...]     //展示某个Formula的信息。
+brew search [TEXT|/REGEX/] //搜索某个Formula，支持正则表达式。
+brew install [FORMULA]     //安装Formula。
+brew uninstall [FORMULA]   //卸载Formula。
+brew list                  //展示目前安装的软件。
+</code></pre>
+<h5 id="614-常用formula">6.1.4、常用Formula</h5>
+<p><strong>版本管理：git</strong></p>
+<pre><code>malideMacBook-Pro:~ mali$ brew install git
+</code></pre>
+<p><strong>预览插件( <a href="https://github.com/sindresorhus/quick-look-plugins">quick-look-plugins</a> )</strong></p>
+<blockquote>
+<p>qlcolorcode        预览代码时代码高亮。<br>
+qlstephen          支持预览没有后缀的文本文件。<br>
+qlmarkdown         预览markdown文件的渲染效果。<br>
+quicklook-json     对json文件的格式化和高亮预览。<br>
+betterzip          预览压缩文件内部的内容，并支持自定义解压缩的行为；收费。<br>
+qlimagesize        图片预览时展示分辨率和大小。<br>
+webpquicklook      支持预览webP格式的图片。<br>
+qlvideo            预览更多格式的视频文件。<br>
+provisionql        可以预览.app或者.ipa文件的程序。<br>
+quicklookapk       预览安卓.apk的程序。</p>
+</blockquote>
+<pre><code>malideMacBook-Pro:~ mali$ brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize webpquicklook qlvideo provisionql quicklookapk
+</code></pre>
+<p><strong>下载利器：wget</strong></p>
+<pre><code>malideMacBook-Pro:~ mali$ brew install wget
+</code></pre>
+<h4 id="62-iterm2-oh-my-zsh">6.2、iterm2 + oh my zsh</h4>
+<p>作为程序员，会有非常多的场景用到命令行。macOS系统自带的terminal有时候不是很顺手，我们可以选择另外一个更好用的命令行工具 <strong>iterm2</strong>。可以使用homebrew安装。</p>
+<pre><code>malideMacBook-Pro:Downloads mali$ brew cask install iterm2
+Updating Homebrew...
+==&gt; Satisfying dependencies
+==&gt; Downloading https://iterm2.com/downloads/stable/iTerm2-3_2_9.zip
+######################################################################## 100.0%
+==&gt; Verifying SHA-256 checksum for Cask 'iterm2'.
+==&gt; Installing Cask iterm2
+==&gt; Moving App 'iTerm.app' to '/Applications/iTerm.app'.
+🍺  iterm2 was successfully installed!
+malideMacBook-Pro:Downloads mali$ 
+</code></pre>
+<p><strong>iterm2</strong> 安装完毕之后，开始安装 <strong><a href="https://ohmyz.sh/">oh my zsh</a></strong>。</p>
+<pre><code>//curl安装
+malideMacBook-Pro:~ mali$ sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
+
+//wget安装
+malideMacBook-Pro:~ mali$ sh -c &quot;$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;
+</code></pre>
+<h5 id="621-为什么用zsh">6.2.1、为什么用zsh</h5>
+<p>zsh和bash都是shell的一种，不过zsh在使用中，更加便利。对我来说，仅仅是zsh的自动补全就足以让我选择用它了。向更进一步了解，可以查看下列文章。<br>
+<a href="https://www.zhihu.com/question/21418449">为什么说 zsh 是 shell 中的极品？</a><br>
+<a href="https://www.xshell.net/shell/bash_zsh.html">Zsh和Bash，究竟有何不同 坑很深</a></p>
+<h5 id="622-为什么用oh-my-zsh">6.2.2、为什么用oh my zsh</h5>
+<p>zsh的配置需要花费大量的时间，而 <strong>oh my zsh</strong> 相当于是一个提供了预设个性配置的zsh，大大减少了我们配置的时间，非常推荐使用。<br>
+<a href="https://www.jianshu.com/p/d194d29e488c?open_source=weibo_search">oh-my-zsh,让你的终端从未这么爽过</a></p>
+<h5 id="623-oh-my-zsh-基本使用">6.2.3、oh my zsh 基本使用</h5>
+<pre><code>//查看当前使用的shell
+➜  ~ echo $SHELL
+/bin/zsh
+➜  ~
+
+
+//查看当前zsh版本
+➜  ~ zsh --version
+zsh 5.3 (x86_64-apple-darwin18.0)
+➜  ~
+
+
+//切换shell，从bash切换到zsh，需要重启iterm
+➜  ~ chsh -s /bin/zsh
+Changing shell for mali.
+Password for mali:
+➜  ~ 
+
+
+//切换shell，从zsh切换到bash，需要重启iterm
+➜  ~ chsh -s /bin/bash
+Changing shell for mali.
+Password for mali:
+➜  ~
+
+
+//查看当前环境安装了哪些shell
+➜  ~ cat /etc/shells
+# List of acceptable shells for chpass(1).
+# Ftpd will not allow users to connect who are not using
+# one of these shells.
+
+/bin/bash
+/bin/csh
+/bin/ksh
+/bin/sh
+/bin/tcsh
+/bin/zsh
+➜  ~
+
+
+//修改主题
+oh my zsh 的配置文件路径是：~/.zshrc
+进入配置文件，找到 ZSH_THEME 字段，修改为 ZSH_THEME=&quot;agnoster&quot;。
+agnoster主题，需要Powerline字体库的支持。
+
+//从github拉取[Powerline字体库](https://github.com/powerline/fonts)，拉取完成之后，运行install.sh文件安装。
+然后设置iterm字体为 Meslo LG S DZ for Powerline 即可。
+</code></pre>
+<h5 id="624-iterm-基本使用">6.2.4、iterm 基本使用</h5>
+<p>恢复原始配置</p>
+<pre><code>~ ➤ defaults delete com.googlecode.iterm2
+~ ➤
+然后重启iterm即可。
+</code></pre>
+<h4 id="63-ssh-copy-id">6.3、ssh-copy-id</h4>
+<p>SSH 是 Secure Shell 的缩写，其实就是远程 Shell 登录。只要能远程登录到某台机器的 Shell 上，大到 Mac 笔记本，小到树莓派和智能路由器，我们就可以上传或下载文件、执行脚本等等，几乎掌握了设备的控制权。一般来说，配置自己的云服务器，都需要ssh登陆。<br>
+ssh登陆时，需要制定ip地址和登录名，例如<code>ssh 192.168.1.1@root</code>，就是指登陆ip为192.168.1.1的主机的用户root。ssh协议默认端口为22，不用填写；如果设备为了安全修改了端口为1234，则必须输入，例如<code>ssh -p 1234 192.168.1.1@root</code>。接下来输入密码就可以登陆了。<br>
+不过记忆密码是一件非常麻烦的事，好在ssh支持使用RSA的公钥和私钥来验证身份。具体就是指将自己的公钥文件（ ~/.ssh/id_rsa.pub ）的内容复制到目标服务器（ ~/.ssh/authorized_keys ）文件中。这样其实也很繁琐。<br>
+<strong>ssh-copy-id</strong> 就是一款简化过程，方便我们使用的工具。<br>
+另外，可以通过ssh的配置文件配置来设置云服务器的别名，省去了记忆ip、用户名、端口号的麻烦。基本格式如下</p>
+<pre><code>Host malitest
+    HostName 192.168.1.1
+    User root
+    Port 22
+    IdentityFile ~/.ssh/id_rsa
+</code></pre>
+<h4 id="64-dash">6.4、<a href="https://kapeli.com/dash">Dash</a></h4>
+<p><strong>Dash</strong> 是一个API文档浏览器。配合 <strong>Alfred</strong> 可以快速查询api。</p>
+<p>具体可以查看文章：<a href="https://zhuanlan.zhihu.com/p/40466851">程序员的 API 文档查询利器：Dash</a> 。</p>
+<h3 id="7-自我提升">7、自我提升</h3>
+<h4 id="71-腾讯课堂">7.1、腾讯课堂</h4>
+<h4 id="72-欧路词典">7.2、欧路词典</h4>
 ]]></content>
     </entry>
     <entry>
