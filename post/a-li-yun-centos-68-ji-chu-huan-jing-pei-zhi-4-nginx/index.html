@@ -5,7 +5,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>
-    微信支付 | malide Library
+     阿里云 CentOS 6.8 基础环境配置(4) -- nginx | malide Library
 </title>
 <link rel="shortcut icon" href="https://codermali.github.io//favicon.ico?v=1563466901980">
 <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
@@ -99,52 +99,81 @@
                 <div id="content" class="main-container-left">
                     <article class="post i-card">
                         <h2 class="post-title">
-                            微信支付
+                             阿里云 CentOS 6.8 基础环境配置(4) -- nginx
                         </h2>
                         <div class="post-info">
-                            <time class="post-time">2019-06-21</time>
+                            <time class="post-time">2019-07-19</time>
                             
-                                <a href="https://codermali.github.io//tag/oFw_688GE" class="post-tag i-tag
-                            i-tag-other_3">
-                            #Wechat
+                                <a href="https://codermali.github.io//tag/APN8Ay21f" class="post-tag i-tag
+                            i-tag-other_1">
+                            #Aliyun CentOS
                         </a>
                                 
                         </div>
                         
                                 <div class="post-content">
-                                    <h3 id="微信支付">微信支付</h3>
-<h5 id="接入微信支付首先需要注册微信商户号">接入微信支付首先需要注册微信商户号。</h5>
-<ol>
-<li>打开 <a href="https://pay.weixin.qq.com/index.php/core/home/login?return_url=%2F">微信支付</a> 首页，选择「成为商家，选择「注册微信支付商户号」，然后绑定管理员微信。</li>
-<li>完成以上操作后，进入申请流程。分为三个步骤：创建申请单，填写商户信息，确认提交。
-<ul>
-<li>创建申请单中，需要输入管理员的各种信息；</li>
-<li>填写商户信息过程中，可以选择四个类型：个体工商户，企业，党政、机关及事业单位，其他组织。我选择的是企业，需要三证合一的营业执照，法人身份证，对公账户，经营信息以及结算规则。
-<ul>
-<li>在这个过程中，我碰到一个问题。在填写经营信息时，我选择的经营场景是APP，微信提示需要提供APP首页截图、尾页截图、应用内截图、支付页截图各1张。但是目前我们的APP是并没有开发完成。因此，只能使用其他方式先注册，在APP开发完成之后，再进行更换。</li>
-</ul>
-</li>
-<li>确认提交，主要是对提交资料的一个确认，并提交审核。</li>
-</ul>
-</li>
-<li>资料提交成功之后，需要进行账户验证。有两种方式：
-<ol>
-<li>使用法人微信认证。</li>
-<li>使用公账汇款。
-<ul>
-<li>使用公账汇款，会有延迟。</li>
-</ul>
-</li>
-</ol>
-</li>
-<li>账户验证通过之后，需要等待微信审核结果。我们公司公账是招商银行账户，48小时内有结果。<a href="http://kf.qq.com/faq/161223BfIRVz161223zA3ieY.html">点击查看具体</a></li>
-</ol>
-<h3 id="支付宝支付">支付宝支付</h3>
+                                    <h2 id="4-安装nginx">4、安装nginx</h2>
+<p>Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时也提供了IMAP/POP3/SMTP服务。Nginx是由伊戈尔·赛索耶夫为俄罗斯访问量第二的Rambler.ru站点（俄文：Рамблер）开发的，第一个公开版本0.1.0发布于2004年10月4日。</p>
+<h4 id="41-使用yum命令安装相关的编译工具和库文件">4.1、使用yum命令，安装相关的编译工具和库文件</h4>
+<pre><code>//升级所有软件包
+yum -y update
+//安装编译工具及库文件
+yum -y install gcc gcc-c++ automake pcre pcre-devel zlib zlib-devel open openssl-devel
+</code></pre>
+<h4 id="42-解压及安装">4.2、解压及安装</h4>
+<pre><code>//解压
+[root@iZwz9cngn5wj3bafyrd539Z nginx]# tar -zxvf nginx-1.13.6.tar.gz
+//编译安装
+[root@iZwz9cngn5wj3bafyrd539Z sbin]# ./configure --prefix=/software/nginx/nginx
+[root@iZwz9cngn5wj3bafyrd539Z sbin]# make
+[root@iZwz9cngn5wj3bafyrd539Z sbin]# make install
+//查看是否安装成功
+[root@iZwz9cngn5wj3bafyrd539Z /]# /software/nginx/nginx/sbin/nginx -v
+nginx version: nginx/1.13.6
+[root@iZwz9cngn5wj3bafyrd539Z /]#
+</code></pre>
+<h4 id="43-常用命令">4.3、常用命令</h4>
+<pre><code>./nginx # 启动nginx
+./nginx -s reload # 重新载入配置文件
+./nginx -s reopen # 重启 Nginx
+./nginx -s stop # 停止 Nginx
+</code></pre>
+<h4 id="44-配置文件">4.4、配置文件</h4>
+<pre><code>//找到配置文件
+vi /nginx/conf/nginx.conf
+//找到配置端口的地方
+/server
+//修改配置（当前端口为8080）
+server {
+listen 8080;
+server_name localhost;
+
+#charset koi8-r;
+
+#access_log logs/host.access.log main;
+
+location / {
+root html;
+index index.html index.htm;
+}
+
+//重启nginx
+./nginx -s reload
+</code></pre>
 
                                 </div>
                     </article>
                     <!--  -->
                     
+                        <div class="next-post">
+                            <div class="next">下一篇</div>
+                            <a href="https://codermali.github.io//post/a-li-yun-centos-68-ji-chu-huan-jing-pei-zhi-3-tomcat">
+                                <h3 class="post-title">
+                                     阿里云 CentOS 6.8 基础环境配置(3) -- tomcat
+                                </h3>
+                            </a>
+                        </div>
+                        
                             <div id="disqus_thread"></div>
                             <div id="gitalk-container"></div>
                 </div>
@@ -161,15 +190,13 @@
             <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li>
-<ul>
-<li><a href="#%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98">微信支付</a><br>
+<li><a href="#4-%E5%AE%89%E8%A3%85nginx">4、安装nginx</a><br>
 *
 <ul>
-<li><a href="#%E6%8E%A5%E5%85%A5%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E9%A6%96%E5%85%88%E9%9C%80%E8%A6%81%E6%B3%A8%E5%86%8C%E5%BE%AE%E4%BF%A1%E5%95%86%E6%88%B7%E5%8F%B7">接入微信支付首先需要注册微信商户号。</a></li>
-</ul>
-</li>
-<li><a href="#%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%AF%E4%BB%98">支付宝支付</a></li>
+<li><a href="#41-%E4%BD%BF%E7%94%A8yum%E5%91%BD%E4%BB%A4%E5%AE%89%E8%A3%85%E7%9B%B8%E5%85%B3%E7%9A%84%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7%E5%92%8C%E5%BA%93%E6%96%87%E4%BB%B6">4.1、使用yum命令，安装相关的编译工具和库文件</a></li>
+<li><a href="#42-%E8%A7%A3%E5%8E%8B%E5%8F%8A%E5%AE%89%E8%A3%85">4.2、解压及安装</a></li>
+<li><a href="#43-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4">4.3、常用命令</a></li>
+<li><a href="#44-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">4.4、配置文件</a></li>
 </ul>
 </li>
 </ul>
