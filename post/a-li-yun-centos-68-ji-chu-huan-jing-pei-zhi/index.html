@@ -5,7 +5,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>
-    Aliyun CentOS | malide Library
+    阿里云CentOS 6.8 基础环境配置 | malide Library
 </title>
 <link rel="shortcut icon" href="https://codermali.github.io/malideLibrary.github.io//favicon.ico?v=1563462772773">
 <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
@@ -19,6 +19,7 @@
 <script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
+        
 </head>
 
 <body>
@@ -93,67 +94,56 @@
     });
 </script>
 
-            <div id="main-content" class="post-container main-container">
+            <div id="main-content" class="post-detail main-container">
+                <!-- left -->
                 <div id="content" class="main-container-left">
-                    
-    <div class="i-card">
-        <b>标签：#
-        Aliyun CentOS</b>
-    </div>
-    
-        
-            <article class="post i-card">
-                <h2 class="post-title">
-                    <a href="https://codermali.github.io/malideLibrary.github.io//post/a-li-yun-centos-68-ji-chu-huan-jing-pei-zhi">
-                        阿里云CentOS 6.8 基础环境配置
-                    </a>
-                </h2>
-                <div class="post-info">
-                    <time class="post-time">2019-07-18</time>
-                    
-                        <a href="https://codermali.github.io/malideLibrary.github.io//tag/APN8Ay21f" class="post-tag i-tag
-                            i-tag-warning">
-            #Aliyun CentOS
-        </a>
-                        
-                </div>
-                <div class="post-article">
-                    
-                            <div class="post-content">
+                    <article class="post i-card">
+                        <h2 class="post-title">
+                            阿里云CentOS 6.8 基础环境配置
+                        </h2>
+                        <div class="post-info">
+                            <time class="post-time">2019-07-18</time>
+                            
+                                <a href="https://codermali.github.io/malideLibrary.github.io//tag/APN8Ay21f" class="post-tag i-tag
+                            i-tag-banana">
+                            #Aliyun CentOS
+                        </a>
                                 
-                                        <div class="post-content-content">
-                                            概述
-本文是基于 阿里云服务器CentOS 6.8版本系统 ，搭建一个基本的APP云环境。
-1、安装jdk
-JDK是 Java 语言的软件开发工具包，主要用于移动设备、嵌入式设备上的java应用程序。JDK是整个java开发的核心，它包含了JAVA的运行环境（JVM+Java系统类库）和JAVA工具。
-1.1、首先检查系统是否安装了jdk
-java -version
-1.2、如果安装了jdk,那么卸载掉
-rpm -qa | grep java | xargs rpm -e —nodeps
-1.3、查看卸载结果
-java -version
-1.4、首先去官网下载JDK安装包(tar.gz)
-http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-1.5、解压安装包
-tar -zxvf jdk-8u171-linux-x64.tar.gz
-1.6、配置全局java环境变量
-//使用VI编辑器打开profile文件 vi /etc/profile //移动到最后面,加入下面四行
+                        </div>
+                        
+                                <div class="post-content">
+                                    <h2 id="概述">概述</h2>
+<p>本文是基于 <strong>阿里云服务器CentOS 6.8版本系统</strong> ，搭建一个基本的APP云环境。</p>
+<h2 id="1-安装jdk">1、安装jdk</h2>
+<p>JDK是 Java 语言的软件开发工具包，主要用于移动设备、嵌入式设备上的java应用程序。JDK是整个java开发的核心，它包含了JAVA的运行环境（JVM+Java系统类库）和JAVA工具。</p>
+<h4 id="11-首先检查系统是否安装了jdk">1.1、首先检查系统是否安装了jdk</h4>
+<p><code>java -version</code></p>
+<h4 id="12-如果安装了jdk那么卸载掉">1.2、如果安装了jdk,那么卸载掉</h4>
+<p><code>rpm -qa | grep java | xargs rpm -e —nodeps</code></p>
+<h4 id="13-查看卸载结果">1.3、查看卸载结果</h4>
+<p><code>java -version</code></p>
+<h4 id="14-首先去官网下载jdk安装包targz">1.4、首先去官网下载JDK安装包(tar.gz)</h4>
+<p><code>http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</code></p>
+<h4 id="15-解压安装包">1.5、解压安装包</h4>
+<p><code>tar -zxvf jdk-8u171-linux-x64.tar.gz</code></p>
+<h4 id="16-配置全局java环境变量">1.6、配置全局java环境变量</h4>
+<pre><code>//使用VI编辑器打开profile文件 vi /etc/profile //移动到最后面,加入下面四行
 export JAVA_HOME=/usr/local/jdk1.8.0_171 
 export JER_HOME=/usr/local/jdk1.8.0_171/jre 
 export CLASSPATH=$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOME/bin
-
-1.7、使profile文件生效
-source /etc/profile
-1.8、验证是否安装成功
-java -version
+</code></pre>
+<h4 id="17-使profile文件生效">1.7、使profile文件生效</h4>
+<p><code>source /etc/profile</code></p>
+<h4 id="18-验证是否安装成功">1.8、验证是否安装成功</h4>
+<pre><code>java -version
 
 //打印出以下内容,说明安装成功
 java version “1.8.0_171”Java(TM) SE Runtime Environment (build 1.8.0_171-b11)Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode)
-
-2、安装mysql
-MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下产品。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。
-2.1、检查是否已经安装了mysql
-//whereis mysql
+</code></pre>
+<h2 id="2-安装mysql">2、安装mysql</h2>
+<p>MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下产品。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。</p>
+<h4 id="21-检查是否已经安装了mysql">2.1、检查是否已经安装了mysql</h4>
+<pre><code>//whereis mysql
 
 //可以看到mysql的包
 rpm -qa | grep -i mysql
@@ -163,23 +153,23 @@ rpm -qa | grep -i mysql
 mysql: /usr/lib64/mysql /usr/share/mysql
 [root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -qa | grep -i mysql
 mysql-libs-5.1.73-8.el6_8.x86_64
-
-2.2、卸载已经安装的mysql
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -e --nodeps mysql-libs-5.1.73-8.el6_8.x86_64 [root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -qa | grep -i mysql [root@iZwz9cngn5wj3bafyrd539Z mysql]# whereis mysql mysql:
-2.3、添加用户
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# groupadd mysql [root@iZwz9cngn5wj3bafyrd539Z mysql]# useradd -g mysql mysql
-2.4、创建my.cnf配置文件
-`
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# vi /etc/my.cnf
-[mysqld]
-explicit_defaults_for_timestamp=true
-lower_case_table_names=1
-basedir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64
-datadir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data
-sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
-`
-2.5、解压安装
-//解压
+</code></pre>
+<h4 id="22-卸载已经安装的mysql">2.2、卸载已经安装的mysql</h4>
+<p><code>[root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -e --nodeps mysql-libs-5.1.73-8.el6_8.x86_64 [root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -qa | grep -i mysql [root@iZwz9cngn5wj3bafyrd539Z mysql]# whereis mysql mysql:</code></p>
+<h4 id="23-添加用户">2.3、添加用户</h4>
+<p><code>[root@iZwz9cngn5wj3bafyrd539Z mysql]# groupadd mysql [root@iZwz9cngn5wj3bafyrd539Z mysql]# useradd -g mysql mysql</code></p>
+<h4 id="24-创建mycnf配置文件">2.4、创建my.cnf配置文件</h4>
+<p>`<br>
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# vi /etc/my.cnf</p>
+<p>[mysqld]<br>
+explicit_defaults_for_timestamp=true<br>
+lower_case_table_names=1<br>
+basedir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64<br>
+datadir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data<br>
+sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION<br>
+`</p>
+<h4 id="25-解压安装">2.5、解压安装</h4>
+<pre><code>//解压
 [root@iZwz9cngn5wj3bafyrd539Z mysql]# tar -zxvf mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz
 
 //改变所有者
@@ -191,38 +181,38 @@ sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_
 2018-10-11T07:33:56.224082Z 0 [Warning] InnoDB: New log files created, LSN=45790
 2018-10-11T07:33:56.323553Z 0 [Warning] InnoDB: Creating foreign key constraint system tables.
 2018-10-11T07:33:56.386146Z 0 [Warning] No existing UUID has been found, so we assume that this is the first time that this server has been started. Generating a new UUID: 02c83522-cd28-11e8-8c68-00163e06f845.
-2018-10-11T07:33:56.388001Z 0 [Warning] Gtid table is not ready to be used. Table &#39;mysql.gtid_executed&#39; cannot be opened.
+2018-10-11T07:33:56.388001Z 0 [Warning] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
 2018-10-11T07:33:56.388604Z 1 [Note] A temporary password is generated for root@localhost: WfIA9=!!rwN3
 [root@iZwz9cngn5wj3bafyrd539Z bin]#
-
-2.6、数据加密
-[root@iZwz9cngn5wj3bafyrd539Z bin]# ./mysql_ssl_rsa_setup  --datadir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data/
+</code></pre>
+<h4 id="26-数据加密">2.6、数据加密</h4>
+<pre><code>[root@iZwz9cngn5wj3bafyrd539Z bin]# ./mysql_ssl_rsa_setup  --datadir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data/
 Generating a 2048 bit RSA private key
 ......+++
 ........................+++
-writing new private key to &#39;ca-key.pem&#39;
+writing new private key to 'ca-key.pem'
 -----
 Generating a 2048 bit RSA private key
 ......................................................................................................................+++
 .....+++
-writing new private key to &#39;server-key.pem&#39;
+writing new private key to 'server-key.pem'
 -----
 Generating a 2048 bit RSA private key
 ..................+++
 ....................+++
-writing new private key to &#39;client-key.pem&#39;
+writing new private key to 'client-key.pem'
 -----
 [root@iZwz9cngn5wj3bafyrd539Z bin]#
-
-2.7、启动服务
-[root@iZwz9cngn5wj3bafyrd539Z bin]# cd ../support-files/
+</code></pre>
+<h4 id="27-启动服务">2.7、启动服务</h4>
+<pre><code>[root@iZwz9cngn5wj3bafyrd539Z bin]# cd ../support-files/
 [root@iZwz9cngn5wj3bafyrd539Z support-files]# ./mysql.server start
-Starting MySQL.Logging to &#39;/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data/iZwz9cngn5wj3bafyrd539Z.err&#39;.
+Starting MySQL.Logging to '/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data/iZwz9cngn5wj3bafyrd539Z.err'.
                                                            [  OK  ]
 [root@iZwz9cngn5wj3bafyrd539Z support-files]#
-
-2.8、登录终端
-//进入`bin`目录
+</code></pre>
+<h4 id="28-登录终端">2.8、登录终端</h4>
+<pre><code>//进入`bin`目录
 [root@iZwz9cngn5wj3bafyrd539Z support-files]# cd ../bin/
 //登录终端，输入密码
 [root@iZwz9cngn5wj3bafyrd539Z bin]# ./mysql -uroot -p
@@ -237,33 +227,33 @@ Oracle is a registered trademark of Oracle Corporation and/or its
 affiliates. Other names may be trademarks of their respective
 owners.
 
-Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-mysql&amp;gt;
-
-2.9、初始化root账号密码
-//重置root账号密码
-mysql&amp;gt; set password=password(&#39;}UoJs4AL7Lp2M*?u,f9ZJKft&#39;);
+mysql&gt;
+</code></pre>
+<h4 id="29-初始化root账号密码">2.9、初始化root账号密码</h4>
+<pre><code>//重置root账号密码
+mysql&gt; set password=password('}UoJs4AL7Lp2M*?u,f9ZJKft');
 Query OK, 0 rows affected, 1 warning (0.00 sec)
 
-mysql&amp;gt;
-
-2.10、开启远程用户
-//设置远程账号的账号密码
-mysql&amp;gt; GRANT ALL PRIVILEGES ON *.* TO &#39;merchants_remote&#39;@&#39;%&#39; identified by &#39;dGbq4dUEQF8zxJAqbM7MZvd3&#39; WITH GRANT OPTION;
+mysql&gt;
+</code></pre>
+<h4 id="210-开启远程用户">2.10、开启远程用户</h4>
+<pre><code>//设置远程账号的账号密码
+mysql&gt; GRANT ALL PRIVILEGES ON *.* TO 'merchants_remote'@'%' identified by 'dGbq4dUEQF8zxJAqbM7MZvd3' WITH GRANT OPTION;
 Query OK, 0 rows affected, 1 warning (0.00 sec)
 //mysql 新设置用户或更改密码后需用flush privileges刷新MySQL的系统权限相关表，否则会出现拒绝访问，还有一种方法，就是重新启动mysql服务器，来使新设置生效。­
-mysql&amp;gt; FLUSH PRIVILEGES;
+mysql&gt; FLUSH PRIVILEGES;
 Query OK, 0 rows affected (0.00 sec)
 `
 MySQL5.7的版本，需要设置sql_mode，否则非聚集列group by查询会出现如下错误：
 `
-Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column &#39;XXX.XXX&#39; which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
-
-3、安装tomcat
-Tomcat是Apache 软件基金会（Apache Software Foundation）的Jakarta 项目中的一个核心项目，由Apache、Sun 和其他一些公司及个人共同开发而成。由于有了Sun 的参与和支持，最新的Servlet 和JSP 规范总是能在Tomcat 中得到体现，Tomcat 5支持最新的Servlet 2.4 和JSP 2.0 规范。因为Tomcat 技术先进、性能稳定，而且免费，因而深受Java 爱好者的喜爱并得到了部分软件开发商的认可，成为目前比较流行的Web 应用服务器。
-3.1解压
-[root@iZwz9cngn5wj3bafyrd539Z tomcat]# tar -zxvf apache-tomcat-8.5.32.tar.gz
+Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'XXX.XXX' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+</code></pre>
+<h2 id="3-安装tomcat">3、安装tomcat</h2>
+<p>Tomcat是Apache 软件基金会（Apache Software Foundation）的Jakarta 项目中的一个核心项目，由Apache、Sun 和其他一些公司及个人共同开发而成。由于有了Sun 的参与和支持，最新的Servlet 和JSP 规范总是能在Tomcat 中得到体现，Tomcat 5支持最新的Servlet 2.4 和JSP 2.0 规范。因为Tomcat 技术先进、性能稳定，而且免费，因而深受Java 爱好者的喜爱并得到了部分软件开发商的认可，成为目前比较流行的Web 应用服务器。</p>
+<h4 id="31解压">3.1解压</h4>
+<pre><code>[root@iZwz9cngn5wj3bafyrd539Z tomcat]# tar -zxvf apache-tomcat-8.5.32.tar.gz
 apache-tomcat-8.5.32/conf/
 apache-tomcat-8.5.32/conf/catalina.policy
 apache-tomcat-8.5.32/conf/catalina.properties
@@ -1015,9 +1005,9 @@ apache-tomcat-8.5.32/bin/version.sh
 [root@iZwz9cngn5wj3bafyrd539Z tomcat]# ls
 apache-tomcat-8.5.32  apache-tomcat-8.5.32.tar.gz
 [root@iZwz9cngn5wj3bafyrd539Z tomcat]#
-
-3.2、查看服务器防火墙状态
-CentOS6.8 防火墙服务iptabls常用命令：
+</code></pre>
+<h4 id="32-查看服务器防火墙状态">3.2、查看服务器防火墙状态</h4>
+<pre><code>CentOS6.8 防火墙服务iptabls常用命令：
 	service iptables start //启动防火墙
 	service iptables stop //关闭防火墙
 	service iptables restart //重启防火墙
@@ -1038,9 +1028,9 @@ iptables: Flushing firewall rules:                         [  OK  ]
 iptables: Unloading modules:                               [  OK  ]
 iptables: Applying firewall rules:                         [  OK  ]
 [root@iZwz9cngn5wj3bafyrd539Z tomcat]#
-
-3.3、启动tomcat
-[root@iZwz9cngn5wj3bafyrd539Z tomcat]# ls
+</code></pre>
+<h4 id="33-启动tomcat">3.3、启动tomcat</h4>
+<pre><code>[root@iZwz9cngn5wj3bafyrd539Z tomcat]# ls
 apache-tomcat-8.5.32  apache-tomcat-8.5.32.tar.gz
 [root@iZwz9cngn5wj3bafyrd539Z tomcat]# cd apache-tomcat-8.5.32/bin/
 [root@iZwz9cngn5wj3bafyrd539Z bin]# ./startup.sh
@@ -1051,31 +1041,31 @@ Using JRE_HOME:        /software/java/jdk1.8.0_171
 Using CLASSPATH:       /software/tomcat/apache-tomcat-8.5.32/bin/bootstrap.jar:/software/tomcat/apache-tomcat-8.5.32/bin/tomcat-juli.jar
 Tomcat started.
 [root@iZwz9cngn5wj3bafyrd539Z bin]#
-
-3.4、tomcat配置文件
-//首先找到配置文件
+</code></pre>
+<h4 id="34-tomcat配置文件">3.4、tomcat配置文件</h4>
+<pre><code>//首先找到配置文件
 [root@iZwz9cngn5wj3bafyrd539Z bin]# vi ../conf/server.xml
 //查找端口设置部分
 /Connector port
 //修改端口设置（当前为80）
-&amp;lt;Connector port=&amp;quot;80&amp;quot; protocol=&amp;quot;HTTP/1.1&amp;quot;
-connectionTimeout=&amp;quot;20000&amp;quot;
-redirectPort=&amp;quot;8443&amp;quot; /&amp;gt;
+&lt;Connector port=&quot;80&quot; protocol=&quot;HTTP/1.1&quot;
+connectionTimeout=&quot;20000&quot;
+redirectPort=&quot;8443&quot; /&gt;
 //重启
 [root@iZwz9cngn5wj3bafyrd539Z bin]# ps -fel | grep tomcat --color
 [root@iZwz9cngn5wj3bafyrd539Z bin]# kill -9
 [root@iZwz9cngn5wj3bafyrd539Z bin]# cd ../bin;./startup.sh
-
-4、安装nginx
-Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时也提供了IMAP/POP3/SMTP服务。Nginx是由伊戈尔·赛索耶夫为俄罗斯访问量第二的Rambler.ru站点（俄文：Рамблер）开发的，第一个公开版本0.1.0发布于2004年10月4日。
-4.1、使用yum命令，安装相关的编译工具和库文件
-//升级所有软件包
+</code></pre>
+<h2 id="4-安装nginx">4、安装nginx</h2>
+<p>Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时也提供了IMAP/POP3/SMTP服务。Nginx是由伊戈尔·赛索耶夫为俄罗斯访问量第二的Rambler.ru站点（俄文：Рамблер）开发的，第一个公开版本0.1.0发布于2004年10月4日。</p>
+<h4 id="41-使用yum命令安装相关的编译工具和库文件">4.1、使用yum命令，安装相关的编译工具和库文件</h4>
+<pre><code>//升级所有软件包
 yum -y update
 //安装编译工具及库文件
 yum -y install gcc gcc-c++ automake pcre pcre-devel zlib zlib-devel open openssl-devel
-
-4.2、解压及安装
-//解压
+</code></pre>
+<h4 id="42-解压及安装">4.2、解压及安装</h4>
+<pre><code>//解压
 [root@iZwz9cngn5wj3bafyrd539Z nginx]# tar -zxvf nginx-1.13.6.tar.gz
 //编译安装
 [root@iZwz9cngn5wj3bafyrd539Z sbin]# ./configure --prefix=/software/nginx/nginx
@@ -1085,15 +1075,15 @@ yum -y install gcc gcc-c++ automake pcre pcre-devel zlib zlib-devel open openssl
 [root@iZwz9cngn5wj3bafyrd539Z /]# /software/nginx/nginx/sbin/nginx -v
 nginx version: nginx/1.13.6
 [root@iZwz9cngn5wj3bafyrd539Z /]#
-
-4.3、常用命令
-./nginx # 启动nginx
+</code></pre>
+<h4 id="43-常用命令">4.3、常用命令</h4>
+<pre><code>./nginx # 启动nginx
 ./nginx -s reload # 重新载入配置文件
 ./nginx -s reopen # 重启 Nginx
 ./nginx -s stop # 停止 Nginx
-
-4.4、配置文件
-//找到配置文件
+</code></pre>
+<h4 id="44-配置文件">4.4、配置文件</h4>
+<pre><code>//找到配置文件
 vi /nginx/conf/nginx.conf
 //找到配置端口的地方
 /server
@@ -1113,26 +1103,26 @@ index index.html index.htm;
 
 //重启nginx
 ./nginx -s reload
-
-5、安装redis
-Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。从2010年3月15日起，Redis的开发工作由VMware主持。从2013年5月开始，Redis的开发由Pivotal赞助。
-5.1、解压编译安装
-//解压
+</code></pre>
+<h2 id="5-安装redis">5、安装redis</h2>
+<p>Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。从2010年3月15日起，Redis的开发工作由VMware主持。从2013年5月开始，Redis的开发由Pivotal赞助。</p>
+<h4 id="51-解压编译安装">5.1、解压编译安装</h4>
+<pre><code>//解压
 [root@iZwz9cngn5wj3bafyrd539Z redis]# tar -zxvf redis-3.2.12.tar.gz
 //进入解压目录
 [root@iZwz9cngn5wj3bafyrd539Z redis]# cd redis-3.2.12
 //编译安装
 [root@iZwz9cngn5wj3bafyrd539Z redis]# make
 [root@iZwz9cngn5wj3bafyrd539Z redis]# make install
-
-5.2、修改配置文件
-配置文件路径：/software/redis/redis-3.2.12/redis.conf
+</code></pre>
+<h4 id="52-修改配置文件">5.2、修改配置文件</h4>
+<pre><code>配置文件路径：/software/redis/redis-3.2.12/redis.conf
 
 //设置Redis以守护进程模式运行
 daemonize yes
 
 //redis默认不记录log文件，手动为redis添加log文件，默认路径在redis安装目录下
-logfile &amp;quot;redis.log&amp;quot;
+logfile &quot;redis.log&quot;
 
 //设置redis监听端口
 port 6379
@@ -1145,392 +1135,137 @@ requirepass foobared
 
 //设置绑定ip，只要绑定的ip才能访问redis
 bind 127.0.0.1
-
-5.3、启动服务
-[root@iZwz9cngn5wj3bafyrd539Z redis]# cd src
+</code></pre>
+<h4 id="53-启动服务">5.3、启动服务</h4>
+<pre><code>[root@iZwz9cngn5wj3bafyrd539Z redis]# cd src
 //前台启动，命令行关闭之后就会断开
 [root@iZwz9cngn5wj3bafyrd539Z redis]# ./redis-server
 //后台启动，
 [root@iZwz9cngn5wj3bafyrd539Z redis]# ./redis-server ../redis.conf
+</code></pre>
 
-
-                                        </div>
-                                        
-                                            <a class="btn btn-text" href="https://codermali.github.io/malideLibrary.github.io//post/a-li-yun-centos-68-ji-chu-huan-jing-pei-zhi">Read More ~</a>
-                            </div>
-                </div>
-            </article>
-            
-            <article class="post i-card">
-                <h2 class="post-title">
-                    <a href="https://codermali.github.io/malideLibrary.github.io//post/a-li-yun-centos68-she-zhi-kai-ji-qi-dong">
-                        阿里云centOS6.8 设置开机启动
-                    </a>
-                </h2>
-                <div class="post-info">
-                    <time class="post-time">2019-07-18</time>
+                                </div>
+                    </article>
+                    <!--  -->
                     
-                        <a href="https://codermali.github.io/malideLibrary.github.io//tag/APN8Ay21f" class="post-tag i-tag
-                            i-tag-other_3">
-            #Aliyun CentOS
-        </a>
+                        <div class="next-post">
+                            <div class="next">下一篇</div>
+                            <a href="https://codermali.github.io/malideLibrary.github.io//post/a-li-yun-centos68-she-zhi-kai-ji-qi-dong">
+                                <h3 class="post-title">
+                                    阿里云centOS6.8 设置开机启动
+                                </h3>
+                            </a>
+                        </div>
                         
+                            <div id="disqus_thread"></div>
+                            <div id="gitalk-container"></div>
                 </div>
-                <div class="post-article">
-                    
-                            <div class="post-content">
-                                
-                                        <div class="post-content-content">
-                                            基础知识
-chkconfig是管理系统服务(service)的命令行工具。所谓系统服务(service)，就是随系统启动而启动，随系统关闭而关闭的程序。
-chkconfig命令主要用来更新（启动或停止）和查询系统服务的运行级信息。谨记chkconfig不是立即自动禁止或激活一个服务，它只是简单的改变了符号连接。
-chkconfig提供5个功能：	
-
-
-设置service启动信息
-
-//on、off、reset用于改变service的启动信息。 
-//on表示开启，off表示关闭，reset表示重置。 
-//默认情况下，on和off开关只对运行级2，3，4，5有效，reset可以对所有运行级有效。
-chkconfig name on/off/reset
-
-
-设置service运行级别
-
-//指定运行级为2,3,4,5 
-//等级0表示：表示关机 
-//等级1表示：单用户模式 
-//等级2表示：无网络连接的多用户命令行模式 
-//等级3表示：有网络连接的多用户命令行模式 
-//等级4表示：不可用 
-//等级5表示：带图形界面的多用户模式 
-//等级6表示：重新启动
-chkconfig --level 2345 name on
-
-
-添加service
-
-chkconfig --add name
-
-
-移除service
-
-chkconfig --del name
-
-
-列出service的启动信息
-
-chkconfig --list [name]
-
-设置mysql开启自启动
-
-将mysql安装目录下/support目录下的mysql.server文件复制到/etc/init.d/目录下，并改名为mysqld
-
-cp /software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/support-files/mysql.server /etc/init.d/mysqld
-
-
-设置mysqld文件的执行权限
-
-chmod a+x /etc/init.d/mysqld
-
-
-此时，我们可以通过该文件启动和停止mysql服务
-
-[root@iZwz9cngn5wj3bafyrd539Z /]# /etc/init.d/mysqld start
-Starting MySQL.                                            [  OK  ]
-[root@iZwz9cngn5wj3bafyrd539Z /]# /etc/init.d/mysqld stop
-Shutting down MySQL..                                      [  OK  ]
-[root@iZwz9cngn5wj3bafyrd539Z /]#
-
-
-将mysqld服务添加到chkconfig管理列表,然后就可以通过service对mysql进行启动和停止了
-
-[root@iZwz9cngn5wj3bafyrd539Z /]# chkconfig --add mysqld
-
-[root@iZwz9cngn5wj3bafyrd539Z /]# service mysqld start
-Starting MySQL.                                            [  OK  ]
-[root@iZwz9cngn5wj3bafyrd539Z /]# service mysqld stop
-Shutting down MySQL..                                      [  OK  ]
-[root@iZwz9cngn5wj3bafyrd539Z /]# 
-
-
-设置终端模式开机启动
-
-[root@iZwz9cngn5wj3bafyrd539Z /]# chkconfig mysqld on
-
-设置tomcat自动启动
-
-编辑startup.sh文件
-
-//到tomcat/bin目录下，在#!/bin/sh这一行下面，也就是第二行，添加如下内容
-#chkconfig: 2345 80 90    
-#description:tomcat auto start    
-#processname: tomcat
-
-
-编辑catalina.sh文件
-
-//搜索export位置,在后面添加
-export CATALINA_BASE=/usr/local/tomcat
-export CATALINA_HOME=/usr/local/tomcat
-export CATALINA_TMPDIR=/usr/local/tomcat
-
-//在#!/bin/sh这一行下面，也就是第二行,添加Java路径
-export JAVA_HOME=/software/java/jdk1.8.0_171
-export JER_HOME=/software/java/jdk1.8.0_171/jre
-
-
-链接starup.sh文件到/etc/init.d/目录下,并添加操作权限
-
-ln -s /software/tomcat/apache-tomcat-8.5.32/bin/startup.sh /etc/init.d/tomcat8
-
-chmod a+x /etc/init.d/tomcat8
-
-
-添加tomcat8文件到开机启动服务列表
-
-chkconfig --add tomcat8
-
-chkconfig tomcat8 on 
-
-chkconfig --list
-
-设置nginx开机自启动
-
-编辑自启动脚本文件，并保存到/etc/init.d/nginx
-
-//nginx官方链接：https://www.nginx.com/resources/wiki/start/topics/examples/redhatnginxinit/
-
-//需要修改的地方
-nginx=”/usr/sbin/nginx” 修改成nginx执行程序的路径。
-NGINX_CONF_FILE=”/etc/nginx/nginx.conf” 修改成配置文件的路径。
-
-#!/bin/sh
-#
-# nginx - this script starts and stops the nginx daemon
-#
-# chkconfig:   - 85 15
-# description:  NGINX is an HTTP(S) server, HTTP(S) reverse \
-#               proxy and IMAP/POP3 proxy server
-# processname: nginx
-# config:      /etc/nginx/nginx.conf
-# config:      /etc/sysconfig/nginx
-# pidfile:     /var/run/nginx.pid
-
-# Source function library.
-. /etc/rc.d/init.d/functions
-
-# Source networking configuration.
-. /etc/sysconfig/network
-
-# Check that networking is up.
-[ &amp;quot;$NETWORKING&amp;quot; = &amp;quot;no&amp;quot; ] &amp;amp;&amp;amp; exit 0
-
-nginx=&amp;quot;/usr/sbin/nginx&amp;quot;
-prog=$(basename $nginx)
-
-NGINX_CONF_FILE=&amp;quot;/etc/nginx/nginx.conf&amp;quot;
-
-[ -f /etc/sysconfig/nginx ] &amp;amp;&amp;amp; . /etc/sysconfig/nginx
-
-lockfile=/var/lock/subsys/nginx
-
-make_dirs() {
-   # make required directories
-   user=`$nginx -V 2&amp;gt;&amp;amp;1 | grep &amp;quot;configure arguments:.*--user=&amp;quot; | sed &#39;s/[^*]*--user=\([^ ]*\).*/\1/g&#39; -`
-   if [ -n &amp;quot;$user&amp;quot; ]; then
-      if [ -z &amp;quot;`grep $user /etc/passwd`&amp;quot; ]; then
-         useradd -M -s /bin/nologin $user
-      fi
-      options=`$nginx -V 2&amp;gt;&amp;amp;1 | grep &#39;configure arguments:&#39;`
-      for opt in $options; do
-          if [ `echo $opt | grep &#39;.*-temp-path&#39;` ]; then
-              value=`echo $opt | cut -d &amp;quot;=&amp;quot; -f 2`
-              if [ ! -d &amp;quot;$value&amp;quot; ]; then
-                  # echo &amp;quot;creating&amp;quot; $value
-                  mkdir -p $value &amp;amp;&amp;amp; chown -R $user $value
-              fi
-          fi
-       done
-    fi
-}
-
-start() {
-    [ -x $nginx ] || exit 5
-    [ -f $NGINX_CONF_FILE ] || exit 6
-    make_dirs
-    echo -n $&amp;quot;Starting $prog: &amp;quot;
-    daemon $nginx -c $NGINX_CONF_FILE
-    retval=$?
-    echo
-    [ $retval -eq 0 ] &amp;amp;&amp;amp; touch $lockfile
-    return $retval
-}
-
-stop() {
-    echo -n $&amp;quot;Stopping $prog: &amp;quot;
-    killproc $prog -QUIT
-    retval=$?
-    echo
-    [ $retval -eq 0 ] &amp;amp;&amp;amp; rm -f $lockfile
-    return $retval
-}
-
-restart() {
-    configtest || return $?
-    stop
-    sleep 1
-    start
-}
-
-reload() {
-    configtest || return $?
-    echo -n $&amp;quot;Reloading $prog: &amp;quot;
-    killproc $nginx -HUP
-    RETVAL=$?
-    echo
-}
-
-force_reload() {
-    restart
-}
-
-configtest() {
-  $nginx -t -c $NGINX_CONF_FILE
-}
-
-rh_status() {
-    status $prog
-}
-
-rh_status_q() {
-    rh_status &amp;gt;/dev/null 2&amp;gt;&amp;amp;1
-}
-
-case &amp;quot;$1&amp;quot; in
-    start)
-        rh_status_q &amp;amp;&amp;amp; exit 0
-        $1
-        ;;
-    stop)
-        rh_status_q || exit 0
-        $1
-        ;;
-    restart|configtest)
-        $1
-        ;;
-    reload)
-        rh_status_q || exit 7
-        $1
-        ;;
-    force-reload)
-        force_reload
-        ;;
-    status)
-        rh_status
-        ;;
-    condrestart|try-restart)
-        rh_status_q || exit 0
-            ;;
-    *)
-        echo $&amp;quot;Usage: $0 {start|stop|status|restart|condrestart|try-restart|reload|force-reload|configtest}&amp;quot;
-        exit 2
-esac
-
-
-设置文件的执行权限
-
-chmod a+x /etc/init.d/nginx
-
-
-添加nginx到chkconfig
-
-[root@iZwz9cngn5wj3bafyrd539Z ~]# chkconfig --add nginx
-[root@iZwz9cngn5wj3bafyrd539Z ~]# chkconfig --list
-[root@iZwz9cngn5wj3bafyrd539Z ~]# chkconfig --level 2345 nginx on
-
-设置redis开机自启动
-
-复制redis安装目录下的/redis/utils/redis_init_script到/etc/init.d/redis
-
-cp /software/redis/redis-3.2.12/utils/redis_init_script /etc/init.d/redis
-
-
-编辑redis文件
-
-//1.在#！/bin/sh下一行，添加chkconfig配置
-//redis服务必须在运行级2，3，4，5下被启动或关闭，启动的优先级是90，关闭的优先级是10
-# chkconfig: 2345 10 90  
-# description: Start and Stop redis
-
-//2.修改redis安装的相关目录
-REDISPORT=6379
-EXEC=/software/redis/redis-3.2.12/src/redis-server
-CLIEXEC=/software/redis/redis-3.2.12/src/redis-cli
-
-PIDFILE=/var/run/redis_${REDISPORT}.pid
-CONF=&amp;quot;/software/redis/redis-3.2.12/redis.conf&amp;quot;
-
-
-设置文件的执行权限
-
-chmod a+x /etc/init.d/redis
-
-
-添加nginx到chkconfig
-
-[root@iZwz9cngn5wj3bafyrd539Z ~]# chkconfig --add redis
-[root@iZwz9cngn5wj3bafyrd539Z ~]# chkconfig --list
-[root@iZwz9cngn5wj3bafyrd539Z ~]# chkconfig redis on
-
-
-                                        </div>
-                                        
-                                            <a class="btn btn-text" href="https://codermali.github.io/malideLibrary.github.io//post/a-li-yun-centos68-she-zhi-kai-ji-qi-dong">Read More ~</a>
-                            </div>
-                </div>
-            </article>
-            
-                <!-- 翻页 -->
-                
-                </div>
-                <!--  -->
+                <!-- middle -->
                 <div class="main-container-middle"></div>
-                <!--  -->
+                <!-- right -->
                 <div id="sidebar" class="main-container-right">
-
-                    <!-- 个人信息 -->
                     
-    <div class="id_card i-card">
-        <div class="id_card-avatar" style="background-image: url(https://codermali.github.io/malideLibrary.github.io//images/avatar.png?v=1563462772773)">
-        </div>
-        <h1 class="id_card-title">
-            malide Library
-        </h1>
-        <h2 class="id_card-description">
-            人生如逆旅，我亦是行人。
-        </h2>
-        <!--  -->
-        <div class="id_card-sns">
-            <!-- github -->
-            
-                    <!-- twitter -->
-                    
-                            <!-- weibo -->
-                            
-                                    <!-- facebook -->
-                                    
+                        <!-- toc -->
+                        
+    <div class="toc-card i-card ">
+        <div class="toc-title i-card-title">目录</div>
+        <div class="toc-content">
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E6%A6%82%E8%BF%B0">概述</a></li>
+<li><a href="#1-%E5%AE%89%E8%A3%85jdk">1、安装jdk</a><br>
+*
+<ul>
+<li><a href="#11-%E9%A6%96%E5%85%88%E6%A3%80%E6%9F%A5%E7%B3%BB%E7%BB%9F%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E4%BA%86jdk">1.1、首先检查系统是否安装了jdk</a></li>
+<li><a href="#12-%E5%A6%82%E6%9E%9C%E5%AE%89%E8%A3%85%E4%BA%86jdk%E9%82%A3%E4%B9%88%E5%8D%B8%E8%BD%BD%E6%8E%89">1.2、如果安装了jdk,那么卸载掉</a></li>
+<li><a href="#13-%E6%9F%A5%E7%9C%8B%E5%8D%B8%E8%BD%BD%E7%BB%93%E6%9E%9C">1.3、查看卸载结果</a></li>
+<li><a href="#14-%E9%A6%96%E5%85%88%E5%8E%BB%E5%AE%98%E7%BD%91%E4%B8%8B%E8%BD%BDjdk%E5%AE%89%E8%A3%85%E5%8C%85targz">1.4、首先去官网下载JDK安装包(tar.gz)</a></li>
+<li><a href="#15-%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85%E5%8C%85">1.5、解压安装包</a></li>
+<li><a href="#16-%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80java%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">1.6、配置全局java环境变量</a></li>
+<li><a href="#17-%E4%BD%BFprofile%E6%96%87%E4%BB%B6%E7%94%9F%E6%95%88">1.7、使profile文件生效</a></li>
+<li><a href="#18-%E9%AA%8C%E8%AF%81%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F">1.8、验证是否安装成功</a></li>
+</ul>
+</li>
+<li><a href="#2-%E5%AE%89%E8%A3%85mysql">2、安装mysql</a><br>
+*
+<ul>
+<li><a href="#21-%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E5%B7%B2%E7%BB%8F%E5%AE%89%E8%A3%85%E4%BA%86mysql">2.1、检查是否已经安装了mysql</a></li>
+<li><a href="#22-%E5%8D%B8%E8%BD%BD%E5%B7%B2%E7%BB%8F%E5%AE%89%E8%A3%85%E7%9A%84mysql">2.2、卸载已经安装的mysql</a></li>
+<li><a href="#23-%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7">2.3、添加用户</a></li>
+<li><a href="#24-%E5%88%9B%E5%BB%BAmycnf%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">2.4、创建my.cnf配置文件</a></li>
+<li><a href="#25-%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85">2.5、解压安装</a></li>
+<li><a href="#26-%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86">2.6、数据加密</a></li>
+<li><a href="#27-%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1">2.7、启动服务</a></li>
+<li><a href="#28-%E7%99%BB%E5%BD%95%E7%BB%88%E7%AB%AF">2.8、登录终端</a></li>
+<li><a href="#29-%E5%88%9D%E5%A7%8B%E5%8C%96root%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81">2.9、初始化root账号密码</a></li>
+<li><a href="#210-%E5%BC%80%E5%90%AF%E8%BF%9C%E7%A8%8B%E7%94%A8%E6%88%B7">2.10、开启远程用户</a></li>
+</ul>
+</li>
+<li><a href="#3-%E5%AE%89%E8%A3%85tomcat">3、安装tomcat</a><br>
+*
+<ul>
+<li><a href="#31%E8%A7%A3%E5%8E%8B">3.1解压</a></li>
+<li><a href="#32-%E6%9F%A5%E7%9C%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%98%B2%E7%81%AB%E5%A2%99%E7%8A%B6%E6%80%81">3.2、查看服务器防火墙状态</a></li>
+<li><a href="#33-%E5%90%AF%E5%8A%A8tomcat">3.3、启动tomcat</a></li>
+<li><a href="#34-tomcat%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">3.4、tomcat配置文件</a></li>
+</ul>
+</li>
+<li><a href="#4-%E5%AE%89%E8%A3%85nginx">4、安装nginx</a><br>
+*
+<ul>
+<li><a href="#41-%E4%BD%BF%E7%94%A8yum%E5%91%BD%E4%BB%A4%E5%AE%89%E8%A3%85%E7%9B%B8%E5%85%B3%E7%9A%84%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7%E5%92%8C%E5%BA%93%E6%96%87%E4%BB%B6">4.1、使用yum命令，安装相关的编译工具和库文件</a></li>
+<li><a href="#42-%E8%A7%A3%E5%8E%8B%E5%8F%8A%E5%AE%89%E8%A3%85">4.2、解压及安装</a></li>
+<li><a href="#43-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4">4.3、常用命令</a></li>
+<li><a href="#44-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">4.4、配置文件</a></li>
+</ul>
+</li>
+<li><a href="#5-%E5%AE%89%E8%A3%85redis">5、安装redis</a><br>
+*
+<ul>
+<li><a href="#51-%E8%A7%A3%E5%8E%8B%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85">5.1、解压编译安装</a></li>
+<li><a href="#52-%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">5.2、修改配置文件</a></li>
+<li><a href="#53-%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1">5.3、启动服务</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
         </div>
+        <script>
+            function locateCatelogList() {
+                /*获取文章目录集合,可通过:header过滤器*/
+                var alis = $('.post-content :header');
+                /*获取侧边栏目录列表集合**/
+                var sidebar_alis = $('.markdownIt-TOC a');
+                /*获取滚动条到顶部的距离*/
+                var scroll_height = $(window).scrollTop();
+                for (var i = 0; i < alis.length; i++) {
+                    /*获取锚点集合中的元素分别到顶点的距离*/
+                    var a_height = $(alis[i]).offset().top;
+                    if (a_height < scroll_height) {
+                        /*高亮显示*/
+                        sidebar_alis.removeClass('on');
+                        $(sidebar_alis[i]).addClass('on');
+                    }
+                }
+            }
+            $(function() {
+                /*绑定滚动事件 */
+                $(window).bind('scroll', locateCatelogList);
+            });
+        </script>
     </div>
     
-
-                        <!-- 公告栏 -->
-                        
+                            
 
                 </div>
-            </div>
 
+
+
+
+            </div>
 
 
             <div class="site-footer">
@@ -1542,6 +1277,7 @@ chmod a+x /etc/init.d/redis
   hljs.initHighlightingOnLoad()
 </script>
 
+
     </div>
     <script>
         $('#sidebar').stickySidebar({
@@ -1549,6 +1285,7 @@ chmod a+x /etc/init.d/redis
             // bottomSpacing: 60
         });
     </script>
+    
 </body>
 
 </html>
