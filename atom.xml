@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://codermali.github.io/malideLibrary.github.io/</id>
     <title>malide Library</title>
-    <updated>2019-07-18T10:04:55.588Z</updated>
+    <updated>2019-07-18T10:21:04.289Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://codermali.github.io/malideLibrary.github.io/"/>
     <link rel="self" href="https://codermali.github.io/malideLibrary.github.io//atom.xml"/>
@@ -10,6 +10,77 @@
     <logo>https://codermali.github.io/malideLibrary.github.io//images/avatar.png</logo>
     <icon>https://codermali.github.io/malideLibrary.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, malide Library</rights>
+    <entry>
+        <title type="html"><![CDATA[应用转让]]></title>
+        <id>https://codermali.github.io/malideLibrary.github.io//post/ying-yong-zhuan-rang</id>
+        <link href="https://codermali.github.io/malideLibrary.github.io//post/ying-yong-zhuan-rang">
+        </link>
+        <updated>2019-07-18T10:19:23.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2>
+<p>APP开发完成之后，上线是通过本公司的账号上线。现在需要转让。具体流程如下。</p>
+<h4 id="apple-developer">Apple Developer</h4>
+<p>在APP Store上线的APP，想要转让，可以根据苹果官方文档：<a href="https://help.apple.com/app-store-connect/#/deved688524f">App 转让概述</a>。<br>
+首先是注册开发apple账号。目前，注册账号必须开启两步认证，也就是说必有要用一台apple的设备（mac，ipad，iphone，ipod等）来登陆账号。<br>
+开发者账号注册需要公司提供有效的官网地址。</p>
+<h4 id="应用宝开发资质已认证app转让完成">应用宝（开发资质已认证，APP转让完成）</h4>
+<p>经过和客服的沟通，客服提示步骤如下：</p>
+<ul>
+<li>开发者账号登陆 → 管理中心 → 点击需要转让的应用 → 基础能力 → 工单系统 → 应用宝商务类 → 移动应用转让申请 → 填单提交。（工单不需要上传截图）</li>
+<li>应用转入的开发者账号必须保证已经在开放平台上通过审核，应用转入和转出的开发者账号均为QQ号码，请勿使用其他账号，否则不予受理。</li>
+</ul>
+<p>填写对应资料，提交审核之后，就是等待了。审核时间是2个工作日。</p>
+<p>等待了一个工作日左右，审核通过，APP已经转移到新的账号，不过应用宝内的iOS端APP需要重新配置（我刚才找了下，貌似iOS端的APP是不能转移的）。</p>
+<h4 id="百度移动开放平台开发资质已认证app认领完成">百度移动开放平台（开发资质已认证，app认领完成）</h4>
+<p>经过和客服沟通，客服说，需要走认领流程。“软件版权资质”可以上传“软著”或者“保证函”；“证明文件”可以提交营业执照。<br>
+认领成功之后，需要重新填写应用资料，打包提交。</p>
+<p>碰到一个问题，应用认领成功，也重新上线，但是在百度移动应用市场，APP的开发者信息还是之前账号的。联系客服，居然让改包名重新上线。。。我真是醉了。客服说帮忙同步数据，24小时候之后看结果，不知道真假。<br>
+决定还是发邮件咨询，<code>ext_app_support@baidu.com</code> ，等待结果。</p>
+<p>邮件客服建议修改包名再次提交。。。百度人都特么有毒。。。还是说我误会了，安卓的包名其实没那么重要。</p>
+<p>在线客服帮我同步数据的操作有效，app开发资质已变更。</p>
+<h4 id="华为开发者联盟开发资质已认证">华为开发者联盟（开发资质已认证）</h4>
+<p>在华为开发者联盟找了一圈，没有找到相关信息。已经提交工单，等待中。<br>
+客服提供了一份文档：<a href="https://developer.huawei.com/consumer/cn/devservice/doc/50112">应用转移操作指南</a>。<br>
+按照要求，发邮件到<code>developer@huawei.com</code>。邮件格式：</p>
+<ul>
+<li>1）邮件标题：【应用转移】+应用名称。</li>
+<li>2）邮件正文注明：转出帐号、转入帐号、应用名称、APPID及您的联系方式。</li>
+<li>3）邮件附件包含：应用转移申请表，应用转移自检表</li>
+</ul>
+<h4 id="小米开放平台开发资质已认证app认领完成">小米开放平台（开发资质已认证，APP认领完成）</h4>
+<p>在官网上只找到<a href="https://dev.mi.com/console/doc/detail?pId=882">应用认领操作说明</a>，但是我希望的是转让。因此发邮件去到客服咨询，等待中。<br>
+等了一天没有回应。算了，直接认领。流程比较简单，新注册账号，并完成开发资质认证，新建一个同名同包名的应用，就会进入认领流程。下载没有签名的APK空包，交给Android开发，重新签名，上传，瞬间就认领过来了。</p>
+<h4 id="oppo开放平台开发资质已认证">oppo开放平台（开发资质已认证，）</h4>
+<p>和在线客服沟通之后，客户给了一份材料：<a href="https://open.oppomobile.com/wiki/doc#id=10182">应用认领流程</a>。只需要应用宝，华为，小米转移之后，提供后台截图就可以了。</p>
+<h4 id="vivo开放平台开发资质已认证">vivo开放平台（开发资质已认证，）</h4>
+<p>根据<a href="https://dev.vivo.com.cn/documentCenter/doc/54">应用认领</a>，貌似和oppo开放平台差不多的流程。不过，值得一提是，vivo的小v客服，提示前面还有9个人，排队。然后下午排了三个多小时，还要继续排队，服气了，放弃。</p>
+<h4 id="mob开放平台开发资质已认证app转让完成">mob开放平台（开发资质已认证，APP转让完成）</h4>
+<p>在mob平台申请账号，在身份认证之后，会需要输入QQ号。然后，官方客服会添加好友。所以转移应用的事，我直接就和客服联系了。客服推送了另一个专门负责这一块的客服给我。<br>
+经过沟通，转移应用之后APPKey和APPSecret不会变动，不影响APP正常使用。<br>
+转移流程如下，首先把需要转移的APP的名称和APPKey发送给客服，然后向Mob官方邮箱（support@mob.com）发送一封邮件,内容包含：</p>
+<ol>
+<li>申请应用转移的原因；</li>
+<li>申请转移的应用名称及应用的APPKEY；</li>
+<li>旧账号（如有请提供）以及申请转移到哪个新的账号；</li>
+<li>公司名称及营业执照（旧账号）；</li>
+<li>申请人的姓名、身份证号码（需手持身份证拍照，身份证上的信息需清晰可见），以及联系方式。</li>
+</ol>
+<p>之后，会有客服联系转移前账号联系人，进行确认。多说一句，妹子声音真好听，哈哈。确认完毕，在一两天之内就会转移成功了。</p>
+<h4 id="微信开放平台">微信开放平台</h4>
+<p>在网上没有找到APP迁移的相关资料。所幸找到微信开放平台的客服邮箱（weixin-open@qq.com），经过几个来回的沟通，可以确定微信开放平台是提供APP迁移这项服务的。迁移之后，迁移应用的openid、appSecret不变，unionid会变。</p>
+<p>迁移需要开发者向客服邮箱发送指定格式的邮件进行申请，要求如下：<br>
+以“【帐号应用迁移需求】迁出open帐号xxxx，迁入open帐号xxxx”为邮件主题，邮件发送至weixin-open@qq.com，确认迁出帐号和迁入帐号都为已认证状态，并提交以下材料：</p>
+<ol>
+<li>需求背景</li>
+<li>具体迁出、迁入open帐号信息</li>
+<li>迁出应用信息（应用名称、应用appid）</li>
+<li>加盖原开发者和新开发者主体公章的转移申请函（模板见附件）；</li>
+<li>原开发者和新开发者的主体资质材料（营业执照、组织机构代码证）；</li>
+<li>申请迁移APP的应用市场截图：iOS截带有bundleID的界面，android截带有包名、签名的界面；</li>
+<li>申请迁移APP的软件著作权证扫描件等可以证明应用归属证明。</li>
+</ol>
+<p>首先是注册微信开放平台账号。注册时需要公司官网。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[iOS State Restoration]]></title>
         <id>https://codermali.github.io/malideLibrary.github.io//post/ios-state-restoration</id>
@@ -987,38 +1058,6 @@ ssh登陆时，需要制定ip地址和登录名，例如<code>ssh 192.168.1.1@ro
 <li>账户验证通过之后，需要等待微信审核结果。我们公司公账是招商银行账户，48小时内有结果。<a href="http://kf.qq.com/faq/161223BfIRVz161223zA3ieY.html">点击查看具体</a></li>
 </ol>
 <h3 id="支付宝支付">支付宝支付</h3>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://codermali.github.io/malideLibrary.github.io//post/hello-gridea</id>
-        <link href="https://codermali.github.io/malideLibrary.github.io//post/hello-gridea">
-        </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="http://hvenotes.fehey.com/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>𝖶𝗂𝗇𝖽𝗈𝗐𝗌</strong> 或 <strong>𝖬𝖺𝖼𝖮𝖲</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
 ]]></content>
     </entry>
 </feed>
