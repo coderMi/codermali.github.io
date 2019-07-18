@@ -7,7 +7,7 @@
 <title>
     malide Library
 </title>
-<link rel="shortcut icon" href="https://codermali.github.io/malideLibrary.github.io//favicon.ico?v=1563462092765">
+<link rel="shortcut icon" href="https://codermali.github.io/malideLibrary.github.io//favicon.ico?v=1563462334609">
 <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
 <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -27,7 +27,7 @@
     <div class="nav">
         <div class="logo">
             <a href="https://codermali.github.io/malideLibrary.github.io/">
-                <img class="avatar" src="https://codermali.github.io/malideLibrary.github.io//images/avatar.png?v=1563462092765" alt="">
+                <img class="avatar" src="https://codermali.github.io/malideLibrary.github.io//images/avatar.png?v=1563462334609" alt="">
             </a>
             <div class="site-title">
                 <h1>
@@ -107,7 +107,7 @@
                     <time class="post-time">2019-07-18</time>
                     
                         <a href="https://codermali.github.io/malideLibrary.github.io//tag/APN8Ay21f" class="post-tag i-tag
-                            i-tag-other_1">
+                            i-tag-other_3">
             #Aliyun CentOS
         </a>
                         
@@ -437,7 +437,7 @@ chmod a+x /etc/init.d/redis
                     <time class="post-time">2019-07-18</time>
                     
                         <a href="https://codermali.github.io/malideLibrary.github.io//tag/APN8Ay21f" class="post-tag i-tag
-                            i-tag-other_3">
+                            i-tag-other_4">
             #Aliyun CentOS
         </a>
                         
@@ -453,19 +453,14 @@ chmod a+x /etc/init.d/redis
 JDK是 Java 语言的软件开发工具包，主要用于移动设备、嵌入式设备上的java应用程序。JDK是整个java开发的核心，它包含了JAVA的运行环境（JVM+Java系统类库）和JAVA工具。
 1.1、首先检查系统是否安装了jdk
 java -version
-
 1.2、如果安装了jdk,那么卸载掉
 rpm -qa | grep java | xargs rpm -e —nodeps
-
 1.3、查看卸载结果
 java -version
-
 1.4、首先去官网下载JDK安装包(tar.gz)
 http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-
 1.5、解压安装包
 tar -zxvf jdk-8u171-linux-x64.tar.gz
-
 1.6、配置全局java环境变量
 //使用VI编辑器打开profile文件 vi /etc/profile //移动到最后面,加入下面四行
 export JAVA_HOME=/usr/local/jdk1.8.0_171 
@@ -474,7 +469,6 @@ export CLASSPATH=$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib export PATH=$JAVA_
 
 1.7、使profile文件生效
 source /etc/profile
-
 1.8、验证是否安装成功
 java -version
 
@@ -496,25 +490,19 @@ mysql: /usr/lib64/mysql /usr/share/mysql
 mysql-libs-5.1.73-8.el6_8.x86_64
 
 2.2、卸载已经安装的mysql
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -e --nodeps mysql-libs-5.1.73-8.el6_8.x86_64
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -qa | grep -i mysql
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# whereis mysql
-mysql:
-
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -e --nodeps mysql-libs-5.1.73-8.el6_8.x86_64 [root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -qa | grep -i mysql [root@iZwz9cngn5wj3bafyrd539Z mysql]# whereis mysql mysql:
 2.3、添加用户
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# groupadd mysql
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# useradd -g mysql mysql
-
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# groupadd mysql [root@iZwz9cngn5wj3bafyrd539Z mysql]# useradd -g mysql mysql
 2.4、创建my.cnf配置文件
+`
 [root@iZwz9cngn5wj3bafyrd539Z mysql]# vi /etc/my.cnf
-
 [mysqld]
 explicit_defaults_for_timestamp=true
 lower_case_table_names=1
 basedir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64
 datadir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data
 sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
-
+`
 2.5、解压安装
 //解压
 [root@iZwz9cngn5wj3bafyrd539Z mysql]# tar -zxvf mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz
@@ -592,8 +580,9 @@ Query OK, 0 rows affected, 1 warning (0.00 sec)
 //mysql 新设置用户或更改密码后需用flush privileges刷新MySQL的系统权限相关表，否则会出现拒绝访问，还有一种方法，就是重新启动mysql服务器，来使新设置生效。­
 mysql&amp;gt; FLUSH PRIVILEGES;
 Query OK, 0 rows affected (0.00 sec)
-
+`
 MySQL5.7的版本，需要设置sql_mode，否则非聚集列group by查询会出现如下错误：
+`
 Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column &#39;XXX.XXX&#39; which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
 
 3、安装tomcat
@@ -1507,7 +1496,7 @@ bind 127.0.0.1
                     <time class="post-time">2019-07-18</time>
                     
                         <a href="https://codermali.github.io/malideLibrary.github.io//tag/sz0pYtLDt" class="post-tag i-tag
-                            i-tag-warning">
+                            i-tag-">
             #Manager
         </a>
                         
@@ -1598,7 +1587,7 @@ mob开放平台（开发资质已认证，APP转让完成）
                     <time class="post-time">2019-06-25</time>
                     
                         <a href="https://codermali.github.io/malideLibrary.github.io//tag/SftxX1qB0" class="post-tag i-tag
-                            i-tag-other_1">
+                            i-tag-info">
             #iOS
         </a>
                         
@@ -1874,7 +1863,7 @@ iOS的App实现状态恢复
                     <time class="post-time">2019-06-24</time>
                     
                         <a href="https://codermali.github.io/malideLibrary.github.io//tag/KU_zYv-Gf" class="post-tag i-tag
-                            i-tag-other_1">
+                            i-tag-info">
             #MacOS
         </a>
                         
@@ -2581,7 +2570,7 @@ Dash 是一个API文档浏览器。配合 Alfred 可以快速查询api。
                     <time class="post-time">2019-06-21</time>
                     
                         <a href="https://codermali.github.io/malideLibrary.github.io//tag/oFw_688GE" class="post-tag i-tag
-                            i-tag-primary">
+                            i-tag-warning">
             #Wechat
         </a>
                         
@@ -2638,7 +2627,7 @@ Dash 是一个API文档浏览器。配合 Alfred 可以快速查询api。
                     <!-- 个人信息 -->
                     
     <div class="id_card i-card">
-        <div class="id_card-avatar" style="background-image: url(https://codermali.github.io/malideLibrary.github.io//images/avatar.png?v=1563462092765)">
+        <div class="id_card-avatar" style="background-image: url(https://codermali.github.io/malideLibrary.github.io//images/avatar.png?v=1563462334609)">
         </div>
         <h1 class="id_card-title">
             malide Library

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://codermali.github.io/malideLibrary.github.io/</id>
     <title>malide Library</title>
-    <updated>2019-07-18T15:01:43.709Z</updated>
+    <updated>2019-07-18T15:05:38.140Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://codermali.github.io/malideLibrary.github.io/"/>
     <link rel="self" href="https://codermali.github.io/malideLibrary.github.io//atom.xml"/>
@@ -331,20 +331,15 @@ CONF=&quot;/software/redis/redis-3.2.12/redis.conf&quot;
 <h2 id="1-安装jdk">1、安装jdk</h2>
 <p>JDK是 Java 语言的软件开发工具包，主要用于移动设备、嵌入式设备上的java应用程序。JDK是整个java开发的核心，它包含了JAVA的运行环境（JVM+Java系统类库）和JAVA工具。</p>
 <h4 id="11-首先检查系统是否安装了jdk">1.1、首先检查系统是否安装了jdk</h4>
-<pre><code>java -version
-</code></pre>
+<p><code>java -version</code></p>
 <h4 id="12-如果安装了jdk那么卸载掉">1.2、如果安装了jdk,那么卸载掉</h4>
-<pre><code>rpm -qa | grep java | xargs rpm -e —nodeps
-</code></pre>
+<p><code>rpm -qa | grep java | xargs rpm -e —nodeps</code></p>
 <h4 id="13-查看卸载结果">1.3、查看卸载结果</h4>
-<pre><code>java -version
-</code></pre>
+<p><code>java -version</code></p>
 <h4 id="14-首先去官网下载jdk安装包targz">1.4、首先去官网下载JDK安装包(tar.gz)</h4>
-<pre><code>http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-</code></pre>
+<p><code>http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</code></p>
 <h4 id="15-解压安装包">1.5、解压安装包</h4>
-<pre><code>tar -zxvf jdk-8u171-linux-x64.tar.gz
-</code></pre>
+<p><code>tar -zxvf jdk-8u171-linux-x64.tar.gz</code></p>
 <h4 id="16-配置全局java环境变量">1.6、配置全局java环境变量</h4>
 <pre><code>//使用VI编辑器打开profile文件 vi /etc/profile //移动到最后面,加入下面四行
 export JAVA_HOME=/usr/local/jdk1.8.0_171 
@@ -352,8 +347,7 @@ export JER_HOME=/usr/local/jdk1.8.0_171/jre
 export CLASSPATH=$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOME/bin
 </code></pre>
 <h4 id="17-使profile文件生效">1.7、使profile文件生效</h4>
-<pre><code>source /etc/profile
-</code></pre>
+<p><code>source /etc/profile</code></p>
 <h4 id="18-验证是否安装成功">1.8、验证是否安装成功</h4>
 <pre><code>java -version
 
@@ -375,25 +369,19 @@ mysql: /usr/lib64/mysql /usr/share/mysql
 mysql-libs-5.1.73-8.el6_8.x86_64
 </code></pre>
 <h4 id="22-卸载已经安装的mysql">2.2、卸载已经安装的mysql</h4>
-<pre><code>[root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -e --nodeps mysql-libs-5.1.73-8.el6_8.x86_64
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -qa | grep -i mysql
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# whereis mysql
-mysql:
-</code></pre>
+<p><code>[root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -e --nodeps mysql-libs-5.1.73-8.el6_8.x86_64 [root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -qa | grep -i mysql [root@iZwz9cngn5wj3bafyrd539Z mysql]# whereis mysql mysql:</code></p>
 <h4 id="23-添加用户">2.3、添加用户</h4>
-<pre><code>[root@iZwz9cngn5wj3bafyrd539Z mysql]# groupadd mysql
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# useradd -g mysql mysql
-</code></pre>
+<p><code>[root@iZwz9cngn5wj3bafyrd539Z mysql]# groupadd mysql [root@iZwz9cngn5wj3bafyrd539Z mysql]# useradd -g mysql mysql</code></p>
 <h4 id="24-创建mycnf配置文件">2.4、创建my.cnf配置文件</h4>
-<pre><code>[root@iZwz9cngn5wj3bafyrd539Z mysql]# vi /etc/my.cnf
-
-[mysqld]
-explicit_defaults_for_timestamp=true
-lower_case_table_names=1
-basedir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64
-datadir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data
-sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
-</code></pre>
+<p>`<br>
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# vi /etc/my.cnf</p>
+<p>[mysqld]<br>
+explicit_defaults_for_timestamp=true<br>
+lower_case_table_names=1<br>
+basedir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64<br>
+datadir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data<br>
+sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION<br>
+`</p>
 <h4 id="25-解压安装">2.5、解压安装</h4>
 <pre><code>//解压
 [root@iZwz9cngn5wj3bafyrd539Z mysql]# tar -zxvf mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz
@@ -471,9 +459,10 @@ Query OK, 0 rows affected, 1 warning (0.00 sec)
 //mysql 新设置用户或更改密码后需用flush privileges刷新MySQL的系统权限相关表，否则会出现拒绝访问，还有一种方法，就是重新启动mysql服务器，来使新设置生效。­
 mysql&gt; FLUSH PRIVILEGES;
 Query OK, 0 rows affected (0.00 sec)
-</code></pre>
-<p>MySQL5.7的版本，需要设置sql_mode，否则非聚集列group by查询会出现如下错误：</p>
-<pre><code>Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'XXX.XXX' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+`
+MySQL5.7的版本，需要设置sql_mode，否则非聚集列group by查询会出现如下错误：
+`
+Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'XXX.XXX' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
 </code></pre>
 <h2 id="3-安装tomcat">3、安装tomcat</h2>
 <p>Tomcat是Apache 软件基金会（Apache Software Foundation）的Jakarta 项目中的一个核心项目，由Apache、Sun 和其他一些公司及个人共同开发而成。由于有了Sun 的参与和支持，最新的Servlet 和JSP 规范总是能在Tomcat 中得到体现，Tomcat 5支持最新的Servlet 2.4 和JSP 2.0 规范。因为Tomcat 技术先进、性能稳定，而且免费，因而深受Java 爱好者的喜爱并得到了部分软件开发商的认可，成为目前比较流行的Web 应用服务器。</p>
