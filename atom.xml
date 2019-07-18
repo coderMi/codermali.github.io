@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://codermali.github.io/malideLibrary.github.io/</id>
     <title>malide Library</title>
-    <updated>2019-07-18T15:13:35.045Z</updated>
+    <updated>2019-07-18T15:18:54.304Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://codermali.github.io/malideLibrary.github.io/"/>
     <link rel="self" href="https://codermali.github.io/malideLibrary.github.io//atom.xml"/>
@@ -16,8 +16,7 @@
         <link href="https://codermali.github.io/malideLibrary.github.io//post/a-li-yun-centos-68-ji-chu-huan-jing-pei-zhi">
         </link>
         <updated>2019-07-18T15:11:48.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="概述">概述</h2>
-<p>本文是基于 <strong>阿里云服务器CentOS 6.8版本系统</strong> ，搭建一个基本的APP云环境。</p>
+        <content type="html"><![CDATA[<p>本文是基于 <strong>阿里云服务器CentOS 6.8版本系统</strong> ，搭建一个基本的APP云环境。</p>
 <h2 id="1-安装jdk">1、安装jdk</h2>
 <p>JDK是 Java 语言的软件开发工具包，主要用于移动设备、嵌入式设备上的java应用程序。JDK是整个java开发的核心，它包含了JAVA的运行环境（JVM+Java系统类库）和JAVA工具。</p>
 <h4 id="11-首先检查系统是否安装了jdk">1.1、首先检查系统是否安装了jdk</h4>
