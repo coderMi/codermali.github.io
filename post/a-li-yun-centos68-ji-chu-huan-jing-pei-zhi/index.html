@@ -7,7 +7,7 @@
 <title>
     阿里云CentOS6.8 基础环境配置 | malide Library
 </title>
-<link rel="shortcut icon" href="https://codermali.github.io/malideLibrary.github.io//favicon.ico?v=1563446047372">
+<link rel="shortcut icon" href="https://codermali.github.io/malideLibrary.github.io//favicon.ico?v=1563446262904">
 <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
 <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -28,7 +28,7 @@
     <div class="nav">
         <div class="logo">
             <a href="https://codermali.github.io/malideLibrary.github.io/">
-                <img class="avatar" src="https://codermali.github.io/malideLibrary.github.io//images/avatar.png?v=1563446047372" alt="">
+                <img class="avatar" src="https://codermali.github.io/malideLibrary.github.io//images/avatar.png?v=1563446262904" alt="">
             </a>
             <div class="site-title">
                 <h1>
@@ -105,20 +105,20 @@
                             <time class="post-time">2019-07-18</time>
                             
                                 <a href="https://codermali.github.io/malideLibrary.github.io//tag/APN8Ay21f" class="post-tag i-tag
-                            i-tag-error">
+                            i-tag-other_3">
                             #Aliyun centOS
                         </a>
                                 
                         </div>
                         
                                 <div class="post-content">
-                                    <h2 id="1-安装jdk">1、安装jdk</h2>
+                                    <h1 id="阿里云centos68-基础环境配置">阿里云CentOS6.8 基础环境配置</h1>
+<h2 id="1-安装jdk">1、安装jdk</h2>
 <h4 id="11-首先检查系统是否安装了jdk">1.1、首先检查系统是否安装了jdk</h4>
 <pre><code>java -version
 </code></pre>
 <h4 id="12-如果安装了jdk那么卸载掉">1.2、如果安装了jdk,那么卸载掉</h4>
-<pre><code>
-rpm -qa | grep java | xargs rpm -e —nodeps
+<pre><code>rpm -qa | grep java | xargs rpm -e —nodeps
 </code></pre>
 <h4 id="13-查看卸载结果">1.3、查看卸载结果</h4>
 <pre><code>java -version
@@ -1121,7 +1121,7 @@ index index.html index.htm;
 [root@iZwz9cngn5wj3bafyrd539Z redis]# make install
 </code></pre>
 <h4 id="52-修改配置文件">5.2、修改配置文件</h4>
-<pre><code>	配置文件路径：/software/redis/redis-3.2.12/redis.conf
+<pre><code>配置文件路径：/software/redis/redis-3.2.12/redis.conf
 
 //设置Redis以守护进程模式运行
 daemonize yes
@@ -1140,7 +1140,6 @@ requirepass foobared
 
 //设置绑定ip，只要绑定的ip才能访问redis
 bind 127.0.0.1
-
 </code></pre>
 <h4 id="53-启动服务">5.3、启动服务</h4>
 <pre><code>[root@iZwz9cngn5wj3bafyrd539Z redis]# cd src
@@ -1177,7 +1176,7 @@ bind 127.0.0.1
         <div class="toc-title i-card-title">目录</div>
         <div class="toc-content">
             <ul class="markdownIt-TOC">
-<li>
+<li><a href="#%E9%98%BF%E9%87%8C%E4%BA%91centos68-%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE">阿里云CentOS6.8 基础环境配置</a>
 <ul>
 <li><a href="#1-%E5%AE%89%E8%A3%85jdk">1、安装jdk</a><br>
 *
