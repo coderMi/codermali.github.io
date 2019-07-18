@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://codermali.github.io/malideLibrary.github.io/</id>
+    <id>https://codermali.github.io/</id>
     <title>malide Library</title>
-    <updated>2019-07-18T15:18:54.304Z</updated>
+    <updated>2019-07-18T15:36:41.988Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://codermali.github.io/malideLibrary.github.io/"/>
-    <link rel="self" href="https://codermali.github.io/malideLibrary.github.io//atom.xml"/>
+    <link rel="alternate" href="https://codermali.github.io/"/>
+    <link rel="self" href="https://codermali.github.io//atom.xml"/>
     <subtitle>人生如逆旅，我亦是行人。</subtitle>
-    <logo>https://codermali.github.io/malideLibrary.github.io//images/avatar.png</logo>
-    <icon>https://codermali.github.io/malideLibrary.github.io//favicon.ico</icon>
+    <logo>https://codermali.github.io//images/avatar.png</logo>
+    <icon>https://codermali.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, malide Library</rights>
     <entry>
         <title type="html"><![CDATA[阿里云CentOS 6.8 基础环境配置]]></title>
-        <id>https://codermali.github.io/malideLibrary.github.io//post/a-li-yun-centos-68-ji-chu-huan-jing-pei-zhi</id>
-        <link href="https://codermali.github.io/malideLibrary.github.io//post/a-li-yun-centos-68-ji-chu-huan-jing-pei-zhi">
+        <id>https://codermali.github.io//post/a-li-yun-centos-68-ji-chu-huan-jing-pei-zhi</id>
+        <link href="https://codermali.github.io//post/a-li-yun-centos-68-ji-chu-huan-jing-pei-zhi">
         </link>
         <updated>2019-07-18T15:11:48.000Z</updated>
         <content type="html"><![CDATA[<p>本文是基于 <strong>阿里云服务器CentOS 6.8版本系统</strong> ，搭建一个基本的APP云环境。</p>
@@ -1050,8 +1050,8 @@ bind 127.0.0.1
     </entry>
     <entry>
         <title type="html"><![CDATA[阿里云centOS6.8 设置开机启动]]></title>
-        <id>https://codermali.github.io/malideLibrary.github.io//post/a-li-yun-centos68-she-zhi-kai-ji-qi-dong</id>
-        <link href="https://codermali.github.io/malideLibrary.github.io//post/a-li-yun-centos68-she-zhi-kai-ji-qi-dong">
+        <id>https://codermali.github.io//post/a-li-yun-centos68-she-zhi-kai-ji-qi-dong</id>
+        <link href="https://codermali.github.io//post/a-li-yun-centos68-she-zhi-kai-ji-qi-dong">
         </link>
         <updated>2019-07-18T10:25:27.000Z</updated>
         <content type="html"><![CDATA[<h4 id="基础知识">基础知识</h4>
@@ -1360,8 +1360,8 @@ CONF=&quot;/software/redis/redis-3.2.12/redis.conf&quot;
     </entry>
     <entry>
         <title type="html"><![CDATA[应用转让]]></title>
-        <id>https://codermali.github.io/malideLibrary.github.io//post/ying-yong-zhuan-rang</id>
-        <link href="https://codermali.github.io/malideLibrary.github.io//post/ying-yong-zhuan-rang">
+        <id>https://codermali.github.io//post/ying-yong-zhuan-rang</id>
+        <link href="https://codermali.github.io//post/ying-yong-zhuan-rang">
         </link>
         <updated>2019-07-18T10:19:23.000Z</updated>
         <content type="html"><![CDATA[<h2 id="前言">前言</h2>
@@ -1431,8 +1431,8 @@ CONF=&quot;/software/redis/redis-3.2.12/redis.conf&quot;
     </entry>
     <entry>
         <title type="html"><![CDATA[iOS State Restoration]]></title>
-        <id>https://codermali.github.io/malideLibrary.github.io//post/ios-state-restoration</id>
-        <link href="https://codermali.github.io/malideLibrary.github.io//post/ios-state-restoration">
+        <id>https://codermali.github.io//post/ios-state-restoration</id>
+        <link href="https://codermali.github.io//post/ios-state-restoration">
         </link>
         <updated>2019-06-24T17:35:18.000Z</updated>
         <content type="html"><![CDATA[<h2 id="前言">前言</h2>
@@ -1687,8 +1687,8 @@ State。
     </entry>
     <entry>
         <title type="html"><![CDATA[Mac 系统重装指南]]></title>
-        <id>https://codermali.github.io/malideLibrary.github.io//post/mac-xi-tong-chong-zhuang-zhi-nan</id>
-        <link href="https://codermali.github.io/malideLibrary.github.io//post/mac-xi-tong-chong-zhuang-zhi-nan">
+        <id>https://codermali.github.io//post/mac-xi-tong-chong-zhuang-zhi-nan</id>
+        <link href="https://codermali.github.io//post/mac-xi-tong-chong-zhuang-zhi-nan">
         </link>
         <updated>2019-06-24T11:02:37.000Z</updated>
         <content type="html"><![CDATA[<h2 id="前言">前言</h2>
@@ -2374,8 +2374,8 @@ ssh登陆时，需要制定ip地址和登录名，例如<code>ssh 192.168.1.1@ro
     </entry>
     <entry>
         <title type="html"><![CDATA[微信支付]]></title>
-        <id>https://codermali.github.io/malideLibrary.github.io//post/wei-xin-zhi-fu</id>
-        <link href="https://codermali.github.io/malideLibrary.github.io//post/wei-xin-zhi-fu">
+        <id>https://codermali.github.io//post/wei-xin-zhi-fu</id>
+        <link href="https://codermali.github.io//post/wei-xin-zhi-fu">
         </link>
         <updated>2019-06-21T09:21:59.000Z</updated>
         <content type="html"><![CDATA[<h3 id="微信支付">微信支付</h3>
