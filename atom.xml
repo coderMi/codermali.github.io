@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://codermali.github.io/malideLibrary.github.io/</id>
     <title>malide Library</title>
-    <updated>2019-07-11T18:52:22.175Z</updated>
+    <updated>2019-07-18T09:56:32.958Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://codermali.github.io/malideLibrary.github.io/"/>
     <link rel="self" href="https://codermali.github.io/malideLibrary.github.io//atom.xml"/>
@@ -59,7 +59,7 @@
 + (nullable id&lt;UIStateRestoring&gt;) objectWithRestorationIdentifierPath:(NSArray&lt;NSString *&gt; *)identifierComponents coder:(NSCoder *)coder;
 @end
 </code></pre>
-<p>###API使用
+<p>###API使用<br>
 在实际的使用中，分为两种情况。</p>
 <ol>
 <li><code>以UINavigationController</code>为根控制器。因为<code>UINavigationController</code>会自动记录子视图的层级，因此非常容易实现，这里不多说。Apple官方的demo也是基于<code>UINavigationController</code>的。</li>
@@ -309,9 +309,9 @@ State。
 <ul>
 <li>重置 NVRAM 或 PRAM。
 <blockquote>
-<p>根据apple官方文档(<a href="https://support.apple.com/zh-cn/HT204063">重置 Mac 上的 NVRAM 或 PRAM</a>)
-NVRAM（非易失性随机访问存储器）是一小部分内存，Mac 使用这些内存来储存某些设置并对其进行快速访问。PRAM（参数 RAM）储存着类似的信息，且 NVRAM 和 PRAM 的重置步骤相同。
-可储存在 NVRAM 中的设置包括音量、显示屏分辨率、启动磁盘选择、时区，以及最近的内核崩溃信息。储存在 NVRAM 中的设置取决于您的 Mac 以及与这台 Mac 搭配使用的设备。
+<p>根据apple官方文档(<a href="https://support.apple.com/zh-cn/HT204063">重置 Mac 上的 NVRAM 或 PRAM</a>)<br>
+NVRAM（非易失性随机访问存储器）是一小部分内存，Mac 使用这些内存来储存某些设置并对其进行快速访问。PRAM（参数 RAM）储存着类似的信息，且 NVRAM 和 PRAM 的重置步骤相同。<br>
+可储存在 NVRAM 中的设置包括音量、显示屏分辨率、启动磁盘选择、时区，以及最近的内核崩溃信息。储存在 NVRAM 中的设置取决于您的 Mac 以及与这台 Mac 搭配使用的设备。<br>
 如果您遇到与这些设置或其他设置有关的问题，那么重置 NVRAM 可能会有帮助。例如，如果 Mac 并非从“启动磁盘”偏好设置中选定的磁盘启动，或者在 Mac 启动前短暂地显示了一个问号图标，则可能需要重置 NVRAM。</p>
 </blockquote>
 </li>
@@ -322,7 +322,7 @@ NVRAM（非易失性随机访问存储器）是一小部分内存，Mac 使用�
 <ul>
 <li>以 <strong>安全模式</strong> 启动。它会执行某些检查并防止某些软件自动载入或打开。根据apple官方文档。
 <blockquote>
-<p>根据apple官方文档(<a href="https://support.apple.com/zh-cn/HT201262">使用安全模式查明 Mac 的相关问题
+<p>根据apple官方文档(<a href="https://support.apple.com/zh-cn/HT201262">使用安全模式查明 Mac 的相关问题<br>
 </a>)</p>
 </blockquote>
 <blockquote>
@@ -346,8 +346,8 @@ NVRAM（非易失性随机访问存储器）是一小部分内存，Mac 使用�
 <h4 id="13-在线重装系统">1.3 在线重装系统</h4>
 <p>格式化硬盘之后，返回 <strong>macOS实用工具</strong> ，选择 <strong>重新安装mac OS</strong> ，点击继续，选择安装磁盘，点击继续。在线安装根据网络状态，需要的时间也不等。在安装过程中，请保持电源连接，不要合上上盖，以便安装完成。</p>
 <h2 id="2系统配置">2.系统配置</h2>
-<p>系统重装完成之后，重新激活系统。可以选择从 <strong>Time Mechine</strong> 中还原系统，不过有个小问题。如果你使用icloud，备份的系统中 <strong>icloud drive</strong> 文件如果不是最新，那么会很麻烦。<strong>icloud drive</strong> 坑还是比较多的。在这里，我选择暂不传输，当做一台新电脑来折腾。
-进入系统之后，首先将mac自带的软件用一个文件夹装起来，毕竟原生的APP很多都不是很顺手。接下来，真正的工作就要开始了。
+<p>系统重装完成之后，重新激活系统。可以选择从 <strong>Time Mechine</strong> 中还原系统，不过有个小问题。如果你使用icloud，备份的系统中 <strong>icloud drive</strong> 文件如果不是最新，那么会很麻烦。<strong>icloud drive</strong> 坑还是比较多的。在这里，我选择暂不传输，当做一台新电脑来折腾。<br>
+进入系统之后，首先将mac自带的软件用一个文件夹装起来，毕竟原生的APP很多都不是很顺手。接下来，真正的工作就要开始了。<br>
 首先我们来对mac进行一些配置。</p>
 <h4 id="21-允许运行第三方应用">2.1 允许运行第三方应用。</h4>
 <pre><code>malideMacBook-Pro:Downloads mali$ sudo spctl --master-disable
@@ -394,9 +394,9 @@ The key's randomart image is:
 <h4 id="31-输入法">3.1 输入法</h4>
 <p>首先就是输入法，apple自带的输入法我是用不惯的，还是搜狗拼音顺手，多平台同步词库。</p>
 <h4 id="32-1password">3.2 1password</h4>
-<p>在当前时代，每个人都有巨量的账号。那么，账号密码的管理就是个大问题。1password就是一款密码管理的保险箱。
-除了支付宝、微信、以及各大银行的手机银行，我所有的账号密码都是由1password来管理。如果不安装1password，那我根本就不记得我的密码。平时需要做的，只是根据1password的提示更新密码等就可以了。
-另外，1password支持多平台，iphone，mac，windows，chrome插件等。据说windows下体验很差，不过我很少用，所以无所谓啦。
+<p>在当前时代，每个人都有巨量的账号。那么，账号密码的管理就是个大问题。1password就是一款密码管理的保险箱。<br>
+除了支付宝、微信、以及各大银行的手机银行，我所有的账号密码都是由1password来管理。如果不安装1password，那我根本就不记得我的密码。平时需要做的，只是根据1password的提示更新密码等就可以了。<br>
+另外，1password支持多平台，iphone，mac，windows，chrome插件等。据说windows下体验很差，不过我很少用，所以无所谓啦。<br>
 当然，也存在一些问题，比如说mac客户端和chrome插件的重叠。mac客户端可以日常使用，覆盖整个电脑。不过，在有些网站，密码输入框是禁止复制的，chrome插件则可以强行写入。二者缺一不可，所以只能多次输入主密码来解密了。</p>
 <h4 id="33-chrome-lantern">3.3 chrome + lantern</h4>
 <p>chrome是浏览器，lantern是一款VPN。</p>
@@ -428,15 +428,15 @@ brew list                  //展示目前安装的软件。
 </code></pre>
 <p>预览插件( <a href="https://github.com/sindresorhus/quick-look-plugins">quick-look-plugins</a> )：</p>
 <blockquote>
-<p>qlcolorcode    预览代码时代码高亮。
-qlstephen   支持预览没有后缀的文本文件。
-qlmarkdown  预览markdown文件的渲染效果。
-quicklook-json    对json文件的格式化和高亮预览。
-betterzip   预览压缩文件内部的内容，并支持自定义解压缩的行为；收费。
-qlimagesize    图片预览时展示分辨率和大小。
-webpquicklook  支持预览webP格式的图片。
-qlvideo  预览更多格式的视频文件。
-provisionql 可以预览.app或者.ipa文件的程序。
+<p>qlcolorcode    预览代码时代码高亮。<br>
+qlstephen   支持预览没有后缀的文本文件。<br>
+qlmarkdown  预览markdown文件的渲染效果。<br>
+quicklook-json    对json文件的格式化和高亮预览。<br>
+betterzip   预览压缩文件内部的内容，并支持自定义解压缩的行为；收费。<br>
+qlimagesize    图片预览时展示分辨率和大小。<br>
+webpquicklook  支持预览webP格式的图片。<br>
+qlvideo  预览更多格式的视频文件。<br>
+provisionql 可以预览.app或者.ipa文件的程序。<br>
 quicklookapk   预览安卓.apk的程序。</p>
 </blockquote>
 <pre><code>malideMacBook-Pro:~ mali$ brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize webpquicklook qlvideo provisionql quicklookapk
@@ -445,23 +445,23 @@ quicklookapk   预览安卓.apk的程序。</p>
 <pre><code>malideMacBook-Pro:~ mali$ brew install wget
 </code></pre>
 <h4 id="35-alfred-dropbox">3.5 Alfred + dropbox</h4>
-<p><strong>Alfred</strong> 是 <strong>Mac</strong> 平台上一款著名的效率提升工具，包含功能众多。它分为免费版和付费版。一般用户使用免费版就够了。
+<p><strong>Alfred</strong> 是 <strong>Mac</strong> 平台上一款著名的效率提升工具，包含功能众多。它分为免费版和付费版。一般用户使用免费版就够了。<br>
 <strong>dropbox</strong> 是境外的云盘服务，需要配备VPN才能使用。我使用它的唯一原因，只是因为Alfred配置文件同步只支持dropbox。一般保持一周更新一次的频率。</p>
-<p><strong>Alfred</strong>的使用，我就不介绍了，太多文章了。这里列一些我收藏的。
-<a href="https://sspai.com/post/32979">从零开始学习 Alfred：基础功能及设置</a>
-<a href="https://sspai.com/post/55098">一切为了让效率更进一步，Alfred 4.0 更新详解</a>
-<a href="https://sspai.com/post/34468">它已不仅仅是一款 Mac 效率启动器：Alfred 3.0 新版详解</a>
-<a href="https://sspai.com/post/32680">5 款提高文件处理效率的 Alfred 扩展</a>
-<a href="https://sspai.com/post/32281">4 款「本地化」的 Alfred 扩展分享</a>
-<a href="https://sspai.com/post/47063">妙用 Alfred 让你最近使用的文件触手可及</a>
-<a href="https://sspai.com/post/28137">OS X 效率启动器 Alfred 的最佳伴侣：Alfred Remote for iOS 上手详解</a>
-<a href="https://sspai.com/post/27929">OS X 效率启动器 Alfred 的 5 个实用扩展推荐（二）</a>
+<p><strong>Alfred</strong>的使用，我就不介绍了，太多文章了。这里列一些我收藏的。<br>
+<a href="https://sspai.com/post/32979">从零开始学习 Alfred：基础功能及设置</a><br>
+<a href="https://sspai.com/post/55098">一切为了让效率更进一步，Alfred 4.0 更新详解</a><br>
+<a href="https://sspai.com/post/34468">它已不仅仅是一款 Mac 效率启动器：Alfred 3.0 新版详解</a><br>
+<a href="https://sspai.com/post/32680">5 款提高文件处理效率的 Alfred 扩展</a><br>
+<a href="https://sspai.com/post/32281">4 款「本地化」的 Alfred 扩展分享</a><br>
+<a href="https://sspai.com/post/47063">妙用 Alfred 让你最近使用的文件触手可及</a><br>
+<a href="https://sspai.com/post/28137">OS X 效率启动器 Alfred 的最佳伴侣：Alfred Remote for iOS 上手详解</a><br>
+<a href="https://sspai.com/post/27929">OS X 效率启动器 Alfred 的 5 个实用扩展推荐（二）</a><br>
 <a href="https://sspai.com/post/47063">妙用 Alfred 让你最近使用的文件触手可及</a></p>
 <h4 id="36-cheat-sheet">3.6 cheat sheet</h4>
-<p><strong>cheat sheet</strong> 是macOS平台上一款用来查看当前页面的可用快捷键的APP，可以极大的提高效率。
+<p><strong>cheat sheet</strong> 是macOS平台上一款用来查看当前页面的可用快捷键的APP，可以极大的提高效率。<br>
 使用比较简单，安装完毕之后，在 <strong>系统偏好设置</strong> -&gt; <strong>安全性与隐私</strong> -&gt; <strong>辅助功能</strong> 中添加权限，就可以正常使用啦，长按 <strong>command</strong>键即可。</p>
 <h4 id="37-cleanmymac">3.7 cleanmymac</h4>
-<p><strong>cleanmymac</strong> 是 macOS 平台上的电脑管家，可以进行清理缓存垃圾，卸载APP等操作。我主要把它当做一个卸载器。
+<p><strong>cleanmymac</strong> 是 macOS 平台上的电脑管家，可以进行清理缓存垃圾，卸载APP等操作。我主要把它当做一个卸载器。<br>
 收费软件，请自己考量。</p>
 <h4 id="38-iterm2-oh-my-zsh">3.8 iterm2 + oh my zsh</h4>
 <p>作为程序员，会有非常多的场景用到命令行。macOS系统自带的terminal有时候不是很顺手，我们可以选择另外一个更好用的命令行工具 <strong>iterm2</strong>。可以使用homebrew安装。</p>
@@ -484,11 +484,11 @@ malideMacBook-Pro:~ mali$ sh -c &quot;$(curl -fsSL https://raw.github.com/robbyr
 malideMacBook-Pro:~ mali$ sh -c &quot;$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;
 </code></pre>
 <h5 id="381-为什么用zsh">3.8.1 为什么用zsh</h5>
-<p>zsh和bash都是shell的一种，不过zsh在使用中，更加便利。对我来说，仅仅是zsh的自动补全就足以让我选择用它了。向更进一步了解，可以查看下列文章。
-<a href="https://www.zhihu.com/question/21418449">为什么说 zsh 是 shell 中的极品？</a>
+<p>zsh和bash都是shell的一种，不过zsh在使用中，更加便利。对我来说，仅仅是zsh的自动补全就足以让我选择用它了。向更进一步了解，可以查看下列文章。<br>
+<a href="https://www.zhihu.com/question/21418449">为什么说 zsh 是 shell 中的极品？</a><br>
 <a href="https://www.xshell.net/shell/bash_zsh.html">Zsh和Bash，究竟有何不同 坑很深</a></p>
 <h5 id="382-为什么用oh-my-zsh">3.8.2 为什么用oh my zsh</h5>
-<p>zsh的配置需要花费大量的时间，而 <strong>oh my zsh</strong> 相当于是一个提供了预设个性配置的zsh，大大减少了我们配置的时间，非常推荐使用。
+<p>zsh的配置需要花费大量的时间，而 <strong>oh my zsh</strong> 相当于是一个提供了预设个性配置的zsh，大大减少了我们配置的时间，非常推荐使用。<br>
 <a href="https://www.jianshu.com/p/d194d29e488c?open_source=weibo_search">oh-my-zsh,让你的终端从未这么爽过</a></p>
 <h5 id="383-oh-my-zsh-基本使用">3.8.3 oh my zsh 基本使用</h5>
 <pre><code>//查看当前使用的shell
@@ -547,10 +547,10 @@ agnoster主题，需要Powerline字体库的支持。
 然后重启iterm即可。
 </code></pre>
 <h4 id="39-ssh-copy-id">3.9 ssh-copy-id</h4>
-<p>SSH 是 Secure Shell 的缩写，其实就是远程 Shell 登录。只要能远程登录到某台机器的 Shell 上，大到 Mac 笔记本，小到树莓派和智能路由器，我们就可以上传或下载文件、执行脚本等等，几乎掌握了设备的控制权。一般来说，配置自己的云服务器，都需要ssh登陆。
-ssh登陆时，需要制定ip地址和登录名，例如<code>ssh 192.168.1.1@root</code>，就是指登陆ip为192.168.1.1的主机的用户root。ssh协议默认端口为22，不用填写；如果设备为了安全修改了端口为1234，则必须输入，例如<code>ssh -p 1234 192.168.1.1@root</code>。接下来输入密码就可以登陆了。
-不过记忆密码是一件非常麻烦的事，好在ssh支持使用RSA的公钥和私钥来验证身份。具体就是指将自己的公钥文件（ ~/.ssh/id_rsa.pub ）的内容复制到目标服务器（ ~/.ssh/authorized_keys ）文件中。这样其实也很繁琐。
-<strong>ssh-copy-id</strong> 就是一款简化过程，方便我们使用的工具。
+<p>SSH 是 Secure Shell 的缩写，其实就是远程 Shell 登录。只要能远程登录到某台机器的 Shell 上，大到 Mac 笔记本，小到树莓派和智能路由器，我们就可以上传或下载文件、执行脚本等等，几乎掌握了设备的控制权。一般来说，配置自己的云服务器，都需要ssh登陆。<br>
+ssh登陆时，需要制定ip地址和登录名，例如<code>ssh 192.168.1.1@root</code>，就是指登陆ip为192.168.1.1的主机的用户root。ssh协议默认端口为22，不用填写；如果设备为了安全修改了端口为1234，则必须输入，例如<code>ssh -p 1234 192.168.1.1@root</code>。接下来输入密码就可以登陆了。<br>
+不过记忆密码是一件非常麻烦的事，好在ssh支持使用RSA的公钥和私钥来验证身份。具体就是指将自己的公钥文件（ ~/.ssh/id_rsa.pub ）的内容复制到目标服务器（ ~/.ssh/authorized_keys ）文件中。这样其实也很繁琐。<br>
+<strong>ssh-copy-id</strong> 就是一款简化过程，方便我们使用的工具。<br>
 另外，可以通过ssh的配置文件配置来设置云服务器的别名，省去了记忆ip、用户名、端口号的麻烦。基本格式如下</p>
 <pre><code>Host malitest
     HostName 192.168.1.1
@@ -559,8 +559,8 @@ ssh登陆时，需要制定ip地址和登录名，例如<code>ssh 192.168.1.1@ro
     IdentityFile ~/.ssh/id_rsa
 </code></pre>
 <h4 id="310-irvue">3.10 irvue</h4>
-<p><strong>irvue</strong> 是一款壁纸APP，基于 Unsplash ，有很多精美的图片。
-其实基于 Unsplash 的壁纸APP还有好几款，不过 <strong>irvue</strong> 最让我满意的地方是，在存在多个桌面时，可以同时修改多个桌面的壁纸。
+<p><strong>irvue</strong> 是一款壁纸APP，基于 Unsplash ，有很多精美的图片。<br>
+其实基于 Unsplash 的壁纸APP还有好几款，不过 <strong>irvue</strong> 最让我满意的地方是，在存在多个桌面时，可以同时修改多个桌面的壁纸。<br>
 了解更多，可以参考少数派的这篇文章：<a href="https://sspai.com/post/41665">你只需要欣赏桌面，把换壁纸的事交给 Irvue 就好了</a></p>
 <h4 id="311-keka">3.11 <a href="https://www.keka.io/en/">keka</a></h4>
 <p>macOS 系统自身只支持zip格式，如果碰到其他格式的压缩文件，那么就需要keka来帮助你。kake是一款非常好用的压缩程序，支持各种压缩格式，支持分卷压缩，支持设置解压缩密码。</p>
@@ -571,10 +571,10 @@ ssh登陆时，需要制定ip地址和登录名，例如<code>ssh 192.168.1.1@ro
 <h2 id="4-ios开发环境配置">4 iOS开发环境配置</h2>
 <p>ios开发， 一般来说，都是使用apple提供的IDE，Xcode。另外，我习惯使用了cocoapods作为第三方库管理工具。</p>
 <h4 id="41-xcode安装">4.1. Xcode安装</h4>
-<p>现在一些辅助的工具安装完毕，作为一个iOS开发工程师，接下来首先要做的肯定是配置开发环境啦。
+<p>现在一些辅助的工具安装完毕，作为一个iOS开发工程师，接下来首先要做的肯定是配置开发环境啦。<br>
 首先是Xcode。自从2015年 <code>Xcode ghost</code>事件之后，下载 <a href="https://itunes.apple.com/us/app/xcode/id497799835?mt=12">Xcode</a> 还是建议直接到mac的App Store去下载了，，非常方便，历史版本，可以直接上苹果开发者网站下载(<a href="https://developer.apple.com/download/more/?=xcode">More Downloads for Apple Developers</a>)。Xcode作为苹果官方出品的IDE，如果不是Xcode8以后禁了插件，我会更爱它。</p>
 <h4 id="42-xcode模拟器安装">4.2. Xcode模拟器安装</h4>
-<p>模拟器安装本来是个很简单的工作，在「Xcode -&gt; Preferences -&gt; Components」中选择想要安装的模拟器就可以了。但是，apple的服务器着实不稳定，有时候会慢的让你怀疑人生。因此，我在想会不会又更方便的安装方式呢？检索资料之后，找到了这篇文章：<a href="https://www.jianshu.com/p/fd7c40b15192">解决直接在xcode下载模拟器慢的方案</a>。感谢作者分享。
+<p>模拟器安装本来是个很简单的工作，在「Xcode -&gt; Preferences -&gt; Components」中选择想要安装的模拟器就可以了。但是，apple的服务器着实不稳定，有时候会慢的让你怀疑人生。因此，我在想会不会又更方便的安装方式呢？检索资料之后，找到了这篇文章：<a href="https://www.jianshu.com/p/fd7c40b15192">解决直接在xcode下载模拟器慢的方案</a>。感谢作者分享。<br>
 我大致介绍一下。</p>
 <ol>
 <li>打开「实用工具 -&gt; console」(系统控制台)。</li>
@@ -592,7 +592,7 @@ ssh登陆时，需要制定ip地址和登录名，例如<code>ssh 192.168.1.1@ro
 <blockquote>
 <p>CocoaPods is a dependency manager for Swift and Objective-C Cocoa projects. It has over 62 thousand libraries and is used in over 3 million apps. CocoaPods can help you scale your projects elegantly.</p>
 </blockquote>
-<p>这是官方的一段简介。大致意思是，<code>Cocoapods</code> 是专为基于swift和Objective-C语言编写的项目提供依赖库管理的工具，拥有超过6万个第三方框架，超过300万个APP在使用它。<code>Cocoapods</code>可以让你优雅的拓展项目。
+<p>这是官方的一段简介。大致意思是，<code>Cocoapods</code> 是专为基于swift和Objective-C语言编写的项目提供依赖库管理的工具，拥有超过6万个第三方框架，超过300万个APP在使用它。<code>Cocoapods</code>可以让你优雅的拓展项目。<br>
 具体来说，<code>Cocoapods</code>可以帮助我们节省配置和更新第三方库的时间；另外，自己开发的组件也可以上传到<code>Cocoapods</code>，以供他人使用。</p>
 <p>如果不使用<code>Cocoapods</code>，正常来说，我们使用第三方库，需要经历一下步骤：</p>
 <ol>
@@ -602,8 +602,8 @@ ssh登陆时，需要制定ip地址和登录名，例如<code>ssh 192.168.1.1@ro
 <li>手动管理第三方库的更新。</li>
 </ol>
 <p>这个过程是比较繁琐的，其中更是会出现很多奇奇怪怪的报错，处理起来非常麻烦。如果是使用<code>Cocoapods</code>，那么这些都不用管，<code>Cocoapods</code>会帮我们处理好。</p>
-<p>如果想多了解<code>Cocoapods</code>，可以看下这些文章：
-<a href="https://juejin.im/post/5b1cfaff6fb9a01e417b6051">我所理解的 CocoaPods</a>
+<p>如果想多了解<code>Cocoapods</code>，可以看下这些文章：<br>
+<a href="https://juejin.im/post/5b1cfaff6fb9a01e417b6051">我所理解的 CocoaPods</a><br>
 <a href="http://www.code4app.com/article/cocoapods-install-usage">CocoaPods安装和使用教程</a></p>
 <h5 id="432-cocoapods的安装">4.3.2. <code>Cocoapods</code>的安装</h5>
 <p><code>Cocoapods</code>本质上是一个Ruby项目，由若干gems组成。因此本地需要配置Ruby环境才可以运行。在Mac系统中，是自带Ruby的。使用命令<code>Ruby -v</code>查看当前版本。</p>
@@ -688,7 +688,7 @@ Ruby was built without documentation, to build it run: rvm docs generate-ri
 Using /Users/mali/.rvm/gems/ruby-2.6.3
 ➜  ~
 </code></pre>
-<p><strong>更换国内源<code>https://gems.ruby-china.com/</code></strong>
+<p><strong>更换国内源<code>https://gems.ruby-china.com/</code></strong><br>
 由于墙的存在，因此默认的源是非常非常慢的，需要切换的国内的镜像源。</p>
 <pre><code>// 移除自带源，因为国内被墙了
 ➜  ~ gem sources --remove https://rubygems.org/
