@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://codermali.github.io/</id>
     <title>malide Library</title>
-    <updated>2019-07-18T16:21:44.522Z</updated>
+    <updated>2019-07-19T08:11:29.476Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://codermali.github.io/"/>
     <link rel="self" href="https://codermali.github.io//atom.xml"/>
@@ -948,19 +948,24 @@ mysql: /usr/lib64/mysql /usr/share/mysql
 mysql-libs-5.1.73-8.el6_8.x86_64
 </code></pre>
 <h4 id="22-卸载已经安装的mysql">2.2、卸载已经安装的mysql</h4>
-<p><code>[root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -e --nodeps mysql-libs-5.1.73-8.el6_8.x86_64 [root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -qa | grep -i mysql [root@iZwz9cngn5wj3bafyrd539Z mysql]# whereis mysql mysql:</code></p>
+<pre><code>[root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -e --nodeps mysql-libs-5.1.73-8.el6_8.x86_64
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -qa | grep -i mysql
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# whereis mysql
+mysql:
+</code></pre>
 <h4 id="23-添加用户">2.3、添加用户</h4>
-<p><code>[root@iZwz9cngn5wj3bafyrd539Z mysql]# groupadd mysql [root@iZwz9cngn5wj3bafyrd539Z mysql]# useradd -g mysql mysql</code></p>
+<pre><code>[root@iZwz9cngn5wj3bafyrd539Z mysql]# groupadd mysql
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# useradd -g mysql mysql
+</code></pre>
 <h4 id="24-创建mycnf配置文件">2.4、创建my.cnf配置文件</h4>
-<p>`<br>
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# vi /etc/my.cnf</p>
-<p>[mysqld]<br>
-explicit_defaults_for_timestamp=true<br>
-lower_case_table_names=1<br>
-basedir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64<br>
-datadir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data<br>
-sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION<br>
-`</p>
+<pre><code>[root@iZwz9cngn5wj3bafyrd539Z mysql]# vi /etc/my.cnf
+[mysqld]
+explicit_defaults_for_timestamp=true
+lower_case_table_names=1
+basedir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64
+datadir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data
+sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+</code></pre>
 <h4 id="25-解压安装">2.5、解压安装</h4>
 <pre><code>//解压
 [root@iZwz9cngn5wj3bafyrd539Z mysql]# tar -zxvf mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz
@@ -1038,10 +1043,9 @@ Query OK, 0 rows affected, 1 warning (0.00 sec)
 //mysql 新设置用户或更改密码后需用flush privileges刷新MySQL的系统权限相关表，否则会出现拒绝访问，还有一种方法，就是重新启动mysql服务器，来使新设置生效。­
 mysql&gt; FLUSH PRIVILEGES;
 Query OK, 0 rows affected (0.00 sec)
-`
-MySQL5.7的版本，需要设置sql_mode，否则非聚集列group by查询会出现如下错误：
-`
-Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'XXX.XXX' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+</code></pre>
+<p>MySQL5.7的版本，需要设置sql_mode，否则非聚集列group by查询会出现如下错误：</p>
+<pre><code>Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'XXX.XXX' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
 </code></pre>
 ]]></content>
     </entry>
@@ -1078,1047 +1082,6 @@ export CLASSPATH=$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib export PATH=$JAVA_
 
 //打印出以下内容,说明安装成功
 java version “1.8.0_171”Java(TM) SE Runtime Environment (build 1.8.0_171-b11)Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode)
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[阿里云CentOS 6.8 基础环境配置]]></title>
-        <id>https://codermali.github.io//post/a-li-yun-centos-68-ji-chu-huan-jing-pei-zhi</id>
-        <link href="https://codermali.github.io//post/a-li-yun-centos-68-ji-chu-huan-jing-pei-zhi">
-        </link>
-        <updated>2019-07-18T15:11:48.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="阿里云centos68-基础环境配置">阿里云CentOS6.8 基础环境配置</h1>
-<h2 id="概述">概述</h2>
-<p>本文是基于 <strong>阿里云服务器CentOS 6.8版本系统</strong> ，搭建一个基本的APP云环境。</p>
-<h2 id="1-安装jdk">1、安装jdk</h2>
-<p>JDK是 Java 语言的软件开发工具包，主要用于移动设备、嵌入式设备上的java应用程序。JDK是整个java开发的核心，它包含了JAVA的运行环境（JVM+Java系统类库）和JAVA工具。</p>
-<h4 id="11-首先检查系统是否安装了jdk">1.1、首先检查系统是否安装了jdk</h4>
-<p><code>java -version</code></p>
-<h4 id="12-如果安装了jdk那么卸载掉">1.2、如果安装了jdk,那么卸载掉</h4>
-<p><code>rpm -qa | grep java | xargs rpm -e —nodeps</code></p>
-<h4 id="13-查看卸载结果">1.3、查看卸载结果</h4>
-<p><code>java -version</code></p>
-<h4 id="14-首先去官网下载jdk安装包targz">1.4、首先去官网下载JDK安装包(tar.gz)</h4>
-<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Java SE Development Kit 8 Downloads</a></p>
-<h4 id="15-解压安装包">1.5、解压安装包</h4>
-<p><code>tar -zxvf jdk-8u171-linux-x64.tar.gz</code></p>
-<h4 id="16-配置全局java环境变量">1.6、配置全局java环境变量</h4>
-<pre><code>//使用VI编辑器打开profile文件 vi /etc/profile //移动到最后面,加入下面四行
-export JAVA_HOME=/usr/local/jdk1.8.0_171 
-export JER_HOME=/usr/local/jdk1.8.0_171/jre 
-export CLASSPATH=$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOME/bin
-</code></pre>
-<h4 id="17-使profile文件生效">1.7、使profile文件生效</h4>
-<p><code>source /etc/profile</code></p>
-<h4 id="18-验证是否安装成功">1.8、验证是否安装成功</h4>
-<pre><code>java -version
-
-//打印出以下内容,说明安装成功
-java version “1.8.0_171”Java(TM) SE Runtime Environment (build 1.8.0_171-b11)Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode)
-</code></pre>
-<h2 id="2-安装mysql">2、安装mysql</h2>
-<p>MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下产品。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。</p>
-<h4 id="21-检查是否已经安装了mysql">2.1、检查是否已经安装了mysql</h4>
-<pre><code>//whereis mysql
-
-//可以看到mysql的包
-rpm -qa | grep -i mysql
-
-//出现以下打印，说明已经安装了mysql，需要卸载掉
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# whereis mysql
-mysql: /usr/lib64/mysql /usr/share/mysql
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -qa | grep -i mysql
-mysql-libs-5.1.73-8.el6_8.x86_64
-</code></pre>
-<h4 id="22-卸载已经安装的mysql">2.2、卸载已经安装的mysql</h4>
-<p><code>[root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -e --nodeps mysql-libs-5.1.73-8.el6_8.x86_64 [root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -qa | grep -i mysql [root@iZwz9cngn5wj3bafyrd539Z mysql]# whereis mysql mysql:</code></p>
-<h4 id="23-添加用户">2.3、添加用户</h4>
-<p><code>[root@iZwz9cngn5wj3bafyrd539Z mysql]# groupadd mysql [root@iZwz9cngn5wj3bafyrd539Z mysql]# useradd -g mysql mysql</code></p>
-<h4 id="24-创建mycnf配置文件">2.4、创建my.cnf配置文件</h4>
-<p>`<br>
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# vi /etc/my.cnf</p>
-<p>[mysqld]<br>
-explicit_defaults_for_timestamp=true<br>
-lower_case_table_names=1<br>
-basedir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64<br>
-datadir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data<br>
-sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION<br>
-`</p>
-<h4 id="25-解压安装">2.5、解压安装</h4>
-<pre><code>//解压
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# tar -zxvf mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz
-
-//改变所有者
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# chown -R mysql:mysql /software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64
-
-//初始化
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# cd mysql-5.7.18-linux-glibc2.5-x86_64/bin/
-[root@iZwz9cngn5wj3bafyrd539Z bin]# ./mysqld --user=mysql --basedir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64 --datadir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data --initialize
-2018-10-11T07:33:56.224082Z 0 [Warning] InnoDB: New log files created, LSN=45790
-2018-10-11T07:33:56.323553Z 0 [Warning] InnoDB: Creating foreign key constraint system tables.
-2018-10-11T07:33:56.386146Z 0 [Warning] No existing UUID has been found, so we assume that this is the first time that this server has been started. Generating a new UUID: 02c83522-cd28-11e8-8c68-00163e06f845.
-2018-10-11T07:33:56.388001Z 0 [Warning] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
-2018-10-11T07:33:56.388604Z 1 [Note] A temporary password is generated for root@localhost: WfIA9=!!rwN3
-[root@iZwz9cngn5wj3bafyrd539Z bin]#
-</code></pre>
-<h4 id="26-数据加密">2.6、数据加密</h4>
-<pre><code>[root@iZwz9cngn5wj3bafyrd539Z bin]# ./mysql_ssl_rsa_setup  --datadir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data/
-Generating a 2048 bit RSA private key
-......+++
-........................+++
-writing new private key to 'ca-key.pem'
------
-Generating a 2048 bit RSA private key
-......................................................................................................................+++
-.....+++
-writing new private key to 'server-key.pem'
------
-Generating a 2048 bit RSA private key
-..................+++
-....................+++
-writing new private key to 'client-key.pem'
------
-[root@iZwz9cngn5wj3bafyrd539Z bin]#
-</code></pre>
-<h4 id="27-启动服务">2.7、启动服务</h4>
-<pre><code>[root@iZwz9cngn5wj3bafyrd539Z bin]# cd ../support-files/
-[root@iZwz9cngn5wj3bafyrd539Z support-files]# ./mysql.server start
-Starting MySQL.Logging to '/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data/iZwz9cngn5wj3bafyrd539Z.err'.
-                                                           [  OK  ]
-[root@iZwz9cngn5wj3bafyrd539Z support-files]#
-</code></pre>
-<h4 id="28-登录终端">2.8、登录终端</h4>
-<pre><code>//进入`bin`目录
-[root@iZwz9cngn5wj3bafyrd539Z support-files]# cd ../bin/
-//登录终端，输入密码
-[root@iZwz9cngn5wj3bafyrd539Z bin]# ./mysql -uroot -p
-Enter password:
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 3
-Server version: 5.7.18
-
-Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.
-
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-
-mysql&gt;
-</code></pre>
-<h4 id="29-初始化root账号密码">2.9、初始化root账号密码</h4>
-<pre><code>//重置root账号密码
-mysql&gt; set password=password('}UoJs4AL7Lp2M*?u,f9ZJKft');
-Query OK, 0 rows affected, 1 warning (0.00 sec)
-
-mysql&gt;
-</code></pre>
-<h4 id="210-开启远程用户">2.10、开启远程用户</h4>
-<pre><code>//设置远程账号的账号密码
-mysql&gt; GRANT ALL PRIVILEGES ON *.* TO 'merchants_remote'@'%' identified by 'dGbq4dUEQF8zxJAqbM7MZvd3' WITH GRANT OPTION;
-Query OK, 0 rows affected, 1 warning (0.00 sec)
-//mysql 新设置用户或更改密码后需用flush privileges刷新MySQL的系统权限相关表，否则会出现拒绝访问，还有一种方法，就是重新启动mysql服务器，来使新设置生效。­
-mysql&gt; FLUSH PRIVILEGES;
-Query OK, 0 rows affected (0.00 sec)
-`
-MySQL5.7的版本，需要设置sql_mode，否则非聚集列group by查询会出现如下错误：
-`
-Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'XXX.XXX' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
-</code></pre>
-<h2 id="3-安装tomcat">3、安装tomcat</h2>
-<p>Tomcat是Apache 软件基金会（Apache Software Foundation）的Jakarta 项目中的一个核心项目，由Apache、Sun 和其他一些公司及个人共同开发而成。由于有了Sun 的参与和支持，最新的Servlet 和JSP 规范总是能在Tomcat 中得到体现，Tomcat 5支持最新的Servlet 2.4 和JSP 2.0 规范。因为Tomcat 技术先进、性能稳定，而且免费，因而深受Java 爱好者的喜爱并得到了部分软件开发商的认可，成为目前比较流行的Web 应用服务器。</p>
-<h4 id="31解压">3.1解压</h4>
-<pre><code>[root@iZwz9cngn5wj3bafyrd539Z tomcat]# tar -zxvf apache-tomcat-8.5.32.tar.gz
-apache-tomcat-8.5.32/conf/
-apache-tomcat-8.5.32/conf/catalina.policy
-apache-tomcat-8.5.32/conf/catalina.properties
-apache-tomcat-8.5.32/conf/context.xml
-apache-tomcat-8.5.32/conf/jaspic-providers.xml
-apache-tomcat-8.5.32/conf/jaspic-providers.xsd
-apache-tomcat-8.5.32/conf/logging.properties
-apache-tomcat-8.5.32/conf/server.xml
-apache-tomcat-8.5.32/conf/tomcat-users.xml
-apache-tomcat-8.5.32/conf/tomcat-users.xsd
-apache-tomcat-8.5.32/conf/web.xml
-apache-tomcat-8.5.32/bin/
-apache-tomcat-8.5.32/lib/
-apache-tomcat-8.5.32/logs/
-apache-tomcat-8.5.32/temp/
-apache-tomcat-8.5.32/webapps/
-apache-tomcat-8.5.32/webapps/ROOT/
-apache-tomcat-8.5.32/webapps/ROOT/WEB-INF/
-apache-tomcat-8.5.32/webapps/docs/
-apache-tomcat-8.5.32/webapps/docs/WEB-INF/
-apache-tomcat-8.5.32/webapps/docs/api/
-apache-tomcat-8.5.32/webapps/docs/appdev/
-apache-tomcat-8.5.32/webapps/docs/appdev/sample/
-apache-tomcat-8.5.32/webapps/docs/appdev/sample/docs/
-apache-tomcat-8.5.32/webapps/docs/appdev/sample/src/
-apache-tomcat-8.5.32/webapps/docs/appdev/sample/src/mypackage/
-apache-tomcat-8.5.32/webapps/docs/appdev/sample/web/
-apache-tomcat-8.5.32/webapps/docs/appdev/sample/web/WEB-INF/
-apache-tomcat-8.5.32/webapps/docs/appdev/sample/web/images/
-apache-tomcat-8.5.32/webapps/docs/architecture/
-apache-tomcat-8.5.32/webapps/docs/architecture/requestProcess/
-apache-tomcat-8.5.32/webapps/docs/architecture/startup/
-apache-tomcat-8.5.32/webapps/docs/config/
-apache-tomcat-8.5.32/webapps/docs/elapi/
-apache-tomcat-8.5.32/webapps/docs/funcspecs/
-apache-tomcat-8.5.32/webapps/docs/images/
-apache-tomcat-8.5.32/webapps/docs/images/fonts/
-apache-tomcat-8.5.32/webapps/docs/jspapi/
-apache-tomcat-8.5.32/webapps/docs/servletapi/
-apache-tomcat-8.5.32/webapps/docs/tribes/
-apache-tomcat-8.5.32/webapps/docs/websocketapi/
-apache-tomcat-8.5.32/webapps/examples/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/async/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/cal/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/checkbox/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/colors/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/compressionFilters/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/dates/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/error/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/examples/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/filters/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/jsp2/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/jsp2/examples/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/jsp2/examples/el/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/listeners/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/nonblocking/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/num/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/sessions/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/util/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/validators/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/chat/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/wsmessages/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/echo/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/snake/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/jsp/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/jsp2/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/jsp/applet/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/lib/
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/tags/
-apache-tomcat-8.5.32/webapps/examples/jsp/
-apache-tomcat-8.5.32/webapps/examples/jsp/async/
-apache-tomcat-8.5.32/webapps/examples/jsp/cal/
-apache-tomcat-8.5.32/webapps/examples/jsp/checkbox/
-apache-tomcat-8.5.32/webapps/examples/jsp/colors/
-apache-tomcat-8.5.32/webapps/examples/jsp/dates/
-apache-tomcat-8.5.32/webapps/examples/jsp/error/
-apache-tomcat-8.5.32/webapps/examples/jsp/forward/
-apache-tomcat-8.5.32/webapps/examples/jsp/images/
-apache-tomcat-8.5.32/webapps/examples/jsp/include/
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/el/
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/jspattribute/
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/jspx/
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/misc/
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/simpletag/
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/tagfiles/
-apache-tomcat-8.5.32/webapps/examples/jsp/jsptoserv/
-apache-tomcat-8.5.32/webapps/examples/jsp/num/
-apache-tomcat-8.5.32/webapps/examples/jsp/plugin/
-apache-tomcat-8.5.32/webapps/examples/jsp/plugin/applet/
-apache-tomcat-8.5.32/webapps/examples/jsp/security/
-apache-tomcat-8.5.32/webapps/examples/jsp/security/protected/
-apache-tomcat-8.5.32/webapps/examples/jsp/sessions/
-apache-tomcat-8.5.32/webapps/examples/jsp/simpletag/
-apache-tomcat-8.5.32/webapps/examples/jsp/snp/
-apache-tomcat-8.5.32/webapps/examples/jsp/tagplugin/
-apache-tomcat-8.5.32/webapps/examples/jsp/xml/
-apache-tomcat-8.5.32/webapps/examples/servlets/
-apache-tomcat-8.5.32/webapps/examples/servlets/images/
-apache-tomcat-8.5.32/webapps/examples/servlets/nonblocking/
-apache-tomcat-8.5.32/webapps/examples/websocket/
-apache-tomcat-8.5.32/webapps/host-manager/
-apache-tomcat-8.5.32/webapps/host-manager/META-INF/
-apache-tomcat-8.5.32/webapps/host-manager/WEB-INF/
-apache-tomcat-8.5.32/webapps/host-manager/WEB-INF/jsp/
-apache-tomcat-8.5.32/webapps/host-manager/images/
-apache-tomcat-8.5.32/webapps/manager/
-apache-tomcat-8.5.32/webapps/manager/META-INF/
-apache-tomcat-8.5.32/webapps/manager/WEB-INF/
-apache-tomcat-8.5.32/webapps/manager/WEB-INF/jsp/
-apache-tomcat-8.5.32/webapps/manager/images/
-apache-tomcat-8.5.32/work/
-apache-tomcat-8.5.32/LICENSE
-apache-tomcat-8.5.32/NOTICE
-apache-tomcat-8.5.32/RELEASE-NOTES
-apache-tomcat-8.5.32/RUNNING.txt
-apache-tomcat-8.5.32/bin/bootstrap.jar
-apache-tomcat-8.5.32/bin/catalina-tasks.xml
-apache-tomcat-8.5.32/bin/catalina.bat
-apache-tomcat-8.5.32/bin/commons-daemon-native.tar.gz
-apache-tomcat-8.5.32/bin/commons-daemon.jar
-apache-tomcat-8.5.32/bin/configtest.bat
-apache-tomcat-8.5.32/bin/digest.bat
-apache-tomcat-8.5.32/bin/setclasspath.bat
-apache-tomcat-8.5.32/bin/shutdown.bat
-apache-tomcat-8.5.32/bin/startup.bat
-apache-tomcat-8.5.32/bin/tomcat-juli.jar
-apache-tomcat-8.5.32/bin/tomcat-native.tar.gz
-apache-tomcat-8.5.32/bin/tool-wrapper.bat
-apache-tomcat-8.5.32/bin/version.bat
-apache-tomcat-8.5.32/lib/annotations-api.jar
-apache-tomcat-8.5.32/lib/catalina-ant.jar
-apache-tomcat-8.5.32/lib/catalina-ha.jar
-apache-tomcat-8.5.32/lib/catalina-storeconfig.jar
-apache-tomcat-8.5.32/lib/catalina-tribes.jar
-apache-tomcat-8.5.32/lib/catalina.jar
-apache-tomcat-8.5.32/lib/ecj-4.6.3.jar
-apache-tomcat-8.5.32/lib/el-api.jar
-apache-tomcat-8.5.32/lib/jasper-el.jar
-apache-tomcat-8.5.32/lib/jasper.jar
-apache-tomcat-8.5.32/lib/jaspic-api.jar
-apache-tomcat-8.5.32/lib/jsp-api.jar
-apache-tomcat-8.5.32/lib/servlet-api.jar
-apache-tomcat-8.5.32/lib/tomcat-api.jar
-apache-tomcat-8.5.32/lib/tomcat-coyote.jar
-apache-tomcat-8.5.32/lib/tomcat-dbcp.jar
-apache-tomcat-8.5.32/lib/tomcat-i18n-es.jar
-apache-tomcat-8.5.32/lib/tomcat-i18n-fr.jar
-apache-tomcat-8.5.32/lib/tomcat-i18n-ja.jar
-apache-tomcat-8.5.32/lib/tomcat-jdbc.jar
-apache-tomcat-8.5.32/lib/tomcat-jni.jar
-apache-tomcat-8.5.32/lib/tomcat-util-scan.jar
-apache-tomcat-8.5.32/lib/tomcat-util.jar
-apache-tomcat-8.5.32/lib/tomcat-websocket.jar
-apache-tomcat-8.5.32/lib/websocket-api.jar
-apache-tomcat-8.5.32/temp/safeToDelete.tmp
-apache-tomcat-8.5.32/webapps/ROOT/RELEASE-NOTES.txt
-apache-tomcat-8.5.32/webapps/ROOT/WEB-INF/web.xml
-apache-tomcat-8.5.32/webapps/ROOT/asf-logo-wide.svg
-apache-tomcat-8.5.32/webapps/ROOT/bg-button.png
-apache-tomcat-8.5.32/webapps/ROOT/bg-middle.png
-apache-tomcat-8.5.32/webapps/ROOT/bg-nav-item.png
-apache-tomcat-8.5.32/webapps/ROOT/bg-nav.png
-apache-tomcat-8.5.32/webapps/ROOT/bg-upper.png
-apache-tomcat-8.5.32/webapps/ROOT/favicon.ico
-apache-tomcat-8.5.32/webapps/ROOT/index.jsp
-apache-tomcat-8.5.32/webapps/ROOT/tomcat-power.gif
-apache-tomcat-8.5.32/webapps/ROOT/tomcat.css
-apache-tomcat-8.5.32/webapps/ROOT/tomcat.gif
-apache-tomcat-8.5.32/webapps/ROOT/tomcat.png
-apache-tomcat-8.5.32/webapps/ROOT/tomcat.svg
-apache-tomcat-8.5.32/webapps/docs/BUILDING.txt
-apache-tomcat-8.5.32/webapps/docs/RELEASE-NOTES.txt
-apache-tomcat-8.5.32/webapps/docs/RUNNING.txt
-apache-tomcat-8.5.32/webapps/docs/WEB-INF/web.xml
-apache-tomcat-8.5.32/webapps/docs/aio.html
-apache-tomcat-8.5.32/webapps/docs/api/index.html
-apache-tomcat-8.5.32/webapps/docs/appdev/build.xml.txt
-apache-tomcat-8.5.32/webapps/docs/appdev/deployment.html
-apache-tomcat-8.5.32/webapps/docs/appdev/index.html
-apache-tomcat-8.5.32/webapps/docs/appdev/installation.html
-apache-tomcat-8.5.32/webapps/docs/appdev/introduction.html
-apache-tomcat-8.5.32/webapps/docs/appdev/processes.html
-apache-tomcat-8.5.32/webapps/docs/appdev/sample/build.xml
-apache-tomcat-8.5.32/webapps/docs/appdev/sample/docs/README.txt
-apache-tomcat-8.5.32/webapps/docs/appdev/sample/index.html
-apache-tomcat-8.5.32/webapps/docs/appdev/sample/sample.war
-apache-tomcat-8.5.32/webapps/docs/appdev/sample/src/mypackage/Hello.java
-apache-tomcat-8.5.32/webapps/docs/appdev/sample/web/WEB-INF/web.xml
-apache-tomcat-8.5.32/webapps/docs/appdev/sample/web/hello.jsp
-apache-tomcat-8.5.32/webapps/docs/appdev/sample/web/images/tomcat.gif
-apache-tomcat-8.5.32/webapps/docs/appdev/sample/web/index.html
-apache-tomcat-8.5.32/webapps/docs/appdev/source.html
-apache-tomcat-8.5.32/webapps/docs/appdev/web.xml.txt
-apache-tomcat-8.5.32/webapps/docs/apr.html
-apache-tomcat-8.5.32/webapps/docs/architecture/index.html
-apache-tomcat-8.5.32/webapps/docs/architecture/overview.html
-apache-tomcat-8.5.32/webapps/docs/architecture/requestProcess.html
-apache-tomcat-8.5.32/webapps/docs/architecture/requestProcess/authentication-process.png
-apache-tomcat-8.5.32/webapps/docs/architecture/requestProcess/request-process.png
-apache-tomcat-8.5.32/webapps/docs/architecture/startup.html
-apache-tomcat-8.5.32/webapps/docs/architecture/startup/serverStartup.pdf
-apache-tomcat-8.5.32/webapps/docs/architecture/startup/serverStartup.txt
-apache-tomcat-8.5.32/webapps/docs/balancer-howto.html
-apache-tomcat-8.5.32/webapps/docs/building.html
-apache-tomcat-8.5.32/webapps/docs/cgi-howto.html
-apache-tomcat-8.5.32/webapps/docs/changelog.html
-apache-tomcat-8.5.32/webapps/docs/class-loader-howto.html
-apache-tomcat-8.5.32/webapps/docs/cluster-howto.html
-apache-tomcat-8.5.32/webapps/docs/comments.html
-apache-tomcat-8.5.32/webapps/docs/config/ajp.html
-apache-tomcat-8.5.32/webapps/docs/config/automatic-deployment.html
-apache-tomcat-8.5.32/webapps/docs/config/cluster-channel.html
-apache-tomcat-8.5.32/webapps/docs/config/cluster-deployer.html
-apache-tomcat-8.5.32/webapps/docs/config/cluster-interceptor.html
-apache-tomcat-8.5.32/webapps/docs/config/cluster-listener.html
-apache-tomcat-8.5.32/webapps/docs/config/cluster-manager.html
-apache-tomcat-8.5.32/webapps/docs/config/cluster-membership.html
-apache-tomcat-8.5.32/webapps/docs/config/cluster-receiver.html
-apache-tomcat-8.5.32/webapps/docs/config/cluster-sender.html
-apache-tomcat-8.5.32/webapps/docs/config/cluster-valve.html
-apache-tomcat-8.5.32/webapps/docs/config/cluster.html
-apache-tomcat-8.5.32/webapps/docs/config/context.html
-apache-tomcat-8.5.32/webapps/docs/config/cookie-processor.html
-apache-tomcat-8.5.32/webapps/docs/config/credentialhandler.html
-apache-tomcat-8.5.32/webapps/docs/config/engine.html
-apache-tomcat-8.5.32/webapps/docs/config/executor.html
-apache-tomcat-8.5.32/webapps/docs/config/filter.html
-apache-tomcat-8.5.32/webapps/docs/config/globalresources.html
-apache-tomcat-8.5.32/webapps/docs/config/host.html
-apache-tomcat-8.5.32/webapps/docs/config/http.html
-apache-tomcat-8.5.32/webapps/docs/config/http2.html
-apache-tomcat-8.5.32/webapps/docs/config/index.html
-apache-tomcat-8.5.32/webapps/docs/config/jar-scan-filter.html
-apache-tomcat-8.5.32/webapps/docs/config/jar-scanner.html
-apache-tomcat-8.5.32/webapps/docs/config/jaspic.html
-apache-tomcat-8.5.32/webapps/docs/config/listeners.html
-apache-tomcat-8.5.32/webapps/docs/config/loader.html
-apache-tomcat-8.5.32/webapps/docs/config/manager.html
-apache-tomcat-8.5.32/webapps/docs/config/realm.html
-apache-tomcat-8.5.32/webapps/docs/config/resources.html
-apache-tomcat-8.5.32/webapps/docs/config/server.html
-apache-tomcat-8.5.32/webapps/docs/config/service.html
-apache-tomcat-8.5.32/webapps/docs/config/sessionidgenerator.html
-apache-tomcat-8.5.32/webapps/docs/config/systemprops.html
-apache-tomcat-8.5.32/webapps/docs/config/valve.html
-apache-tomcat-8.5.32/webapps/docs/connectors.html
-apache-tomcat-8.5.32/webapps/docs/default-servlet.html
-apache-tomcat-8.5.32/webapps/docs/deployer-howto.html
-apache-tomcat-8.5.32/webapps/docs/developers.html
-apache-tomcat-8.5.32/webapps/docs/elapi/index.html
-apache-tomcat-8.5.32/webapps/docs/extras.html
-apache-tomcat-8.5.32/webapps/docs/funcspecs/fs-admin-apps.html
-apache-tomcat-8.5.32/webapps/docs/funcspecs/fs-admin-objects.html
-apache-tomcat-8.5.32/webapps/docs/funcspecs/fs-admin-opers.html
-apache-tomcat-8.5.32/webapps/docs/funcspecs/fs-default.html
-apache-tomcat-8.5.32/webapps/docs/funcspecs/fs-jdbc-realm.html
-apache-tomcat-8.5.32/webapps/docs/funcspecs/fs-jndi-realm.html
-apache-tomcat-8.5.32/webapps/docs/funcspecs/fs-memory-realm.html
-apache-tomcat-8.5.32/webapps/docs/funcspecs/index.html
-apache-tomcat-8.5.32/webapps/docs/funcspecs/mbean-names.html
-apache-tomcat-8.5.32/webapps/docs/host-manager-howto.html
-apache-tomcat-8.5.32/webapps/docs/html-host-manager-howto.html
-apache-tomcat-8.5.32/webapps/docs/html-manager-howto.html
-apache-tomcat-8.5.32/webapps/docs/images/add.gif
-apache-tomcat-8.5.32/webapps/docs/images/asf-logo.svg
-apache-tomcat-8.5.32/webapps/docs/images/code.gif
-apache-tomcat-8.5.32/webapps/docs/images/cors-flowchart.png
-apache-tomcat-8.5.32/webapps/docs/images/design.gif
-apache-tomcat-8.5.32/webapps/docs/images/docs-stylesheet.css
-apache-tomcat-8.5.32/webapps/docs/images/docs.gif
-apache-tomcat-8.5.32/webapps/docs/images/fix.gif
-apache-tomcat-8.5.32/webapps/docs/images/fonts/OpenSans400.woff
-apache-tomcat-8.5.32/webapps/docs/images/fonts/OpenSans400italic.woff
-apache-tomcat-8.5.32/webapps/docs/images/fonts/OpenSans600.woff
-apache-tomcat-8.5.32/webapps/docs/images/fonts/OpenSans600italic.woff
-apache-tomcat-8.5.32/webapps/docs/images/fonts/OpenSans700.woff
-apache-tomcat-8.5.32/webapps/docs/images/fonts/OpenSans700italic.woff
-apache-tomcat-8.5.32/webapps/docs/images/fonts/fonts.css
-apache-tomcat-8.5.32/webapps/docs/images/printer.gif
-apache-tomcat-8.5.32/webapps/docs/images/tomcat.gif
-apache-tomcat-8.5.32/webapps/docs/images/tomcat.png
-apache-tomcat-8.5.32/webapps/docs/images/tomcat.svg
-apache-tomcat-8.5.32/webapps/docs/images/update.gif
-apache-tomcat-8.5.32/webapps/docs/images/void.gif
-apache-tomcat-8.5.32/webapps/docs/index.html
-apache-tomcat-8.5.32/webapps/docs/introduction.html
-apache-tomcat-8.5.32/webapps/docs/jasper-howto.html
-apache-tomcat-8.5.32/webapps/docs/jdbc-pool.html
-apache-tomcat-8.5.32/webapps/docs/jndi-datasource-examples-howto.html
-apache-tomcat-8.5.32/webapps/docs/jndi-resources-howto.html
-apache-tomcat-8.5.32/webapps/docs/jspapi/index.html
-apache-tomcat-8.5.32/webapps/docs/logging.html
-apache-tomcat-8.5.32/webapps/docs/manager-howto.html
-apache-tomcat-8.5.32/webapps/docs/maven-jars.html
-apache-tomcat-8.5.32/webapps/docs/mbeans-descriptors-howto.html
-apache-tomcat-8.5.32/webapps/docs/mbeans-descriptors.dtd
-apache-tomcat-8.5.32/webapps/docs/monitoring.html
-apache-tomcat-8.5.32/webapps/docs/proxy-howto.html
-apache-tomcat-8.5.32/webapps/docs/realm-howto.html
-apache-tomcat-8.5.32/webapps/docs/rewrite.html
-apache-tomcat-8.5.32/webapps/docs/security-howto.html
-apache-tomcat-8.5.32/webapps/docs/security-manager-howto.html
-apache-tomcat-8.5.32/webapps/docs/servletapi/index.html
-apache-tomcat-8.5.32/webapps/docs/setup.html
-apache-tomcat-8.5.32/webapps/docs/ssi-howto.html
-apache-tomcat-8.5.32/webapps/docs/ssl-howto.html
-apache-tomcat-8.5.32/webapps/docs/tribes/developers.html
-apache-tomcat-8.5.32/webapps/docs/tribes/faq.html
-apache-tomcat-8.5.32/webapps/docs/tribes/interceptors.html
-apache-tomcat-8.5.32/webapps/docs/tribes/introduction.html
-apache-tomcat-8.5.32/webapps/docs/tribes/membership.html
-apache-tomcat-8.5.32/webapps/docs/tribes/setup.html
-apache-tomcat-8.5.32/webapps/docs/tribes/status.html
-apache-tomcat-8.5.32/webapps/docs/tribes/transport.html
-apache-tomcat-8.5.32/webapps/docs/virtual-hosting-howto.html
-apache-tomcat-8.5.32/webapps/docs/web-socket-howto.html
-apache-tomcat-8.5.32/webapps/docs/websocketapi/index.html
-apache-tomcat-8.5.32/webapps/docs/windows-auth-howto.html
-apache-tomcat-8.5.32/webapps/docs/windows-service-howto.html
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/CookieExample.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/CookieExample.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/HelloWorldExample.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/HelloWorldExample.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/LocalStrings.properties
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/LocalStrings_en.properties
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/LocalStrings_es.properties
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/LocalStrings_fr.properties
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/LocalStrings_pt.properties
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/RequestHeaderExample.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/RequestHeaderExample.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/RequestInfoExample.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/RequestInfoExample.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/RequestParamExample.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/RequestParamExample.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/ServletToJsp.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/ServletToJsp.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/SessionExample.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/SessionExample.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/async/Async0$1.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/async/Async0.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/async/Async0.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/async/Async1$1.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/async/Async1.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/async/Async1.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/async/Async2$1.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/async/Async2.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/async/Async2.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/async/Async3.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/async/Async3.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/async/AsyncStockContextListener.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/async/AsyncStockContextListener.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/async/AsyncStockServlet.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/async/AsyncStockServlet.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/async/Stockticker$Stock.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/async/Stockticker$TickListener.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/async/Stockticker.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/async/Stockticker.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/cal/Entries.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/cal/Entries.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/cal/Entry.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/cal/Entry.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/cal/JspCalendar.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/cal/JspCalendar.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/cal/TableBean.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/cal/TableBean.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/checkbox/CheckTest.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/checkbox/CheckTest.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/colors/ColorGameBean.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/colors/ColorGameBean.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/compressionFilters/CompressionFilter.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/compressionFilters/CompressionFilter.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/compressionFilters/CompressionFilterTestServlet.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/compressionFilters/CompressionFilterTestServlet.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/compressionFilters/CompressionResponseStream.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/compressionFilters/CompressionResponseStream.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/compressionFilters/CompressionServletResponseWrapper.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/compressionFilters/CompressionServletResponseWrapper.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/dates/JspCalendar.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/dates/JspCalendar.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/error/Smart.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/error/Smart.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/examples/ExampleTagBase.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/examples/ExampleTagBase.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/examples/FooTag.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/examples/FooTag.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/examples/FooTagExtraInfo.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/examples/FooTagExtraInfo.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/examples/LogTag.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/examples/LogTag.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/examples/ShowSource.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/examples/ShowSource.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/examples/ValuesTag.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/examples/ValuesTag.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/filters/ExampleFilter.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/filters/ExampleFilter.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/jsp2/examples/BookBean.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/jsp2/examples/BookBean.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/jsp2/examples/FooBean.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/jsp2/examples/FooBean.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/jsp2/examples/ValuesBean.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/jsp2/examples/ValuesBean.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/jsp2/examples/el/Functions.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/jsp2/examples/el/Functions.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/EchoAttributesTag.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/EchoAttributesTag.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/FindBookSimpleTag.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/FindBookSimpleTag.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/HelloWorldSimpleTag.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/HelloWorldSimpleTag.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/RepeatSimpleTag.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/RepeatSimpleTag.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/ShuffleSimpleTag.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/ShuffleSimpleTag.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/TileSimpleTag.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/jsp2/examples/simpletag/TileSimpleTag.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/listeners/ContextListener.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/listeners/ContextListener.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/listeners/SessionListener.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/listeners/SessionListener.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/nonblocking/ByteCounter$1.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/nonblocking/ByteCounter$CounterListener.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/nonblocking/ByteCounter.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/nonblocking/ByteCounter.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/nonblocking/NumberWriter$1.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/nonblocking/NumberWriter$NumberWriterListener.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/nonblocking/NumberWriter.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/nonblocking/NumberWriter.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/num/NumberGuessBean.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/num/NumberGuessBean.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/sessions/DummyCart.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/sessions/DummyCart.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/util/CookieFilter.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/util/CookieFilter.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/util/HTMLFilter.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/util/HTMLFilter.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/validators/DebugValidator.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/validators/DebugValidator.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/ExamplesConfig.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/ExamplesConfig.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/chat/ChatAnnotation.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/chat/ChatAnnotation.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/Client$1.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/Client.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/Client.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/DrawMessage$ParseException.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/DrawMessage.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/DrawMessage.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/DrawboardContextListener.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/DrawboardContextListener.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/DrawboardEndpoint$1.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/DrawboardEndpoint$2.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/DrawboardEndpoint$3$1.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/DrawboardEndpoint$3.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/DrawboardEndpoint.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/DrawboardEndpoint.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/Room$1$1.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/Room$1.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/Room$2.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/Room$MessageType.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/Room$Player.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/Room.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/Room.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/wsmessages/AbstractWebsocketMessage.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/wsmessages/AbstractWebsocketMessage.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/wsmessages/BinaryWebsocketMessage.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/wsmessages/BinaryWebsocketMessage.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/wsmessages/CloseWebsocketMessage.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/wsmessages/CloseWebsocketMessage.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/wsmessages/StringWebsocketMessage.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/drawboard/wsmessages/StringWebsocketMessage.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/echo/EchoAnnotation.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/echo/EchoAnnotation.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/echo/EchoAsyncAnnotation$1.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/echo/EchoAsyncAnnotation$CompletedFuture.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/echo/EchoAsyncAnnotation.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/echo/EchoAsyncAnnotation.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/echo/EchoEndpoint$1.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/echo/EchoEndpoint$EchoMessageHandlerBinary.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/echo/EchoEndpoint$EchoMessageHandlerText.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/echo/EchoEndpoint.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/echo/EchoEndpoint.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/echo/EchoStreamAnnotation.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/echo/EchoStreamAnnotation.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/echo/servers.json
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/snake/Direction.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/snake/Direction.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/snake/Location$1.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/snake/Location.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/snake/Location.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/snake/Snake.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/snake/Snake.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/snake/SnakeAnnotation.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/snake/SnakeAnnotation.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/snake/SnakeTimer$1.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/snake/SnakeTimer.class
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/classes/websocket/snake/SnakeTimer.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/jsp2/jsp2-example-taglib.tld
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/jsp/applet/Clock2.java
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/jsp/debug-taglib.tld
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/jsp/example-taglib.tld
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/tags/displayProducts.tag
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/tags/helloWorld.tag
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/tags/panel.tag
-apache-tomcat-8.5.32/webapps/examples/WEB-INF/web.xml
-apache-tomcat-8.5.32/webapps/examples/index.html
-apache-tomcat-8.5.32/webapps/examples/jsp/async/async1.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/async/async1.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/async/async3.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/async/async3.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/async/index.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/async/index.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/cal/Entries.java.html
-apache-tomcat-8.5.32/webapps/examples/jsp/cal/Entry.java.html
-apache-tomcat-8.5.32/webapps/examples/jsp/cal/JspCalendar.java.html
-apache-tomcat-8.5.32/webapps/examples/jsp/cal/TableBean.java.html
-apache-tomcat-8.5.32/webapps/examples/jsp/cal/cal1.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/cal/cal1.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/cal/cal2.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/cal/cal2.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/cal/calendar.html
-apache-tomcat-8.5.32/webapps/examples/jsp/cal/login.html
-apache-tomcat-8.5.32/webapps/examples/jsp/checkbox/CheckTest.html
-apache-tomcat-8.5.32/webapps/examples/jsp/checkbox/check.html
-apache-tomcat-8.5.32/webapps/examples/jsp/checkbox/checkresult.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/checkbox/checkresult.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/checkbox/cresult.html
-apache-tomcat-8.5.32/webapps/examples/jsp/colors/ColorGameBean.html
-apache-tomcat-8.5.32/webapps/examples/jsp/colors/clr.html
-apache-tomcat-8.5.32/webapps/examples/jsp/colors/colors.html
-apache-tomcat-8.5.32/webapps/examples/jsp/colors/colrs.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/colors/colrs.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/dates/date.html
-apache-tomcat-8.5.32/webapps/examples/jsp/dates/date.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/dates/date.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/error/er.html
-apache-tomcat-8.5.32/webapps/examples/jsp/error/err.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/error/err.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/error/error.html
-apache-tomcat-8.5.32/webapps/examples/jsp/error/errorpge.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/error/errorpge.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/forward/forward.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/forward/forward.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/forward/fwd.html
-apache-tomcat-8.5.32/webapps/examples/jsp/forward/one.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/forward/one.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/forward/two.html
-apache-tomcat-8.5.32/webapps/examples/jsp/images/code.gif
-apache-tomcat-8.5.32/webapps/examples/jsp/images/execute.gif
-apache-tomcat-8.5.32/webapps/examples/jsp/images/read.gif
-apache-tomcat-8.5.32/webapps/examples/jsp/images/return.gif
-apache-tomcat-8.5.32/webapps/examples/jsp/include/foo.html
-apache-tomcat-8.5.32/webapps/examples/jsp/include/foo.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/include/foo.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/include/inc.html
-apache-tomcat-8.5.32/webapps/examples/jsp/include/include.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/include/include.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/index.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/el/Functions.java.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/el/ValuesBean.java.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/el/ValuesTag.java.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/el/basic-arithmetic.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/el/basic-arithmetic.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/el/basic-arithmetic.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/el/basic-comparisons.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/el/basic-comparisons.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/el/basic-comparisons.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/el/composite.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/el/composite.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/el/composite.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/el/functions.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/el/functions.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/el/functions.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/el/implicit-objects.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/el/implicit-objects.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/el/implicit-objects.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/jspattribute/FooBean.java.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/jspattribute/HelloWorldSimpleTag.java.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/jspattribute/ShuffleSimpleTag.java.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/jspattribute/TileSimpleTag.java.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/jspattribute/jspattribute.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/jspattribute/jspattribute.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/jspattribute/jspattribute.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/jspattribute/shuffle.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/jspattribute/shuffle.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/jspattribute/shuffle.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/jspx/basic.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/jspx/basic.jspx
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/jspx/basic.jspx.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/jspx/svgexample.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/jspx/textRotate.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/jspx/textRotate.jpg
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/jspx/textRotate.jspx
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/jspx/textRotate.jspx.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/misc/EchoAttributesTag.java.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/misc/coda.jspf
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/misc/coda.jspf.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/misc/config.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/misc/config.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/misc/config.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/misc/dynamicattrs.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/misc/dynamicattrs.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/misc/dynamicattrs.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/misc/prelude.jspf
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/misc/prelude.jspf.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/simpletag/BookBean.java.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/simpletag/FindBookSimpleTag.java.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/simpletag/Functions.java.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/simpletag/HelloWorldSimpleTag.java.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/simpletag/RepeatSimpleTag.java.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/simpletag/book.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/simpletag/book.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/simpletag/book.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/simpletag/hello.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/simpletag/hello.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/simpletag/hello.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/simpletag/repeat.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/simpletag/repeat.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/simpletag/repeat.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/tagfiles/displayProducts.tag.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/tagfiles/hello.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/tagfiles/hello.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/tagfiles/hello.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/tagfiles/helloWorld.tag.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/tagfiles/panel.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/tagfiles/panel.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/tagfiles/panel.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/tagfiles/panel.tag.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/tagfiles/products.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/tagfiles/products.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/jsp2/tagfiles/products.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsptoserv/ServletToJsp.java.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsptoserv/hello.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/jsptoserv/hello.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsptoserv/jsptoservlet.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/jsptoserv/jsptoservlet.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/jsptoserv/jts.html
-apache-tomcat-8.5.32/webapps/examples/jsp/num/numguess.html
-apache-tomcat-8.5.32/webapps/examples/jsp/num/numguess.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/num/numguess.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/plugin/applet/Clock2.class
-apache-tomcat-8.5.32/webapps/examples/jsp/plugin/applet/Clock2.java
-apache-tomcat-8.5.32/webapps/examples/jsp/plugin/plugin.html
-apache-tomcat-8.5.32/webapps/examples/jsp/plugin/plugin.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/plugin/plugin.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/security/protected/error.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/security/protected/error.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/security/protected/index.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/security/protected/index.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/security/protected/login.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/security/protected/login.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/sessions/DummyCart.html
-apache-tomcat-8.5.32/webapps/examples/jsp/sessions/carts.html
-apache-tomcat-8.5.32/webapps/examples/jsp/sessions/carts.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/sessions/carts.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/sessions/crt.html
-apache-tomcat-8.5.32/webapps/examples/jsp/simpletag/foo.html
-apache-tomcat-8.5.32/webapps/examples/jsp/simpletag/foo.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/simpletag/foo.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/snp/snoop.html
-apache-tomcat-8.5.32/webapps/examples/jsp/snp/snoop.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/snp/snoop.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/source.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/source.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/tagplugin/choose.html
-apache-tomcat-8.5.32/webapps/examples/jsp/tagplugin/choose.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/tagplugin/choose.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/tagplugin/foreach.html
-apache-tomcat-8.5.32/webapps/examples/jsp/tagplugin/foreach.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/tagplugin/foreach.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/tagplugin/howto.html
-apache-tomcat-8.5.32/webapps/examples/jsp/tagplugin/if.html
-apache-tomcat-8.5.32/webapps/examples/jsp/tagplugin/if.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/tagplugin/if.jsp.html
-apache-tomcat-8.5.32/webapps/examples/jsp/tagplugin/notes.html
-apache-tomcat-8.5.32/webapps/examples/jsp/xml/xml.html
-apache-tomcat-8.5.32/webapps/examples/jsp/xml/xml.jsp
-apache-tomcat-8.5.32/webapps/examples/jsp/xml/xml.jsp.html
-apache-tomcat-8.5.32/webapps/examples/servlets/cookies.html
-apache-tomcat-8.5.32/webapps/examples/servlets/helloworld.html
-apache-tomcat-8.5.32/webapps/examples/servlets/images/code.gif
-apache-tomcat-8.5.32/webapps/examples/servlets/images/execute.gif
-apache-tomcat-8.5.32/webapps/examples/servlets/images/return.gif
-apache-tomcat-8.5.32/webapps/examples/servlets/index.html
-apache-tomcat-8.5.32/webapps/examples/servlets/nonblocking/bytecounter.html
-apache-tomcat-8.5.32/webapps/examples/servlets/reqheaders.html
-apache-tomcat-8.5.32/webapps/examples/servlets/reqinfo.html
-apache-tomcat-8.5.32/webapps/examples/servlets/reqparams.html
-apache-tomcat-8.5.32/webapps/examples/servlets/sessions.html
-apache-tomcat-8.5.32/webapps/examples/websocket/chat.xhtml
-apache-tomcat-8.5.32/webapps/examples/websocket/drawboard.xhtml
-apache-tomcat-8.5.32/webapps/examples/websocket/echo.xhtml
-apache-tomcat-8.5.32/webapps/examples/websocket/index.xhtml
-apache-tomcat-8.5.32/webapps/examples/websocket/snake.xhtml
-apache-tomcat-8.5.32/webapps/host-manager/META-INF/context.xml
-apache-tomcat-8.5.32/webapps/host-manager/WEB-INF/jsp/401.jsp
-apache-tomcat-8.5.32/webapps/host-manager/WEB-INF/jsp/403.jsp
-apache-tomcat-8.5.32/webapps/host-manager/WEB-INF/jsp/404.jsp
-apache-tomcat-8.5.32/webapps/host-manager/WEB-INF/web.xml
-apache-tomcat-8.5.32/webapps/host-manager/images/add.gif
-apache-tomcat-8.5.32/webapps/host-manager/images/asf-logo.svg
-apache-tomcat-8.5.32/webapps/host-manager/images/code.gif
-apache-tomcat-8.5.32/webapps/host-manager/images/design.gif
-apache-tomcat-8.5.32/webapps/host-manager/images/docs.gif
-apache-tomcat-8.5.32/webapps/host-manager/images/fix.gif
-apache-tomcat-8.5.32/webapps/host-manager/images/tomcat.gif
-apache-tomcat-8.5.32/webapps/host-manager/images/update.gif
-apache-tomcat-8.5.32/webapps/host-manager/images/void.gif
-apache-tomcat-8.5.32/webapps/host-manager/index.jsp
-apache-tomcat-8.5.32/webapps/host-manager/manager.xml
-apache-tomcat-8.5.32/webapps/manager/META-INF/context.xml
-apache-tomcat-8.5.32/webapps/manager/WEB-INF/jsp/401.jsp
-apache-tomcat-8.5.32/webapps/manager/WEB-INF/jsp/403.jsp
-apache-tomcat-8.5.32/webapps/manager/WEB-INF/jsp/404.jsp
-apache-tomcat-8.5.32/webapps/manager/WEB-INF/jsp/connectorCerts.jsp
-apache-tomcat-8.5.32/webapps/manager/WEB-INF/jsp/connectorCiphers.jsp
-apache-tomcat-8.5.32/webapps/manager/WEB-INF/jsp/connectorTrustedCerts.jsp
-apache-tomcat-8.5.32/webapps/manager/WEB-INF/jsp/sessionDetail.jsp
-apache-tomcat-8.5.32/webapps/manager/WEB-INF/jsp/sessionsList.jsp
-apache-tomcat-8.5.32/webapps/manager/WEB-INF/web.xml
-apache-tomcat-8.5.32/webapps/manager/images/add.gif
-apache-tomcat-8.5.32/webapps/manager/images/asf-logo.svg
-apache-tomcat-8.5.32/webapps/manager/images/code.gif
-apache-tomcat-8.5.32/webapps/manager/images/design.gif
-apache-tomcat-8.5.32/webapps/manager/images/docs.gif
-apache-tomcat-8.5.32/webapps/manager/images/fix.gif
-apache-tomcat-8.5.32/webapps/manager/images/tomcat.gif
-apache-tomcat-8.5.32/webapps/manager/images/update.gif
-apache-tomcat-8.5.32/webapps/manager/images/void.gif
-apache-tomcat-8.5.32/webapps/manager/index.jsp
-apache-tomcat-8.5.32/webapps/manager/status.xsd
-apache-tomcat-8.5.32/webapps/manager/xform.xsl
-apache-tomcat-8.5.32/bin/catalina.sh
-apache-tomcat-8.5.32/bin/configtest.sh
-apache-tomcat-8.5.32/bin/daemon.sh
-apache-tomcat-8.5.32/bin/digest.sh
-apache-tomcat-8.5.32/bin/setclasspath.sh
-apache-tomcat-8.5.32/bin/shutdown.sh
-apache-tomcat-8.5.32/bin/startup.sh
-apache-tomcat-8.5.32/bin/tool-wrapper.sh
-apache-tomcat-8.5.32/bin/version.sh
-[root@iZwz9cngn5wj3bafyrd539Z tomcat]# ls
-apache-tomcat-8.5.32  apache-tomcat-8.5.32.tar.gz
-[root@iZwz9cngn5wj3bafyrd539Z tomcat]#
-</code></pre>
-<h4 id="32-查看服务器防火墙状态">3.2、查看服务器防火墙状态</h4>
-<pre><code>CentOS6.8 防火墙服务iptabls常用命令：
-	service iptables start //启动防火墙
-	service iptables stop //关闭防火墙
-	service iptables restart //重启防火墙
-	service iptables status //查看防火墙状态
-
-一般来说防火墙是默认关闭的，如果需要启动服务，那么就需要先添加配置文件，配置文件默认位置是：/etc/sysconfig/iptables
-
-//编辑配置文件
-[root@iZwz9cngn5wj3bafyrd539Z tomcat]# vim /etc/sysconfig/iptables
-//在配置文件中添加一下代码，以开放8080端口
--A INPUT -p tcp -m state --state NEW -m tcp --dport 8080 -j ACCEPT
-//保存防火墙配置
-[root@iZwz9cngn5wj3bafyrd539Z tomcat]# service iptables save
-//重启服务
-[root@iZwz9cngn5wj3bafyrd539Z tomcat]# service iptables restart
-iptables: Setting chains to policy ACCEPT: filter          [  OK  ]
-iptables: Flushing firewall rules:                         [  OK  ]
-iptables: Unloading modules:                               [  OK  ]
-iptables: Applying firewall rules:                         [  OK  ]
-[root@iZwz9cngn5wj3bafyrd539Z tomcat]#
-</code></pre>
-<h4 id="33-启动tomcat">3.3、启动tomcat</h4>
-<pre><code>[root@iZwz9cngn5wj3bafyrd539Z tomcat]# ls
-apache-tomcat-8.5.32  apache-tomcat-8.5.32.tar.gz
-[root@iZwz9cngn5wj3bafyrd539Z tomcat]# cd apache-tomcat-8.5.32/bin/
-[root@iZwz9cngn5wj3bafyrd539Z bin]# ./startup.sh
-Using CATALINA_BASE:   /software/tomcat/apache-tomcat-8.5.32
-Using CATALINA_HOME:   /software/tomcat/apache-tomcat-8.5.32
-Using CATALINA_TMPDIR: /software/tomcat/apache-tomcat-8.5.32/temp
-Using JRE_HOME:        /software/java/jdk1.8.0_171
-Using CLASSPATH:       /software/tomcat/apache-tomcat-8.5.32/bin/bootstrap.jar:/software/tomcat/apache-tomcat-8.5.32/bin/tomcat-juli.jar
-Tomcat started.
-[root@iZwz9cngn5wj3bafyrd539Z bin]#
-</code></pre>
-<h4 id="34-tomcat配置文件">3.4、tomcat配置文件</h4>
-<pre><code>//首先找到配置文件
-[root@iZwz9cngn5wj3bafyrd539Z bin]# vi ../conf/server.xml
-//查找端口设置部分
-/Connector port
-//修改端口设置（当前为80）
-&lt;Connector port=&quot;80&quot; protocol=&quot;HTTP/1.1&quot;
-connectionTimeout=&quot;20000&quot;
-redirectPort=&quot;8443&quot; /&gt;
-//重启
-[root@iZwz9cngn5wj3bafyrd539Z bin]# ps -fel | grep tomcat --color
-[root@iZwz9cngn5wj3bafyrd539Z bin]# kill -9
-[root@iZwz9cngn5wj3bafyrd539Z bin]# cd ../bin;./startup.sh
-</code></pre>
-<h2 id="4-安装nginx">4、安装nginx</h2>
-<p>Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时也提供了IMAP/POP3/SMTP服务。Nginx是由伊戈尔·赛索耶夫为俄罗斯访问量第二的Rambler.ru站点（俄文：Рамблер）开发的，第一个公开版本0.1.0发布于2004年10月4日。</p>
-<h4 id="41-使用yum命令安装相关的编译工具和库文件">4.1、使用yum命令，安装相关的编译工具和库文件</h4>
-<pre><code>//升级所有软件包
-yum -y update
-//安装编译工具及库文件
-yum -y install gcc gcc-c++ automake pcre pcre-devel zlib zlib-devel open openssl-devel
-</code></pre>
-<h4 id="42-解压及安装">4.2、解压及安装</h4>
-<pre><code>//解压
-[root@iZwz9cngn5wj3bafyrd539Z nginx]# tar -zxvf nginx-1.13.6.tar.gz
-//编译安装
-[root@iZwz9cngn5wj3bafyrd539Z sbin]# ./configure --prefix=/software/nginx/nginx
-[root@iZwz9cngn5wj3bafyrd539Z sbin]# make
-[root@iZwz9cngn5wj3bafyrd539Z sbin]# make install
-//查看是否安装成功
-[root@iZwz9cngn5wj3bafyrd539Z /]# /software/nginx/nginx/sbin/nginx -v
-nginx version: nginx/1.13.6
-[root@iZwz9cngn5wj3bafyrd539Z /]#
-</code></pre>
-<h4 id="43-常用命令">4.3、常用命令</h4>
-<pre><code>./nginx # 启动nginx
-./nginx -s reload # 重新载入配置文件
-./nginx -s reopen # 重启 Nginx
-./nginx -s stop # 停止 Nginx
-</code></pre>
-<h4 id="44-配置文件">4.4、配置文件</h4>
-<pre><code>//找到配置文件
-vi /nginx/conf/nginx.conf
-//找到配置端口的地方
-/server
-//修改配置（当前端口为8080）
-server {
-listen 8080;
-server_name localhost;
-
-#charset koi8-r;
-
-#access_log logs/host.access.log main;
-
-location / {
-root html;
-index index.html index.htm;
-}
-
-//重启nginx
-./nginx -s reload
-</code></pre>
-<h2 id="5-安装redis">5、安装redis</h2>
-<p>Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。从2010年3月15日起，Redis的开发工作由VMware主持。从2013年5月开始，Redis的开发由Pivotal赞助。</p>
-<h4 id="51-解压编译安装">5.1、解压编译安装</h4>
-<pre><code>//解压
-[root@iZwz9cngn5wj3bafyrd539Z redis]# tar -zxvf redis-3.2.12.tar.gz
-//进入解压目录
-[root@iZwz9cngn5wj3bafyrd539Z redis]# cd redis-3.2.12
-//编译安装
-[root@iZwz9cngn5wj3bafyrd539Z redis]# make
-[root@iZwz9cngn5wj3bafyrd539Z redis]# make install
-</code></pre>
-<h4 id="52-修改配置文件">5.2、修改配置文件</h4>
-<pre><code>配置文件路径：/software/redis/redis-3.2.12/redis.conf
-
-//设置Redis以守护进程模式运行
-daemonize yes
-
-//redis默认不记录log文件，手动为redis添加log文件，默认路径在redis安装目录下
-logfile &quot;redis.log&quot;
-
-//设置redis监听端口
-port 6379
-
-//设置保护模式
-protected-mode yes
-
-//设置密码
-requirepass foobared
-
-//设置绑定ip，只要绑定的ip才能访问redis
-bind 127.0.0.1
-</code></pre>
-<h4 id="53-启动服务">5.3、启动服务</h4>
-<pre><code>[root@iZwz9cngn5wj3bafyrd539Z redis]# cd src
-//前台启动，命令行关闭之后就会断开
-[root@iZwz9cngn5wj3bafyrd539Z redis]# ./redis-server
-//后台启动，
-[root@iZwz9cngn5wj3bafyrd539Z redis]# ./redis-server ../redis.conf
-`
 </code></pre>
 ]]></content>
     </entry>
@@ -2441,8 +1404,8 @@ CONF=&quot;/software/redis/redis-3.2.12/redis.conf&quot;
         <content type="html"><![CDATA[<h2 id="前言">前言</h2>
 <p>APP开发完成之后，上线是通过本公司的账号上线。现在需要转让。具体流程如下。</p>
 <h4 id="apple-developer">Apple Developer</h4>
-<p>在APP Store上线的APP，想要转让，可以根据苹果官方文档：<a href="https://help.apple.com/app-store-connect/#/deved688524f">App 转让概述</a>。<br>
-首先是注册开发apple账号。目前，注册账号必须开启两步认证，也就是说必有要用一台apple的设备（mac，ipad，iphone，ipod等）来登陆账号。<br>
+<p>在APP Store上线的APP，想要转让，可以根据苹果官方文档：<a href="https://help.apple.com/app-store-connect/#/deved688524f">App 转让概述</a>。
+首先是注册开发apple账号。目前，注册账号必须开启两步认证，也就是说必有要用一台apple的设备（mac，ipad，iphone，ipod等）来登陆账号。
 开发者账号注册需要公司提供有效的官网地址。</p>
 <h4 id="应用宝开发资质已认证app转让完成">应用宝（开发资质已认证，APP转让完成）</h4>
 <p>经过和客服的沟通，客服提示步骤如下：</p>
@@ -2453,15 +1416,15 @@ CONF=&quot;/software/redis/redis-3.2.12/redis.conf&quot;
 <p>填写对应资料，提交审核之后，就是等待了。审核时间是2个工作日。</p>
 <p>等待了一个工作日左右，审核通过，APP已经转移到新的账号，不过应用宝内的iOS端APP需要重新配置（我刚才找了下，貌似iOS端的APP是不能转移的）。</p>
 <h4 id="百度移动开放平台开发资质已认证app认领完成">百度移动开放平台（开发资质已认证，app认领完成）</h4>
-<p>经过和客服沟通，客服说，需要走认领流程。“软件版权资质”可以上传“软著”或者“保证函”；“证明文件”可以提交营业执照。<br>
+<p>经过和客服沟通，客服说，需要走认领流程。“软件版权资质”可以上传“软著”或者“保证函”；“证明文件”可以提交营业执照。
 认领成功之后，需要重新填写应用资料，打包提交。</p>
-<p>碰到一个问题，应用认领成功，也重新上线，但是在百度移动应用市场，APP的开发者信息还是之前账号的。联系客服，居然让改包名重新上线。。。我真是醉了。客服说帮忙同步数据，24小时候之后看结果，不知道真假。<br>
+<p>碰到一个问题，应用认领成功，也重新上线，但是在百度移动应用市场，APP的开发者信息还是之前账号的。联系客服，居然让改包名重新上线。。。我真是醉了。客服说帮忙同步数据，24小时候之后看结果，不知道真假。
 决定还是发邮件咨询，<code>ext_app_support@baidu.com</code> ，等待结果。</p>
 <p>邮件客服建议修改包名再次提交。。。百度人都特么有毒。。。还是说我误会了，安卓的包名其实没那么重要。</p>
 <p>在线客服帮我同步数据的操作有效，app开发资质已变更。</p>
 <h4 id="华为开发者联盟开发资质已认证">华为开发者联盟（开发资质已认证）</h4>
-<p>在华为开发者联盟找了一圈，没有找到相关信息。已经提交工单，等待中。<br>
-客服提供了一份文档：<a href="https://developer.huawei.com/consumer/cn/devservice/doc/50112">应用转移操作指南</a>。<br>
+<p>在华为开发者联盟找了一圈，没有找到相关信息。已经提交工单，等待中。
+客服提供了一份文档：<a href="https://developer.huawei.com/consumer/cn/devservice/doc/50112">应用转移操作指南</a>。
 按照要求，发邮件到<code>developer@huawei.com</code>。邮件格式：</p>
 <ul>
 <li>1）邮件标题：【应用转移】+应用名称。</li>
@@ -2469,15 +1432,15 @@ CONF=&quot;/software/redis/redis-3.2.12/redis.conf&quot;
 <li>3）邮件附件包含：应用转移申请表，应用转移自检表</li>
 </ul>
 <h4 id="小米开放平台开发资质已认证app认领完成">小米开放平台（开发资质已认证，APP认领完成）</h4>
-<p>在官网上只找到<a href="https://dev.mi.com/console/doc/detail?pId=882">应用认领操作说明</a>，但是我希望的是转让。因此发邮件去到客服咨询，等待中。<br>
+<p>在官网上只找到<a href="https://dev.mi.com/console/doc/detail?pId=882">应用认领操作说明</a>，但是我希望的是转让。因此发邮件去到客服咨询，等待中。
 等了一天没有回应。算了，直接认领。流程比较简单，新注册账号，并完成开发资质认证，新建一个同名同包名的应用，就会进入认领流程。下载没有签名的APK空包，交给Android开发，重新签名，上传，瞬间就认领过来了。</p>
 <h4 id="oppo开放平台开发资质已认证">oppo开放平台（开发资质已认证，）</h4>
 <p>和在线客服沟通之后，客户给了一份材料：<a href="https://open.oppomobile.com/wiki/doc#id=10182">应用认领流程</a>。只需要应用宝，华为，小米转移之后，提供后台截图就可以了。</p>
 <h4 id="vivo开放平台开发资质已认证">vivo开放平台（开发资质已认证，）</h4>
 <p>根据<a href="https://dev.vivo.com.cn/documentCenter/doc/54">应用认领</a>，貌似和oppo开放平台差不多的流程。不过，值得一提是，vivo的小v客服，提示前面还有9个人，排队。然后下午排了三个多小时，还要继续排队，服气了，放弃。</p>
 <h4 id="mob开放平台开发资质已认证app转让完成">mob开放平台（开发资质已认证，APP转让完成）</h4>
-<p>在mob平台申请账号，在身份认证之后，会需要输入QQ号。然后，官方客服会添加好友。所以转移应用的事，我直接就和客服联系了。客服推送了另一个专门负责这一块的客服给我。<br>
-经过沟通，转移应用之后APPKey和APPSecret不会变动，不影响APP正常使用。<br>
+<p>在mob平台申请账号，在身份认证之后，会需要输入QQ号。然后，官方客服会添加好友。所以转移应用的事，我直接就和客服联系了。客服推送了另一个专门负责这一块的客服给我。
+经过沟通，转移应用之后APPKey和APPSecret不会变动，不影响APP正常使用。
 转移流程如下，首先把需要转移的APP的名称和APPKey发送给客服，然后向Mob官方邮箱（support@mob.com）发送一封邮件,内容包含：</p>
 <ol>
 <li>申请应用转移的原因；</li>
@@ -2489,7 +1452,7 @@ CONF=&quot;/software/redis/redis-3.2.12/redis.conf&quot;
 <p>之后，会有客服联系转移前账号联系人，进行确认。多说一句，妹子声音真好听，哈哈。确认完毕，在一两天之内就会转移成功了。</p>
 <h4 id="微信开放平台">微信开放平台</h4>
 <p>在网上没有找到APP迁移的相关资料。所幸找到微信开放平台的客服邮箱（weixin-open@qq.com），经过几个来回的沟通，可以确定微信开放平台是提供APP迁移这项服务的。迁移之后，迁移应用的openid、appSecret不变，unionid会变。</p>
-<p>迁移需要开发者向客服邮箱发送指定格式的邮件进行申请，要求如下：<br>
+<p>迁移需要开发者向客服邮箱发送指定格式的邮件进行申请，要求如下：
 以“【帐号应用迁移需求】迁出open帐号xxxx，迁入open帐号xxxx”为邮件主题，邮件发送至weixin-open@qq.com，确认迁出帐号和迁入帐号都为已认证状态，并提交以下材料：</p>
 <ol>
 <li>需求背景</li>
@@ -2553,7 +1516,7 @@ CONF=&quot;/software/redis/redis-3.2.12/redis.conf&quot;
 + (nullable id&lt;UIStateRestoring&gt;) objectWithRestorationIdentifierPath:(NSArray&lt;NSString *&gt; *)identifierComponents coder:(NSCoder *)coder;
 @end
 </code></pre>
-<p>###API使用<br>
+<p>###API使用
 在实际的使用中，分为两种情况。</p>
 <ol>
 <li><code>以UINavigationController</code>为根控制器。因为<code>UINavigationController</code>会自动记录子视图的层级，因此非常容易实现，这里不多说。Apple官方的demo也是基于<code>UINavigationController</code>的。</li>
@@ -2802,9 +1765,9 @@ State。
 <ul>
 <li>重置 NVRAM 或 PRAM。
 <blockquote>
-<p>根据apple官方文档(<a href="https://support.apple.com/zh-cn/HT204063">重置 Mac 上的 NVRAM 或 PRAM</a>)<br>
-NVRAM（非易失性随机访问存储器）是一小部分内存，Mac 使用这些内存来储存某些设置并对其进行快速访问。PRAM（参数 RAM）储存着类似的信息，且 NVRAM 和 PRAM 的重置步骤相同。<br>
-可储存在 NVRAM 中的设置包括音量、显示屏分辨率、启动磁盘选择、时区，以及最近的内核崩溃信息。储存在 NVRAM 中的设置取决于您的 Mac 以及与这台 Mac 搭配使用的设备。<br>
+<p>根据apple官方文档(<a href="https://support.apple.com/zh-cn/HT204063">重置 Mac 上的 NVRAM 或 PRAM</a>)
+NVRAM（非易失性随机访问存储器）是一小部分内存，Mac 使用这些内存来储存某些设置并对其进行快速访问。PRAM（参数 RAM）储存着类似的信息，且 NVRAM 和 PRAM 的重置步骤相同。
+可储存在 NVRAM 中的设置包括音量、显示屏分辨率、启动磁盘选择、时区，以及最近的内核崩溃信息。储存在 NVRAM 中的设置取决于您的 Mac 以及与这台 Mac 搭配使用的设备。
 如果您遇到与这些设置或其他设置有关的问题，那么重置 NVRAM 可能会有帮助。例如，如果 Mac 并非从“启动磁盘”偏好设置中选定的磁盘启动，或者在 Mac 启动前短暂地显示了一个问号图标，则可能需要重置 NVRAM。</p>
 </blockquote>
 </li>
@@ -2815,7 +1778,7 @@ NVRAM（非易失性随机访问存储器）是一小部分内存，Mac 使用�
 <ul>
 <li>以 <strong>安全模式</strong> 启动。它会执行某些检查并防止某些软件自动载入或打开。根据apple官方文档。
 <blockquote>
-<p>根据apple官方文档(<a href="https://support.apple.com/zh-cn/HT201262">使用安全模式查明 Mac 的相关问题<br>
+<p>根据apple官方文档(<a href="https://support.apple.com/zh-cn/HT201262">使用安全模式查明 Mac 的相关问题
 </a>)</p>
 </blockquote>
 <blockquote>
@@ -2839,8 +1802,8 @@ NVRAM（非易失性随机访问存储器）是一小部分内存，Mac 使用�
 <h4 id="13-在线重装系统">1.3、在线重装系统</h4>
 <p>格式化硬盘之后，返回 <strong>macOS实用工具</strong> ，选择 <strong>重新安装mac OS</strong> ，点击继续，选择安装磁盘，点击继续。在线安装根据网络状态，需要的时间也不等。在安装过程中，请保持电源连接，不要合上上盖，以便安装完成。</p>
 <h3 id="2-系统配置">2、系统配置</h3>
-<p>系统重装完成之后，重新激活系统。可以选择从 <strong>Time Mechine</strong> 中还原系统，不过有个小问题。如果你使用icloud，备份的系统中 <strong>icloud drive</strong> 文件如果不是最新，那么会很麻烦。<strong>icloud drive</strong> 坑还是比较多的。在这里，我选择暂不传输，当做一台新电脑来折腾。<br>
-进入系统之后，首先将 <code>mac</code> 自带的软件用一个文件夹装起来，毕竟原生的APP很多都不是很顺手。接下来，真正的工作就要开始了。<br>
+<p>系统重装完成之后，重新激活系统。可以选择从 <strong>Time Mechine</strong> 中还原系统，不过有个小问题。如果你使用icloud，备份的系统中 <strong>icloud drive</strong> 文件如果不是最新，那么会很麻烦。<strong>icloud drive</strong> 坑还是比较多的。在这里，我选择暂不传输，当做一台新电脑来折腾。
+进入系统之后，首先将 <code>mac</code> 自带的软件用一个文件夹装起来，毕竟原生的APP很多都不是很顺手。接下来，真正的工作就要开始了。
 首先我们来对mac进行一些配置。</p>
 <h4 id="21-允许运行第三方应用">2.1、允许运行第三方应用。</h4>
 <p>允许 <code>mac</code> 安装第三方的应用， 避免出现安装的应用不能运行，或者提示“已损坏”。</p>
@@ -2891,7 +1854,7 @@ The key's randomart image is:
 <h4 id="32-1password">3.2、<a href="https://1password.com/">1password</a></h4>
 <p>在当前时代，每个人都有巨量的账号。那么，账号密码的管理就是个大问题。如果多平台都使用同一个密码，很容易就会被撞库导致数据泄露；但是针对不同平台设置不同的密码，是一件耗时耗力的事情。</p>
 <p><strong>1password</strong> 就是一款密码管理的保险箱，只需要记住一个主密码，用来登陆 <strong>1password</strong> ，其他所有的账号密码都由 <strong>1password</strong> 来保存，需要使用时，直接调取使用就可以。同时，<strong>1password</strong> 还会检查密码的泄露情况和其他安全问题，及时提示用户修改。</p>
-<p>目前，除了支付宝、微信、以及各大银行的手机银行，我所有的账号密码都是由<strong>1password</strong> 来管理。如果不安装<strong>1password</strong> ，那我根本就不记得我的密码。平时需要做的，只是根据<strong>1password</strong> 的提示更新密码等就可以了。<br>
+<p>目前，除了支付宝、微信、以及各大银行的手机银行，我所有的账号密码都是由<strong>1password</strong> 来管理。如果不安装<strong>1password</strong> ，那我根本就不记得我的密码。平时需要做的，只是根据<strong>1password</strong> 的提示更新密码等就可以了。
 另外，<strong>1password</strong> 支持多平台，<strong>iphone</strong> ，<strong>mac</strong> ，<strong>windows</strong> ，<strong>chrome</strong> 插件等，多平台实时同步。据说windows下体验很差，不过我很少用，所以无所谓啦。</p>
 <h4 id="33-chrome-lantern">3.3、 <a href="https://www.google.cn/chrome/">chrome</a>  + <a href="https://github.com/getlantern/lantern">lantern</a></h4>
 <p><strong>chrome</strong> 是浏览器，<strong>lantern</strong> 是一款VPN。</p>
@@ -2899,7 +1862,7 @@ The key's randomart image is:
 <p><strong>lantern</strong> ，我一般是直接上 **GitHub **下载。不过，在现在的大环境下，lantern也不是很好用了，经常性的连不上。我目前是用的免费版，每个月500M流量，同步 <strong>chrome</strong> 数据够用了。</p>
 <p>当然，作为程序员，翻墙是基本需求了，<strong>lantern</strong> 这每个月500M肯定是不够用的。所以我另外用了一个工具， <strong>DemoCross</strong> ，是 <strong>chrome</strong> 中的一个 **extention ** ，巨稳定，也很便宜，9块一个月；当然，也有缺陷，只能在 <strong>chrome</strong> 中使用。基本满足我的需求了。</p>
 <h4 id="34-alfred-dropbox">3.4、<a href="https://www.alfredapp.com/">Alfred</a> + <a href="https://www.dropbox.com/">dropbox</a></h4>
-<p><strong>Alfred</strong> 是 <strong>Mac</strong> 平台上一款著名的效率提升工具，包含功能众多。它分为免费版和付费版。一般用户使用免费版就够了。<br>
+<p><strong>Alfred</strong> 是 <strong>Mac</strong> 平台上一款著名的效率提升工具，包含功能众多。它分为免费版和付费版。一般用户使用免费版就够了。
 <strong>dropbox</strong> 是境外的云盘服务，需要配备VPN才能使用。我使用它的唯一原因，只是因为Alfred配置文件同步只支持dropbox。一般保持一周更新一次的频率。</p>
 <p><strong>Alfred</strong>的使用，我就不介绍了，太多文章了。这里列一些我收藏的。</p>
 <p><a href="https://sspai.com/post/32979">从零开始学习 Alfred：基础功能及设置</a></p>
@@ -2969,7 +1932,7 @@ The key's randomart image is:
 <p><a href="https://blog.csdn.net/chuangxin/article/details/80839322">Mac如何使用SSH远程连接linux及使用SCP、SFTP和Filezilla进行文件上传、下载</a></p>
 <p>当然，我更习惯使用GUI的客户端。这里有两个推荐。远程桌面使用 <a href="https://apps.apple.com/cn/app/parallels-client/id600925318?l=en&amp;mt=12">Parallels Client</a> 。文件传输，本来是购买的yummy ftp pro。不过在某个版本更新之后，我的购买就失效了，无奈之中。替换成 <a href="https://apps.apple.com/cn/app/forklift-file-manager-and-ftp-sftp-webdav-amazon-s3-client/id412448059?mt=12">ForkLift</a> ，除了每次都需要输入账号密码，其他的都挺好用的。</p>
 <h4 id="48-cheat-sheet">4.8、cheat sheet</h4>
-<p><strong>cheat sheet</strong> 是macOS平台上一款用来查看当前页面的可用快捷键的APP，可以极大的提高效率。<br>
+<p><strong>cheat sheet</strong> 是macOS平台上一款用来查看当前页面的可用快捷键的APP，可以极大的提高效率。
 使用比较简单，安装完毕之后，在 <strong>系统偏好设置</strong> -&gt; <strong>安全性与隐私</strong> -&gt; <strong>辅助功能</strong> 中添加权限，就可以正常使用啦，长按 <strong>command</strong>键即可。</p>
 <h4 id="49-irvue">4.9、<a href="https://apps.apple.com/cn/app/irvue/id1039633667?mt=12">irvue</a></h4>
 <p><strong>irvue</strong> 是一款壁纸APP，基于 Unsplash ，有很多精美的图片。</p>
@@ -2978,17 +1941,17 @@ The key's randomart image is:
 <h4 id="410-iina">4.10、<a href="https://www.iina.io/">iina</a></h4>
 <p>mac OS 平台上非常好用的播放器。几乎支持全部格式视频，而且小巧，轻便，界面美观。</p>
 <h4 id="411-istat-menus">4.11、<a href="https://bjango.com/mac/istatmenus/">iStat Menus</a></h4>
-<p><strong>iStat Menus</strong> 是一款非常强大的系统监控软件。通过它，可以最直观的了解几乎所有硬件的运行状态，它主要运行在系统状态栏。<br>
-具体使用可以参考以下文章：<br>
-<a href="https://sspai.com/post/41089">不仅系统监控要做得更出色，iStat Menu 6 还能让你在状态栏看天气了</a><br>
+<p><strong>iStat Menus</strong> 是一款非常强大的系统监控软件。通过它，可以最直观的了解几乎所有硬件的运行状态，它主要运行在系统状态栏。
+具体使用可以参考以下文章：
+<a href="https://sspai.com/post/41089">不仅系统监控要做得更出色，iStat Menu 6 还能让你在状态栏看天气了</a>
 <a href="https://sspai.com/post/26754">OS X 是了不起的操作系统：全能系统监测工具 iStat Menus 5 体验详解</a></p>
 <h3 id="5-ios开发环境配置">5、iOS开发环境配置</h3>
 <p>ios开发， 一般来说，都是使用apple提供的IDE： <strong>Xcode</strong> 。另外，我习惯了使用 <strong>cocoapods</strong> 作为第三方库管理工具。</p>
 <h4 id="51-xcode安装">5.1、Xcode安装</h4>
-<p>现在一些辅助的工具安装完毕，作为一个iOS开发工程师，接下来首先要做的肯定是配置开发环境啦。<br>
+<p>现在一些辅助的工具安装完毕，作为一个iOS开发工程师，接下来首先要做的肯定是配置开发环境啦。
 首先是Xcode。自从2015年 <code>Xcode ghost</code>事件之后，下载 <a href="https://itunes.apple.com/us/app/xcode/id497799835?mt=12">Xcode</a> 还是建议直接到mac的App Store去下载了，，非常方便，历史版本，可以直接上苹果开发者网站下载(<a href="https://developer.apple.com/download/more/?=xcode">More Downloads for Apple Developers</a>)。Xcode作为苹果官方出品的IDE，如果不是Xcode8以后禁了插件，我会更爱它。</p>
 <h4 id="52-xcode模拟器安装">5.2、Xcode模拟器安装</h4>
-<p>模拟器安装本来是个很简单的工作，在「Xcode -&gt; Preferences -&gt; Components」中选择想要安装的模拟器就可以了。但是，apple的服务器着实不稳定，有时候会慢的让你怀疑人生。因此，我在想会不会又更方便的安装方式呢？检索资料之后，找到了这篇文章：<a href="https://www.jianshu.com/p/fd7c40b15192">解决直接在xcode下载模拟器慢的方案</a>。感谢作者分享。<br>
+<p>模拟器安装本来是个很简单的工作，在「Xcode -&gt; Preferences -&gt; Components」中选择想要安装的模拟器就可以了。但是，apple的服务器着实不稳定，有时候会慢的让你怀疑人生。因此，我在想会不会又更方便的安装方式呢？检索资料之后，找到了这篇文章：<a href="https://www.jianshu.com/p/fd7c40b15192">解决直接在xcode下载模拟器慢的方案</a>。感谢作者分享。
 我大致介绍一下。</p>
 <ol>
 <li>打开「实用工具 -&gt; console」(系统控制台)。</li>
@@ -3006,7 +1969,7 @@ The key's randomart image is:
 <blockquote>
 <p>CocoaPods is a dependency manager for Swift and Objective-C Cocoa projects. It has over 62 thousand libraries and is used in over 3 million apps. CocoaPods can help you scale your projects elegantly.</p>
 </blockquote>
-<p>这是官方的一段简介。大致意思是，<code>Cocoapods</code> 是专为基于swift和Objective-C语言编写的项目提供依赖库管理的工具，拥有超过6万个第三方框架，超过300万个APP在使用它。<code>Cocoapods</code>可以让你优雅的拓展项目。<br>
+<p>这是官方的一段简介。大致意思是，<code>Cocoapods</code> 是专为基于swift和Objective-C语言编写的项目提供依赖库管理的工具，拥有超过6万个第三方框架，超过300万个APP在使用它。<code>Cocoapods</code>可以让你优雅的拓展项目。
 具体来说，<code>Cocoapods</code>可以帮助我们节省配置和更新第三方库的时间；另外，自己开发的组件也可以上传到<code>Cocoapods</code>，以供他人使用。</p>
 <p>如果不使用<code>Cocoapods</code>，正常来说，我们使用第三方库，需要经历一下步骤：</p>
 <ol>
@@ -3016,8 +1979,8 @@ The key's randomart image is:
 <li>手动管理第三方库的更新。</li>
 </ol>
 <p>这个过程是比较繁琐的，其中更是会出现很多奇奇怪怪的报错，处理起来非常麻烦。如果是使用<code>Cocoapods</code>，那么这些都不用管，<code>Cocoapods</code>会帮我们处理好。</p>
-<p>如果想多了解<code>Cocoapods</code>，可以看下这些文章：<br>
-<a href="https://juejin.im/post/5b1cfaff6fb9a01e417b6051">我所理解的 CocoaPods</a><br>
+<p>如果想多了解<code>Cocoapods</code>，可以看下这些文章：
+<a href="https://juejin.im/post/5b1cfaff6fb9a01e417b6051">我所理解的 CocoaPods</a>
 <a href="http://www.code4app.com/article/cocoapods-install-usage">CocoaPods安装和使用教程</a></p>
 <h5 id="532-cocoapods的安装">5.3.2、<code>Cocoapods</code>的安装</h5>
 <p><code>Cocoapods</code>本质上是一个Ruby项目，由若干gems组成。因此本地需要配置Ruby环境才可以运行。在Mac系统中，是自带Ruby的。使用命令<code>Ruby -v</code>查看当前版本。</p>
@@ -3102,7 +2065,7 @@ Ruby was built without documentation, to build it run: rvm docs generate-ri
 Using /Users/mali/.rvm/gems/ruby-2.6.3
 ➜  ~
 </code></pre>
-<p><strong>更换国内源<code>https://gems.ruby-china.com/</code></strong><br>
+<p><strong>更换国内源<code>https://gems.ruby-china.com/</code></strong>
 由于墙的存在，因此默认的源是非常非常慢的，需要切换的国内的镜像源。</p>
 <pre><code>// 移除自带源，因为国内被墙了
 ➜  ~ gem sources --remove https://rubygems.org/
@@ -3327,15 +2290,15 @@ brew list                  //展示目前安装的软件。
 </code></pre>
 <p><strong>预览插件( <a href="https://github.com/sindresorhus/quick-look-plugins">quick-look-plugins</a> )</strong></p>
 <blockquote>
-<p>qlcolorcode        预览代码时代码高亮。<br>
-qlstephen          支持预览没有后缀的文本文件。<br>
-qlmarkdown         预览markdown文件的渲染效果。<br>
-quicklook-json     对json文件的格式化和高亮预览。<br>
-betterzip          预览压缩文件内部的内容，并支持自定义解压缩的行为；收费。<br>
-qlimagesize        图片预览时展示分辨率和大小。<br>
-webpquicklook      支持预览webP格式的图片。<br>
-qlvideo            预览更多格式的视频文件。<br>
-provisionql        可以预览.app或者.ipa文件的程序。<br>
+<p>qlcolorcode        预览代码时代码高亮。
+qlstephen          支持预览没有后缀的文本文件。
+qlmarkdown         预览markdown文件的渲染效果。
+quicklook-json     对json文件的格式化和高亮预览。
+betterzip          预览压缩文件内部的内容，并支持自定义解压缩的行为；收费。
+qlimagesize        图片预览时展示分辨率和大小。
+webpquicklook      支持预览webP格式的图片。
+qlvideo            预览更多格式的视频文件。
+provisionql        可以预览.app或者.ipa文件的程序。
 quicklookapk       预览安卓.apk的程序。</p>
 </blockquote>
 <pre><code>malideMacBook-Pro:~ mali$ brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize webpquicklook qlvideo provisionql quicklookapk
@@ -3364,11 +2327,11 @@ malideMacBook-Pro:~ mali$ sh -c &quot;$(curl -fsSL https://raw.github.com/robbyr
 malideMacBook-Pro:~ mali$ sh -c &quot;$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;
 </code></pre>
 <h5 id="621-为什么用zsh">6.2.1、为什么用zsh</h5>
-<p>zsh和bash都是shell的一种，不过zsh在使用中，更加便利。对我来说，仅仅是zsh的自动补全就足以让我选择用它了。向更进一步了解，可以查看下列文章。<br>
-<a href="https://www.zhihu.com/question/21418449">为什么说 zsh 是 shell 中的极品？</a><br>
+<p>zsh和bash都是shell的一种，不过zsh在使用中，更加便利。对我来说，仅仅是zsh的自动补全就足以让我选择用它了。向更进一步了解，可以查看下列文章。
+<a href="https://www.zhihu.com/question/21418449">为什么说 zsh 是 shell 中的极品？</a>
 <a href="https://www.xshell.net/shell/bash_zsh.html">Zsh和Bash，究竟有何不同 坑很深</a></p>
 <h5 id="622-为什么用oh-my-zsh">6.2.2、为什么用oh my zsh</h5>
-<p>zsh的配置需要花费大量的时间，而 <strong>oh my zsh</strong> 相当于是一个提供了预设个性配置的zsh，大大减少了我们配置的时间，非常推荐使用。<br>
+<p>zsh的配置需要花费大量的时间，而 <strong>oh my zsh</strong> 相当于是一个提供了预设个性配置的zsh，大大减少了我们配置的时间，非常推荐使用。
 <a href="https://www.jianshu.com/p/d194d29e488c?open_source=weibo_search">oh-my-zsh,让你的终端从未这么爽过</a></p>
 <h5 id="623-oh-my-zsh-基本使用">6.2.3、oh my zsh 基本使用</h5>
 <pre><code>//查看当前使用的shell
@@ -3427,10 +2390,10 @@ agnoster主题，需要Powerline字体库的支持。
 然后重启iterm即可。
 </code></pre>
 <h4 id="63-ssh-copy-id">6.3、ssh-copy-id</h4>
-<p>SSH 是 Secure Shell 的缩写，其实就是远程 Shell 登录。只要能远程登录到某台机器的 Shell 上，大到 Mac 笔记本，小到树莓派和智能路由器，我们就可以上传或下载文件、执行脚本等等，几乎掌握了设备的控制权。一般来说，配置自己的云服务器，都需要ssh登陆。<br>
-ssh登陆时，需要制定ip地址和登录名，例如<code>ssh 192.168.1.1@root</code>，就是指登陆ip为192.168.1.1的主机的用户root。ssh协议默认端口为22，不用填写；如果设备为了安全修改了端口为1234，则必须输入，例如<code>ssh -p 1234 192.168.1.1@root</code>。接下来输入密码就可以登陆了。<br>
-不过记忆密码是一件非常麻烦的事，好在ssh支持使用RSA的公钥和私钥来验证身份。具体就是指将自己的公钥文件（ ~/.ssh/id_rsa.pub ）的内容复制到目标服务器（ ~/.ssh/authorized_keys ）文件中。这样其实也很繁琐。<br>
-<strong>ssh-copy-id</strong> 就是一款简化过程，方便我们使用的工具。<br>
+<p>SSH 是 Secure Shell 的缩写，其实就是远程 Shell 登录。只要能远程登录到某台机器的 Shell 上，大到 Mac 笔记本，小到树莓派和智能路由器，我们就可以上传或下载文件、执行脚本等等，几乎掌握了设备的控制权。一般来说，配置自己的云服务器，都需要ssh登陆。
+ssh登陆时，需要制定ip地址和登录名，例如<code>ssh 192.168.1.1@root</code>，就是指登陆ip为192.168.1.1的主机的用户root。ssh协议默认端口为22，不用填写；如果设备为了安全修改了端口为1234，则必须输入，例如<code>ssh -p 1234 192.168.1.1@root</code>。接下来输入密码就可以登陆了。
+不过记忆密码是一件非常麻烦的事，好在ssh支持使用RSA的公钥和私钥来验证身份。具体就是指将自己的公钥文件（ ~/.ssh/id_rsa.pub ）的内容复制到目标服务器（ ~/.ssh/authorized_keys ）文件中。这样其实也很繁琐。
+<strong>ssh-copy-id</strong> 就是一款简化过程，方便我们使用的工具。
 另外，可以通过ssh的配置文件配置来设置云服务器的别名，省去了记忆ip、用户名、端口号的麻烦。基本格式如下</p>
 <pre><code>Host malitest
     HostName 192.168.1.1
@@ -3444,6 +2407,42 @@ ssh登陆时，需要制定ip地址和登录名，例如<code>ssh 192.168.1.1@ro
 <h3 id="7-自我提升">7、自我提升</h3>
 <h4 id="71-腾讯课堂">7.1、腾讯课堂</h4>
 <h4 id="72-欧路词典">7.2、欧路词典</h4>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[微信支付]]></title>
+        <id>https://codermali.github.io//post/wei-xin-zhi-fu</id>
+        <link href="https://codermali.github.io//post/wei-xin-zhi-fu">
+        </link>
+        <updated>2019-06-21T09:21:59.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="微信支付">微信支付</h3>
+<h5 id="接入微信支付首先需要注册微信商户号">接入微信支付首先需要注册微信商户号。</h5>
+<ol>
+<li>打开 <a href="https://pay.weixin.qq.com/index.php/core/home/login?return_url=%2F">微信支付</a> 首页，选择「成为商家，选择「注册微信支付商户号」，然后绑定管理员微信。</li>
+<li>完成以上操作后，进入申请流程。分为三个步骤：创建申请单，填写商户信息，确认提交。
+<ul>
+<li>创建申请单中，需要输入管理员的各种信息；</li>
+<li>填写商户信息过程中，可以选择四个类型：个体工商户，企业，党政、机关及事业单位，其他组织。我选择的是企业，需要三证合一的营业执照，法人身份证，对公账户，经营信息以及结算规则。
+<ul>
+<li>在这个过程中，我碰到一个问题。在填写经营信息时，我选择的经营场景是APP，微信提示需要提供APP首页截图、尾页截图、应用内截图、支付页截图各1张。但是目前我们的APP是并没有开发完成。因此，只能使用其他方式先注册，在APP开发完成之后，再进行更换。</li>
+</ul>
+</li>
+<li>确认提交，主要是对提交资料的一个确认，并提交审核。</li>
+</ul>
+</li>
+<li>资料提交成功之后，需要进行账户验证。有两种方式：
+<ol>
+<li>使用法人微信认证。</li>
+<li>使用公账汇款。
+<ul>
+<li>使用公账汇款，会有延迟。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>账户验证通过之后，需要等待微信审核结果。我们公司公账是招商银行账户，48小时内有结果。<a href="http://kf.qq.com/faq/161223BfIRVz161223zA3ieY.html">点击查看具体</a></li>
+</ol>
+<h3 id="支付宝支付">支付宝支付</h3>
 ]]></content>
     </entry>
 </feed>
