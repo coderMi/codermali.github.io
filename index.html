@@ -7,7 +7,7 @@
 <title>
     malide Library
 </title>
-<link rel="shortcut icon" href="https://codermali.github.io//favicon.ico?v=1563524465639">
+<link rel="shortcut icon" href="https://codermali.github.io//favicon.ico?v=1563525125415">
 <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
 <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -27,7 +27,7 @@
     <div class="nav">
         <div class="logo">
             <a href="https://codermali.github.io/">
-                <img class="avatar" src="https://codermali.github.io//images/avatar.png?v=1563524465639" alt="">
+                <img class="avatar" src="https://codermali.github.io//images/avatar.png?v=1563525125415" alt="">
             </a>
             <div class="site-title">
                 <h1>
@@ -99,15 +99,15 @@
         
             <article class="post i-card">
                 <h2 class="post-title">
-                    <a href="https://codermali.github.io//post/a-li-yun-centos-68-ji-chu-huan-jing-pei-zhi-5-redis">
-                         阿里云 CentOS 6.8 基础环境配置(5) -- redis
+                    <a href="https://codermali.github.io//post/a-li-yun-centos-68-ji-chu-huan-jing-pei-zhi-2-mysql">
+                         阿里云 CentOS 6.8 基础环境配置(2) -- mysql
                     </a>
                 </h2>
                 <div class="post-info">
                     <time class="post-time">2019-07-19</time>
                     
                         <a href="https://codermali.github.io//tag/APN8Ay21f" class="post-tag i-tag
-                            i-tag-other_4">
+                            i-tag-other_3">
             #Aliyun CentOS
         </a>
                         
@@ -117,64 +117,139 @@
                             <div class="post-content">
                                 
                                         <div class="post-content-content">
-                                            5、安装redis
-Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。从2010年3月15日起，Redis的开发工作由VMware主持。从2013年5月开始，Redis的开发由Pivotal赞助。
-5.1、解压编译安装
+                                            2、安装mysql
+MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下产品。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。
+2.1、检查是否已经安装了mysql
+//whereis mysql
+
+//可以看到mysql的包
+rpm -qa | grep -i mysql
+
+//出现以下打印，说明已经安装了mysql，需要卸载掉
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# whereis mysql
+mysql: /usr/lib64/mysql /usr/share/mysql
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -qa | grep -i mysql
+mysql-libs-5.1.73-8.el6_8.x86_64
+
+2.2、卸载已经安装的mysql
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -e --nodeps mysql-libs-5.1.73-8.el6_8.x86_64
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -qa | grep -i mysql
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# whereis mysql
+mysql:
+
+2.3、添加用户
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# groupadd mysql
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# useradd -g mysql mysql
+
+2.4、创建my.cnf配置文件
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# vi /etc/my.cnf
+[mysqld]
+explicit_defaults_for_timestamp=true
+lower_case_table_names=1
+basedir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64
+datadir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data
+sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+
+2.5、解压安装
 //解压
-[root@iZwz9cngn5wj3bafyrd539Z redis]# tar -zxvf redis-3.2.12.tar.gz
-//进入解压目录
-[root@iZwz9cngn5wj3bafyrd539Z redis]# cd redis-3.2.12
-//编译安装
-[root@iZwz9cngn5wj3bafyrd539Z redis]# make
-[root@iZwz9cngn5wj3bafyrd539Z redis]# make install
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# tar -zxvf mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz
 
-5.2、修改配置文件
-配置文件路径：/software/redis/redis-3.2.12/redis.conf
+//改变所有者
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# chown -R mysql:mysql /software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64
 
-//设置Redis以守护进程模式运行
-daemonize yes
+//初始化
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# cd mysql-5.7.18-linux-glibc2.5-x86_64/bin/
+[root@iZwz9cngn5wj3bafyrd539Z bin]# ./mysqld --user=mysql --basedir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64 --datadir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data --initialize
+2018-10-11T07:33:56.224082Z 0 [Warning] InnoDB: New log files created, LSN=45790
+2018-10-11T07:33:56.323553Z 0 [Warning] InnoDB: Creating foreign key constraint system tables.
+2018-10-11T07:33:56.386146Z 0 [Warning] No existing UUID has been found, so we assume that this is the first time that this server has been started. Generating a new UUID: 02c83522-cd28-11e8-8c68-00163e06f845.
+2018-10-11T07:33:56.388001Z 0 [Warning] Gtid table is not ready to be used. Table &#39;mysql.gtid_executed&#39; cannot be opened.
+2018-10-11T07:33:56.388604Z 1 [Note] A temporary password is generated for root@localhost: WfIA9=!!rwN3
+[root@iZwz9cngn5wj3bafyrd539Z bin]#
 
-//redis默认不记录log文件，手动为redis添加log文件，默认路径在redis安装目录下
-logfile &amp;quot;redis.log&amp;quot;
+2.6、数据加密
+[root@iZwz9cngn5wj3bafyrd539Z bin]# ./mysql_ssl_rsa_setup  --datadir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data/
+Generating a 2048 bit RSA private key
+......+++
+........................+++
+writing new private key to &#39;ca-key.pem&#39;
+-----
+Generating a 2048 bit RSA private key
+......................................................................................................................+++
+.....+++
+writing new private key to &#39;server-key.pem&#39;
+-----
+Generating a 2048 bit RSA private key
+..................+++
+....................+++
+writing new private key to &#39;client-key.pem&#39;
+-----
+[root@iZwz9cngn5wj3bafyrd539Z bin]#
 
-//设置redis监听端口
-port 6379
+2.7、启动服务
+[root@iZwz9cngn5wj3bafyrd539Z bin]# cd ../support-files/
+[root@iZwz9cngn5wj3bafyrd539Z support-files]# ./mysql.server start
+Starting MySQL.Logging to &#39;/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data/iZwz9cngn5wj3bafyrd539Z.err&#39;.
+                                                           [  OK  ]
+[root@iZwz9cngn5wj3bafyrd539Z support-files]#
 
-//设置保护模式
-protected-mode yes
+2.8、登录终端
+//进入`bin`目录
+[root@iZwz9cngn5wj3bafyrd539Z support-files]# cd ../bin/
+//登录终端，输入密码
+[root@iZwz9cngn5wj3bafyrd539Z bin]# ./mysql -uroot -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 3
+Server version: 5.7.18
 
-//设置密码
-requirepass foobared
+Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.
 
-//设置绑定ip，只要绑定的ip才能访问redis
-bind 127.0.0.1
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
 
-5.3、启动服务
-[root@iZwz9cngn5wj3bafyrd539Z redis]# cd src
-//前台启动，命令行关闭之后就会断开
-[root@iZwz9cngn5wj3bafyrd539Z redis]# ./redis-server
-//后台启动，
-[root@iZwz9cngn5wj3bafyrd539Z redis]# ./redis-server ../redis.conf
+Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.
+
+mysql&amp;gt;
+
+2.9、初始化root账号密码
+//重置root账号密码
+mysql&amp;gt; set password=password(&#39;}UoJs4AL7Lp2M*?u,f9ZJKft&#39;);
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+mysql&amp;gt;
+
+2.10、开启远程用户
+//设置远程账号的账号密码
+mysql&amp;gt; GRANT ALL PRIVILEGES ON *.* TO &#39;merchants_remote&#39;@&#39;%&#39; identified by &#39;dGbq4dUEQF8zxJAqbM7MZvd3&#39; WITH GRANT OPTION;
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+//mysql 新设置用户或更改密码后需用flush privileges刷新MySQL的系统权限相关表，否则会出现拒绝访问，还有一种方法，就是重新启动mysql服务器，来使新设置生效。­
+mysql&amp;gt; FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.00 sec)
+
+MySQL5.7的版本，需要设置sql_mode，否则非聚集列group by查询会出现如下错误：
+Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column &#39;XXX.XXX&#39; which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
 
 
                                         </div>
                                         
-                                            <a class="btn btn-text" href="https://codermali.github.io//post/a-li-yun-centos-68-ji-chu-huan-jing-pei-zhi-5-redis">Read More ~</a>
+                                            <a class="btn btn-text" href="https://codermali.github.io//post/a-li-yun-centos-68-ji-chu-huan-jing-pei-zhi-2-mysql">Read More ~</a>
                             </div>
                 </div>
             </article>
             
             <article class="post i-card">
                 <h2 class="post-title">
-                    <a href="https://codermali.github.io//post/a-li-yun-centos-68-ji-chu-huan-jing-pei-zhi-4-nginx">
-                         阿里云 CentOS 6.8 基础环境配置(4) -- nginx
+                    <a href="https://codermali.github.io//post/a-li-yun-centos-68-ji-chu-huan-jing-pei-zhi-2">
+                        阿里云 CentOS 6.8 基础环境配置
                     </a>
                 </h2>
                 <div class="post-info">
                     <time class="post-time">2019-07-19</time>
                     
                         <a href="https://codermali.github.io//tag/APN8Ay21f" class="post-tag i-tag
-                            i-tag-info">
+                            i-tag-success">
             #Aliyun CentOS
         </a>
                         
@@ -184,83 +259,156 @@ bind 127.0.0.1
                             <div class="post-content">
                                 
                                         <div class="post-content-content">
-                                            4、安装nginx
-Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时也提供了IMAP/POP3/SMTP服务。Nginx是由伊戈尔·赛索耶夫为俄罗斯访问量第二的Rambler.ru站点（俄文：Рамблер）开发的，第一个公开版本0.1.0发布于2004年10月4日。
-4.1、使用yum命令，安装相关的编译工具和库文件
-//升级所有软件包
-yum -y update
-//安装编译工具及库文件
-yum -y install gcc gcc-c++ automake pcre pcre-devel zlib zlib-devel open openssl-devel
+                                            阿里云CentOS6.8 基础环境配置
+概述
+本文是基于 阿里云 CentOS v6.8 系统 ，搭建一个基本的APP云环境。
+1、安装jdk
+JDK是 Java 语言的软件开发工具包，主要用于移动设备、嵌入式设备上的java应用程序。JDK是整个java开发的核心，它包含了JAVA的运行环境（JVM+Java系统类库）和JAVA工具。
+1.1、首先检查系统是否安装了jdk
+java -version
 
-4.2、解压及安装
+1.2、如果安装了jdk,那么卸载掉
+rpm -qa | grep java | xargs rpm -e —nodeps
+
+1.3、查看卸载结果
+java -version
+
+1.4、首先去官网下载JDK安装包(tar.gz)
+Java SE Development Kit 8 Downloads
+1.5、解压安装包
+tar -zxvf jdk-8u171-linux-x64.tar.gz
+
+1.6、配置全局java环境变量
+//使用VI编辑器打开profile文件 vi /etc/profile ，移动到最后面,加入下面四行
+export JAVA_HOME=/usr/local/jdk1.8.0_171 
+export JRE_HOME=/usr/local/jdk1.8.0_171/jre 
+export CLASSPATH=$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib 
+export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOME/bin
+
+1.7、使profile文件生效
+source /etc/profile
+
+1.8、验证是否安装成功
+java -version
+
+//打印出以下内容,说明安装成功
+java version “1.8.0_171”Java(TM) SE Runtime Environment (build 1.8.0_171-b11)Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode)
+
+2、安装mysql
+MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下产品。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。
+2.1、检查是否已经安装了mysql
+//whereis mysql
+
+//可以看到mysql的包
+rpm -qa | grep -i mysql
+
+//出现以下打印，说明已经安装了mysql，需要卸载掉
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# whereis mysql
+mysql: /usr/lib64/mysql /usr/share/mysql
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -qa | grep -i mysql
+mysql-libs-5.1.73-8.el6_8.x86_64
+
+2.2、卸载已经安装的mysql
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -e --nodeps mysql-libs-5.1.73-8.el6_8.x86_64
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -qa | grep -i mysql
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# whereis mysql
+mysql:
+
+2.3、添加用户
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# groupadd mysql
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# useradd -g mysql mysql
+
+2.4、创建my.cnf配置文件
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# vi /etc/my.cnf
+[mysqld]
+explicit_defaults_for_timestamp=true
+lower_case_table_names=1
+basedir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64
+datadir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data
+sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+
+2.5、解压安装
 //解压
-[root@iZwz9cngn5wj3bafyrd539Z nginx]# tar -zxvf nginx-1.13.6.tar.gz
-//编译安装
-[root@iZwz9cngn5wj3bafyrd539Z sbin]# ./configure --prefix=/software/nginx/nginx
-[root@iZwz9cngn5wj3bafyrd539Z sbin]# make
-[root@iZwz9cngn5wj3bafyrd539Z sbin]# make install
-//查看是否安装成功
-[root@iZwz9cngn5wj3bafyrd539Z /]# /software/nginx/nginx/sbin/nginx -v
-nginx version: nginx/1.13.6
-[root@iZwz9cngn5wj3bafyrd539Z /]#
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# tar -zxvf mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz
 
-4.3、常用命令
-./nginx # 启动nginx
-./nginx -s reload # 重新载入配置文件
-./nginx -s reopen # 重启 Nginx
-./nginx -s stop # 停止 Nginx
+//改变所有者
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# chown -R mysql:mysql /software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64
 
-4.4、配置文件
-//找到配置文件
-vi /nginx/conf/nginx.conf
-//找到配置端口的地方
-/server
-//修改配置（当前端口为8080）
-server {
-listen 8080;
-server_name localhost;
+//初始化
+[root@iZwz9cngn5wj3bafyrd539Z mysql]# cd mysql-5.7.18-linux-glibc2.5-x86_64/bin/
+[root@iZwz9cngn5wj3bafyrd539Z bin]# ./mysqld --user=mysql --basedir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64 --datadir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data --initialize
+2018-10-11T07:33:56.224082Z 0 [Warning] InnoDB: New log files created, LSN=45790
+2018-10-11T07:33:56.323553Z 0 [Warning] InnoDB: Creating foreign key constraint system tables.
+2018-10-11T07:33:56.386146Z 0 [Warning] No existing UUID has been found, so we assume that this is the first time that this server has been started. Generating a new UUID: 02c83522-cd28-11e8-8c68-00163e06f845.
+2018-10-11T07:33:56.388001Z 0 [Warning] Gtid table is not ready to be used. Table &#39;mysql.gtid_executed&#39; cannot be opened.
+2018-10-11T07:33:56.388604Z 1 [Note] A temporary password is generated for root@localhost: WfIA9=!!rwN3
+[root@iZwz9cngn5wj3bafyrd539Z bin]#
 
-#charset koi8-r;
+2.6、数据加密
+[root@iZwz9cngn5wj3bafyrd539Z bin]# ./mysql_ssl_rsa_setup  --datadir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data/
+Generating a 2048 bit RSA private key
+......+++
+........................+++
+writing new private key to &#39;ca-key.pem&#39;
+-----
+Generating a 2048 bit RSA private key
+......................................................................................................................+++
+.....+++
+writing new private key to &#39;server-key.pem&#39;
+-----
+Generating a 2048 bit RSA private key
+..................+++
+....................+++
+writing new private key to &#39;client-key.pem&#39;
+-----
+[root@iZwz9cngn5wj3bafyrd539Z bin]#
 
-#access_log logs/host.access.log main;
+2.7、启动服务
+[root@iZwz9cngn5wj3bafyrd539Z bin]# cd ../support-files/
+[root@iZwz9cngn5wj3bafyrd539Z support-files]# ./mysql.server start
+Starting MySQL.Logging to &#39;/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data/iZwz9cngn5wj3bafyrd539Z.err&#39;.
+                                                           [  OK  ]
+[root@iZwz9cngn5wj3bafyrd539Z support-files]#
 
-location / {
-root html;
-index index.html index.htm;
-}
+2.8、登录终端
+//进入`bin`目录
+[root@iZwz9cngn5wj3bafyrd539Z support-files]# cd ../bin/
+//登录终端，输入密码
+[root@iZwz9cngn5wj3bafyrd539Z bin]# ./mysql -uroot -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 3
+Server version: 5.7.18
 
-//重启nginx
-./nginx -s reload
+Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.
 
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
 
-                                        </div>
-                                        
-                                            <a class="btn btn-text" href="https://codermali.github.io//post/a-li-yun-centos-68-ji-chu-huan-jing-pei-zhi-4-nginx">Read More ~</a>
-                            </div>
-                </div>
-            </article>
-            
-            <article class="post i-card">
-                <h2 class="post-title">
-                    <a href="https://codermali.github.io//post/a-li-yun-centos-68-ji-chu-huan-jing-pei-zhi-3-tomcat">
-                         阿里云 CentOS 6.8 基础环境配置(3) -- tomcat
-                    </a>
-                </h2>
-                <div class="post-info">
-                    <time class="post-time">2019-07-19</time>
-                    
-                        <a href="https://codermali.github.io//tag/APN8Ay21f" class="post-tag i-tag
-                            i-tag-other_4">
-            #Aliyun CentOS
-        </a>
-                        
-                </div>
-                <div class="post-article">
-                    
-                            <div class="post-content">
-                                
-                                        <div class="post-content-content">
-                                            3、安装tomcat
+Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.
+
+mysql&amp;gt;
+
+2.9、初始化root账号密码
+//重置root账号密码
+mysql&amp;gt; set password=password(&#39;}UoJs4AL7Lp2M*?u,f9ZJKft&#39;);
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+mysql&amp;gt;
+
+2.10、开启远程用户
+//设置远程账号的账号密码
+mysql&amp;gt; GRANT ALL PRIVILEGES ON *.* TO &#39;merchants_remote&#39;@&#39;%&#39; identified by &#39;dGbq4dUEQF8zxJAqbM7MZvd3&#39; WITH GRANT OPTION;
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+//mysql 新设置用户或更改密码后需用flush privileges刷新MySQL的系统权限相关表，否则会出现拒绝访问，还有一种方法，就是重新启动mysql服务器，来使新设置生效。­
+mysql&amp;gt; FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.00 sec)
+
+MySQL5.7的版本，需要设置sql_mode，否则非聚集列group by查询会出现如下错误：
+Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column &#39;XXX.XXX&#39; which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+
+3、安装tomcat
 Tomcat是Apache 软件基金会（Apache Software Foundation）的Jakarta 项目中的一个核心项目，由Apache、Sun 和其他一些公司及个人共同开发而成。由于有了Sun 的参与和支持，最新的Servlet 和JSP 规范总是能在Tomcat 中得到体现，Tomcat 5支持最新的Servlet 2.4 和JSP 2.0 规范。因为Tomcat 技术先进、性能稳定，而且免费，因而深受Java 爱好者的喜爱并得到了部分软件开发商的认可，成为目前比较流行的Web 应用服务器。
 3.1解压
 [root@iZwz9cngn5wj3bafyrd539Z tomcat]# tar -zxvf apache-tomcat-8.5.32.tar.gz
@@ -1066,203 +1214,92 @@ redirectPort=&amp;quot;8443&amp;quot; /&amp;gt;
 [root@iZwz9cngn5wj3bafyrd539Z bin]# kill -9
 [root@iZwz9cngn5wj3bafyrd539Z bin]# cd ../bin;./startup.sh
 
+4、安装nginx
+Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时也提供了IMAP/POP3/SMTP服务。Nginx是由伊戈尔·赛索耶夫为俄罗斯访问量第二的Rambler.ru站点（俄文：Рамблер）开发的，第一个公开版本0.1.0发布于2004年10月4日。
+4.1、使用yum命令，安装相关的编译工具和库文件
+//升级所有软件包
+yum -y update
+//安装编译工具及库文件
+yum -y install gcc gcc-c++ automake pcre pcre-devel zlib zlib-devel open openssl-devel
 
-                                        </div>
-                                        
-                                            <a class="btn btn-text" href="https://codermali.github.io//post/a-li-yun-centos-68-ji-chu-huan-jing-pei-zhi-3-tomcat">Read More ~</a>
-                            </div>
-                </div>
-            </article>
-            
-            <article class="post i-card">
-                <h2 class="post-title">
-                    <a href="https://codermali.github.io//post/a-li-yun-centos-68-ji-chu-huan-jing-pei-zhi-2-mysql">
-                         阿里云 CentOS 6.8 基础环境配置(2) -- mysql
-                    </a>
-                </h2>
-                <div class="post-info">
-                    <time class="post-time">2019-07-19</time>
-                    
-                        <a href="https://codermali.github.io//tag/APN8Ay21f" class="post-tag i-tag
-                            i-tag-other_1">
-            #Aliyun CentOS
-        </a>
-                        
-                </div>
-                <div class="post-article">
-                    
-                            <div class="post-content">
-                                
-                                        <div class="post-content-content">
-                                            2、安装mysql
-MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下产品。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。
-2.1、检查是否已经安装了mysql
-//whereis mysql
-
-//可以看到mysql的包
-rpm -qa | grep -i mysql
-
-//出现以下打印，说明已经安装了mysql，需要卸载掉
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# whereis mysql
-mysql: /usr/lib64/mysql /usr/share/mysql
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -qa | grep -i mysql
-mysql-libs-5.1.73-8.el6_8.x86_64
-
-2.2、卸载已经安装的mysql
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -e --nodeps mysql-libs-5.1.73-8.el6_8.x86_64
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# rpm -qa | grep -i mysql
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# whereis mysql
-mysql:
-
-2.3、添加用户
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# groupadd mysql
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# useradd -g mysql mysql
-
-2.4、创建my.cnf配置文件
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# vi /etc/my.cnf
-[mysqld]
-explicit_defaults_for_timestamp=true
-lower_case_table_names=1
-basedir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64
-datadir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data
-sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
-
-2.5、解压安装
+4.2、解压及安装
 //解压
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# tar -zxvf mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz
+[root@iZwz9cngn5wj3bafyrd539Z nginx]# tar -zxvf nginx-1.13.6.tar.gz
+//编译安装
+[root@iZwz9cngn5wj3bafyrd539Z sbin]# ./configure --prefix=/software/nginx/nginx
+[root@iZwz9cngn5wj3bafyrd539Z sbin]# make
+[root@iZwz9cngn5wj3bafyrd539Z sbin]# make install
+//查看是否安装成功
+[root@iZwz9cngn5wj3bafyrd539Z /]# /software/nginx/nginx/sbin/nginx -v
+nginx version: nginx/1.13.6
+[root@iZwz9cngn5wj3bafyrd539Z /]#
 
-//改变所有者
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# chown -R mysql:mysql /software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64
+4.3、常用命令
+./nginx # 启动nginx
+./nginx -s reload # 重新载入配置文件
+./nginx -s reopen # 重启 Nginx
+./nginx -s stop # 停止 Nginx
 
-//初始化
-[root@iZwz9cngn5wj3bafyrd539Z mysql]# cd mysql-5.7.18-linux-glibc2.5-x86_64/bin/
-[root@iZwz9cngn5wj3bafyrd539Z bin]# ./mysqld --user=mysql --basedir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64 --datadir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data --initialize
-2018-10-11T07:33:56.224082Z 0 [Warning] InnoDB: New log files created, LSN=45790
-2018-10-11T07:33:56.323553Z 0 [Warning] InnoDB: Creating foreign key constraint system tables.
-2018-10-11T07:33:56.386146Z 0 [Warning] No existing UUID has been found, so we assume that this is the first time that this server has been started. Generating a new UUID: 02c83522-cd28-11e8-8c68-00163e06f845.
-2018-10-11T07:33:56.388001Z 0 [Warning] Gtid table is not ready to be used. Table &#39;mysql.gtid_executed&#39; cannot be opened.
-2018-10-11T07:33:56.388604Z 1 [Note] A temporary password is generated for root@localhost: WfIA9=!!rwN3
-[root@iZwz9cngn5wj3bafyrd539Z bin]#
+4.4、配置文件
+//找到配置文件
+vi /nginx/conf/nginx.conf
+//找到配置端口的地方
+/server
+//修改配置（当前端口为8080）
+server {
+listen 8080;
+server_name localhost;
 
-2.6、数据加密
-[root@iZwz9cngn5wj3bafyrd539Z bin]# ./mysql_ssl_rsa_setup  --datadir=/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data/
-Generating a 2048 bit RSA private key
-......+++
-........................+++
-writing new private key to &#39;ca-key.pem&#39;
------
-Generating a 2048 bit RSA private key
-......................................................................................................................+++
-.....+++
-writing new private key to &#39;server-key.pem&#39;
------
-Generating a 2048 bit RSA private key
-..................+++
-....................+++
-writing new private key to &#39;client-key.pem&#39;
------
-[root@iZwz9cngn5wj3bafyrd539Z bin]#
+#charset koi8-r;
 
-2.7、启动服务
-[root@iZwz9cngn5wj3bafyrd539Z bin]# cd ../support-files/
-[root@iZwz9cngn5wj3bafyrd539Z support-files]# ./mysql.server start
-Starting MySQL.Logging to &#39;/software/mysql/mysql-5.7.18-linux-glibc2.5-x86_64/data/iZwz9cngn5wj3bafyrd539Z.err&#39;.
-                                                           [  OK  ]
-[root@iZwz9cngn5wj3bafyrd539Z support-files]#
+#access_log logs/host.access.log main;
 
-2.8、登录终端
-//进入`bin`目录
-[root@iZwz9cngn5wj3bafyrd539Z support-files]# cd ../bin/
-//登录终端，输入密码
-[root@iZwz9cngn5wj3bafyrd539Z bin]# ./mysql -uroot -p
-Enter password:
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 3
-Server version: 5.7.18
+location / {
+root html;
+index index.html index.htm;
+}
 
-Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.
+//重启nginx
+./nginx -s reload
 
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
+5、安装redis
+Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。从2010年3月15日起，Redis的开发工作由VMware主持。从2013年5月开始，Redis的开发由Pivotal赞助。
+5.1、解压编译安装
+//解压
+[root@iZwz9cngn5wj3bafyrd539Z redis]# tar -zxvf redis-3.2.12.tar.gz
+//进入解压目录
+[root@iZwz9cngn5wj3bafyrd539Z redis]# cd redis-3.2.12
+//编译安装
+[root@iZwz9cngn5wj3bafyrd539Z redis]# make
+[root@iZwz9cngn5wj3bafyrd539Z redis]# make install
 
-Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.
+5.2、修改配置文件
+配置文件路径：/software/redis/redis-3.2.12/redis.conf
 
-mysql&amp;gt;
+//设置Redis以守护进程模式运行
+daemonize yes
 
-2.9、初始化root账号密码
-//重置root账号密码
-mysql&amp;gt; set password=password(&#39;}UoJs4AL7Lp2M*?u,f9ZJKft&#39;);
-Query OK, 0 rows affected, 1 warning (0.00 sec)
+//redis默认不记录log文件，手动为redis添加log文件，默认路径在redis安装目录下
+logfile &amp;quot;redis.log&amp;quot;
 
-mysql&amp;gt;
+//设置redis监听端口
+port 6379
 
-2.10、开启远程用户
-//设置远程账号的账号密码
-mysql&amp;gt; GRANT ALL PRIVILEGES ON *.* TO &#39;merchants_remote&#39;@&#39;%&#39; identified by &#39;dGbq4dUEQF8zxJAqbM7MZvd3&#39; WITH GRANT OPTION;
-Query OK, 0 rows affected, 1 warning (0.00 sec)
-//mysql 新设置用户或更改密码后需用flush privileges刷新MySQL的系统权限相关表，否则会出现拒绝访问，还有一种方法，就是重新启动mysql服务器，来使新设置生效。­
-mysql&amp;gt; FLUSH PRIVILEGES;
-Query OK, 0 rows affected (0.00 sec)
+//设置保护模式
+protected-mode yes
 
-MySQL5.7的版本，需要设置sql_mode，否则非聚集列group by查询会出现如下错误：
-Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column &#39;XXX.XXX&#39; which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+//设置密码
+requirepass foobared
 
+//设置绑定ip，只要绑定的ip才能访问redis
+bind 127.0.0.1
 
-                                        </div>
-                                        
-                                            <a class="btn btn-text" href="https://codermali.github.io//post/a-li-yun-centos-68-ji-chu-huan-jing-pei-zhi-2-mysql">Read More ~</a>
-                            </div>
-                </div>
-            </article>
-            
-            <article class="post i-card">
-                <h2 class="post-title">
-                    <a href="https://codermali.github.io//post/a-li-yun-centos-68-ji-chu-huan-jing-pei-zhi-2">
-                        阿里云 CentOS 6.8 基础环境配置(1) -- jdk
-                    </a>
-                </h2>
-                <div class="post-info">
-                    <time class="post-time">2019-07-19</time>
-                    
-                        <a href="https://codermali.github.io//tag/APN8Ay21f" class="post-tag i-tag
-                            i-tag-info">
-            #Aliyun CentOS
-        </a>
-                        
-                </div>
-                <div class="post-article">
-                    
-                            <div class="post-content">
-                                
-                                        <div class="post-content-content">
-                                            概述
-本文是基于 阿里云服务器CentOS 6.8版本系统 ，搭建一个基本的APP云环境。
-1、安装jdk
-JDK是 Java 语言的软件开发工具包，主要用于移动设备、嵌入式设备上的java应用程序。JDK是整个java开发的核心，它包含了JAVA的运行环境（JVM+Java系统类库）和JAVA工具。
-1.1、首先检查系统是否安装了jdk
-java -version
-1.2、如果安装了jdk,那么卸载掉
-rpm -qa | grep java | xargs rpm -e —nodeps
-1.3、查看卸载结果
-java -version
-1.4、首先去官网下载JDK安装包(tar.gz)
-Java SE Development Kit 8 Downloads
-1.5、解压安装包
-tar -zxvf jdk-8u171-linux-x64.tar.gz
-1.6、配置全局java环境变量
-//使用VI编辑器打开profile文件 vi /etc/profile //移动到最后面,加入下面四行
-export JAVA_HOME=/usr/local/jdk1.8.0_171 
-export JER_HOME=/usr/local/jdk1.8.0_171/jre 
-export CLASSPATH=$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOME/bin
-
-1.7、使profile文件生效
-source /etc/profile
-1.8、验证是否安装成功
-java -version
-
-//打印出以下内容,说明安装成功
-java version “1.8.0_171”Java(TM) SE Runtime Environment (build 1.8.0_171-b11)Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode)
+5.3、启动服务
+[root@iZwz9cngn5wj3bafyrd539Z redis]# cd src
+//前台启动，命令行关闭之后就会断开
+[root@iZwz9cngn5wj3bafyrd539Z redis]# ./redis-server
+//后台启动，
+[root@iZwz9cngn5wj3bafyrd539Z redis]# ./redis-server ../redis.conf
 
 
                                         </div>
@@ -1282,7 +1319,7 @@ java version “1.8.0_171”Java(TM) SE Runtime Environment (build 1.8.0_171-b11
                     <time class="post-time">2019-07-18</time>
                     
                         <a href="https://codermali.github.io//tag/APN8Ay21f" class="post-tag i-tag
-                            i-tag-other_2">
+                            i-tag-error">
             #Aliyun CentOS
         </a>
                         
@@ -1703,7 +1740,7 @@ mob开放平台（开发资质已认证，APP转让完成）
                     <time class="post-time">2019-06-25</time>
                     
                         <a href="https://codermali.github.io//tag/SftxX1qB0" class="post-tag i-tag
-                            i-tag-other_2">
+                            i-tag-info">
             #iOS
         </a>
                         
@@ -1979,7 +2016,7 @@ iOS的App实现状态恢复
                     <time class="post-time">2019-06-24</time>
                     
                         <a href="https://codermali.github.io//tag/KU_zYv-Gf" class="post-tag i-tag
-                            i-tag-success">
+                            i-tag-banana">
             #MacOS
         </a>
                         
@@ -2686,7 +2723,7 @@ Dash 是一个API文档浏览器。配合 Alfred 可以快速查询api。
                     <time class="post-time">2019-06-21</time>
                     
                         <a href="https://codermali.github.io//tag/oFw_688GE" class="post-tag i-tag
-                            i-tag-">
+                            i-tag-error">
             #Wechat
         </a>
                         
@@ -2743,7 +2780,7 @@ Dash 是一个API文档浏览器。配合 Alfred 可以快速查询api。
                     <!-- 个人信息 -->
                     
     <div class="id_card i-card">
-        <div class="id_card-avatar" style="background-image: url(https://codermali.github.io//images/avatar.png?v=1563524465639)">
+        <div class="id_card-avatar" style="background-image: url(https://codermali.github.io//images/avatar.png?v=1563525125415)">
         </div>
         <h1 class="id_card-title">
             malide Library
