@@ -1,125 +1,108 @@
-<html>
 
-<head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>
-    应用转让 | malide Library
-</title>
-<link rel="shortcut icon" href="https://codermali.github.io//favicon.ico?v=1563527404091">
-<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
-<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>应用转让 | malide Library</title>
+<meta name="description" content="人生如逆旅，我亦是行人。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://codermali.github.io//favicon.ico?v=1570777742338">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://codermali.github.io//styles/main.css">
-<!-- js -->
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://codermali.github.io//media/js/jquery.sticky-sidebar.min.js"></script>
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
-        
-            
-                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-                <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-                
 
-                    
-                            
-</head>
-
-<body>
-    <div class="main">
-        <div class="header">
-    <div class="nav">
-        <div class="logo">
-            <a href="https://codermali.github.io/">
-                <img class="avatar" src="https://codermali.github.io//images/avatar.png?v=1563527404091" alt="">
-            </a>
-            <div class="site-title">
-                <h1>
-                    malide Library
-                </h1>
-            </div>
-        </div>
-        <span class="menu-btn fa fa-align-justify"></span>
-        <div class="menu-container">
-            <ul>
-                
-                    
-                            <li>
-                                <a href="/" class="menu">
-                                    首页
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/archives" class="menu">
-                                    归档
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/tags" class="menu">
-                                    标签
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/post/about" class="menu">
-                                    关于
-                                </a>
-                            </li>
-                            
-                                
-            </ul>
-        </div>
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://codermali.github.io/">
+        <img class="avatar" src="https://codermali.github.io//images/avatar.png?v=1570777742338" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://codermali.github.io/">
+        <h1 class="site-title">malide Library</h1>
+      </a>
     </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
 </div>
 
-<script>
-    $(document).ready(function() {
-        $(".menu-btn").click(function() {
-            $(".menu-container").slideToggle();
-        });
-        $(window).resize(function() {
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
 
-            if (window.matchMedia('(min-width: 960px)').matches) {
-                $(".menu-container").css('display', 'block')
-            } else {
-                $(".menu-container").css('display', 'none')
-            }
 
-        });
-    });
-</script>
-
-            <div id="main-content" class="post-detail main-container">
-                <!-- left -->
-                <div id="content" class="main-container-left">
-                    <article class="post i-card">
-                        <h2 class="post-title">
-                            应用转让
-                        </h2>
-                        <div class="post-info">
-                            <time class="post-time">2019-07-18</time>
-                            
-                                <a href="https://codermali.github.io//tag/sz0pYtLDt" class="post-tag i-tag
-                            i-tag-error">
-                            #Manager
-                        </a>
-                                
-                        </div>
-                        
-                                <div class="post-content">
-                                    <h2 id="前言">前言</h2>
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">应用转让</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2019-07-18</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://codermali.github.io//tag/sz0pYtLDt">
+                    Manager
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <h2 id="前言">前言</h2>
 <p>APP开发完成之后，上线是通过本公司的账号上线。现在需要转让。具体流程如下。</p>
 <h4 id="apple-developer">Apple Developer</h4>
 <p>在APP Store上线的APP，想要转让，可以根据苹果官方文档：<a href="https://help.apple.com/app-store-connect/#/deved688524f">App 转让概述</a>。<br>
@@ -183,127 +166,86 @@
 </ol>
 <p>首先是注册微信开放平台账号。注册时需要公司官网。</p>
 
-                                </div>
-                    </article>
-                    <!--  -->
-                    
-                        <div class="next-post">
-                            <div class="next">下一篇</div>
-                            <a href="https://codermali.github.io//post/ios-state-restoration">
-                                <h3 class="post-title">
-                                    iOS State Restoration
-                                </h3>
-                            </a>
-                        </div>
-                        
-                            <div id="disqus_thread"></div>
-                            <div id="gitalk-container"></div>
-                </div>
-                <!-- middle -->
-                <div class="main-container-middle"></div>
-                <!-- right -->
-                <div id="sidebar" class="main-container-right">
-                    
-                        <!-- toc -->
-                        
-    <div class="toc-card i-card ">
-        <div class="toc-title i-card-title">目录</div>
-        <div class="toc-content">
-            <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E5%89%8D%E8%A8%80">前言</a><br>
-*
-<ul>
-<li><a href="#apple-developer">Apple Developer</a></li>
-<li><a href="#%E5%BA%94%E7%94%A8%E5%AE%9D%E5%BC%80%E5%8F%91%E8%B5%84%E8%B4%A8%E5%B7%B2%E8%AE%A4%E8%AF%81app%E8%BD%AC%E8%AE%A9%E5%AE%8C%E6%88%90">应用宝（开发资质已认证，APP转让完成）</a></li>
-<li><a href="#%E7%99%BE%E5%BA%A6%E7%A7%BB%E5%8A%A8%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%B5%84%E8%B4%A8%E5%B7%B2%E8%AE%A4%E8%AF%81app%E8%AE%A4%E9%A2%86%E5%AE%8C%E6%88%90">百度移动开放平台（开发资质已认证，app认领完成）</a></li>
-<li><a href="#%E5%8D%8E%E4%B8%BA%E5%BC%80%E5%8F%91%E8%80%85%E8%81%94%E7%9B%9F%E5%BC%80%E5%8F%91%E8%B5%84%E8%B4%A8%E5%B7%B2%E8%AE%A4%E8%AF%81">华为开发者联盟（开发资质已认证）</a></li>
-<li><a href="#%E5%B0%8F%E7%B1%B3%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%B5%84%E8%B4%A8%E5%B7%B2%E8%AE%A4%E8%AF%81app%E8%AE%A4%E9%A2%86%E5%AE%8C%E6%88%90">小米开放平台（开发资质已认证，APP认领完成）</a></li>
-<li><a href="#oppo%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%B5%84%E8%B4%A8%E5%B7%B2%E8%AE%A4%E8%AF%81">oppo开放平台（开发资质已认证，）</a></li>
-<li><a href="#vivo%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%B5%84%E8%B4%A8%E5%B7%B2%E8%AE%A4%E8%AF%81">vivo开放平台（开发资质已认证，）</a></li>
-<li><a href="#mob%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E8%B5%84%E8%B4%A8%E5%B7%B2%E8%AE%A4%E8%AF%81app%E8%BD%AC%E8%AE%A9%E5%AE%8C%E6%88%90">mob开放平台（开发资质已认证，APP转让完成）</a></li>
-<li><a href="#%E5%BE%AE%E4%BF%A1%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0">微信开放平台</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
+          </div>
         </div>
-        <script>
-            function locateCatelogList() {
-                /*获取文章目录集合,可通过:header过滤器*/
-                var alis = $('.post-content :header');
-                /*获取侧边栏目录列表集合**/
-                var sidebar_alis = $('.markdownIt-TOC a');
-                /*获取滚动条到顶部的距离*/
-                var scroll_height = $(window).scrollTop();
-                for (var i = 0; i < alis.length; i++) {
-                    /*获取锚点集合中的元素分别到顶点的距离*/
-                    var a_height = $(alis[i]).offset().top;
-                    if (a_height < scroll_height) {
-                        /*高亮显示*/
-                        sidebar_alis.removeClass('on');
-                        $(sidebar_alis[i]).addClass('on');
-                    }
-                }
-            }
-            $(function() {
-                /*绑定滚动事件 */
-                $(window).bind('scroll', locateCatelogList);
-            });
-        </script>
-    </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://codermali.github.io//post/ios-state-restoration">
+              <h3 class="post-title">
+                下一篇：iOS State Restoration
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">人生如逆旅，我亦是行人。</div>
+  <div class="social-container">
     
-                            
-
-                </div>
-
-
-
-
-            </div>
-
-
-            <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
-  <a class="rss" href="https://codermali.github.io//atom.xml" target="_blank">RSS</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://codermali.github.io//atom.xml" target="_blank">RSS</a>
 </div>
 
-<script>
-  hljs.initHighlightingOnLoad()
-</script>
-
 
     </div>
-    <script>
-        $('#sidebar').stickySidebar({
-            topSpacing: 80,
-            // bottomSpacing: 60
-        });
-    </script>
-    
-        
-            <script>
-    window.onload = function() {
-        var gitalk = new Gitalk({
-            clientID: '752c701fdf6ef210c23a',
-            clientSecret: '8e5773eb378696737a9b8496cbf440d43f17b44a',
-            repo: 'codermali.github.io',
-            owner: 'codermali',
-            admin: ['codermali'],
-            id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
-            distractionFreeMode: false // Facebook-like distraction free mode
-        })
+    <script type="application/javascript">
 
-        gitalk.render('gitalk-container')
-    }
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
 </script>
-                
 
-                    
-                                
-</body>
 
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '752c701fdf6ef210c23a',
+        clientSecret: '8e5773eb378696737a9b8496cbf440d43f17b44a',
+        repo: 'codermali.github.io',
+        owner: 'codermali',
+        admin: ['codermali'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
 </html>

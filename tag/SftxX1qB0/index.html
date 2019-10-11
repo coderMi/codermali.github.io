@@ -1,444 +1,161 @@
-<html>
 
-<head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>
-    iOS | malide Library
-</title>
-<link rel="shortcut icon" href="https://codermali.github.io//favicon.ico?v=1563527404091">
-<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
-<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>iOS | malide Library</title>
+<meta name="description" content="人生如逆旅，我亦是行人。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://codermali.github.io//favicon.ico?v=1570777742338">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://codermali.github.io//styles/main.css">
-<!-- js -->
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://codermali.github.io//media/js/jquery.sticky-sidebar.min.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
-</head>
 
-<body>
-    <div class="main">
-        <div class="header">
-    <div class="nav">
-        <div class="logo">
-            <a href="https://codermali.github.io/">
-                <img class="avatar" src="https://codermali.github.io//images/avatar.png?v=1563527404091" alt="">
-            </a>
-            <div class="site-title">
-                <h1>
-                    malide Library
-                </h1>
-            </div>
-        </div>
-        <span class="menu-btn fa fa-align-justify"></span>
-        <div class="menu-container">
-            <ul>
-                
-                    
-                            <li>
-                                <a href="/" class="menu">
-                                    首页
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/archives" class="menu">
-                                    归档
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/tags" class="menu">
-                                    标签
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/post/about" class="menu">
-                                    关于
-                                </a>
-                            </li>
-                            
-                                
-            </ul>
-        </div>
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://codermali.github.io/">
+        <img class="avatar" src="https://codermali.github.io//images/avatar.png?v=1570777742338" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://codermali.github.io/">
+        <h1 class="site-title">malide Library</h1>
+      </a>
     </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
 </div>
 
-<script>
-    $(document).ready(function() {
-        $(".menu-btn").click(function() {
-            $(".menu-container").slideToggle();
-        });
-        $(window).resize(function() {
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
 
-            if (window.matchMedia('(min-width: 960px)').matches) {
-                $(".menu-container").css('display', 'block')
-            } else {
-                $(".menu-container").css('display', 'none')
-            }
 
-        });
-    });
-</script>
+      <div class="content-container">
 
-            <div id="main-content" class="post-container main-container">
-                <div id="content" class="main-container-left">
-                    
-    <div class="i-card">
-        <b>标签：#
-        iOS</b>
+        <div class="current-tag-container">
+          <h2 class="title">
+            <i class="icon icon-pricetags-outline"></i> iOS
+          </h2> 
+        </div>
+
+        
+<section class="post-item">
+    <div class="content">
+      <a href="https://codermali.github.io//post/ios-state-restoration">
+        <h2 class="post-title">iOS State Restoration</h2>
+      </a>
+      <div class="post-abstract">
+        
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-06-25</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://codermali.github.io//tag/SftxX1qB0">
+                iOS
+                
+              </a>
+            
+          </span>
+        
+      </div>
     </div>
     
-        
-            <article class="post i-card">
-                <h2 class="post-title">
-                    <a href="https://codermali.github.io//post/ios-state-restoration">
-                        iOS State Restoration
-                    </a>
-                </h2>
-                <div class="post-info">
-                    <time class="post-time">2019-06-25</time>
-                    
-                        <a href="https://codermali.github.io//tag/SftxX1qB0" class="post-tag i-tag
-                            i-tag-primary">
-            #iOS
-        </a>
-                        
-                </div>
-                <div class="post-article">
-                    
-                            <div class="post-content">
-                                
-                                        <div class="post-content-content">
-                                            前言
-最近项目中碰到了一个问题：由于编辑器占用内存过多，导致APP进入后台之后，很快就会被杀掉。这个时候，如果用户正在使用编辑器，那么编辑器里面的内容就会丢失了。针对这个问题，我想到了几个解决方案。
+  </section>
 
-通过后台播放无声音乐，请求定位等方式让APP在后台长时间留存。不过跟群友交流过之后，发现很大的可能不会过审，放弃。（后来又有群友说后台播放无声音乐是可以通过审核的，没有证实。）
-添加草稿功能。实时本地（云端）保存编辑器中的内容，重新进入编辑器之后加载缓存。这样就又有几个问题。首先，是否需要本地缓存APP被杀掉时的页面，在APP重新启动时，根据缓存的路径，进入页面。这样的话就需要对页面的路径进行配置、判断，想想就很麻烦；第二，是项目中有多个编辑器，编辑器中内容可能非常多，使用轻量级的plist、NSUserDefaults、NSKeyedAchiever等可能不是很合适，使用数据库又觉得没必要。
 
-在这个时候，偶然发现 Apple 针对本身的伪后台系统，提供了一套API，让我们来恢复在后台被杀掉的APP的状态。那就是UIStateRestoration。
-APP State Restoration简介
-由于iOS系统的设计，APP在后台停留时间过长，就很有可能被杀掉。然而，为了更好的体验，我们是希望APP可以一直停留在后台的。为了弥补这一点，在iOS 6.0版本之后，为我们一共了一套API，让我们可以在APP在后台被杀掉之后，重新启动APP时，可以恢复到APP被杀掉之前的状态。
-API介绍（部分。。。）
-@protocol UIViewControllerRestoration  //必须实现。
-//这个方法使用来创建或者找到相关的viewController。如果返回为nil，那么就不会恢复该viewController以及它的子视图。
-+ (nullable UIViewController *) viewControllerWithRestorationIdentifierPath:(NSArray&amp;lt;NSString *&amp;gt; *)identifierComponents coder:(NSCoder *)coder;
-@end
-
-//这个协议是用来恢复UITableVie和UICollectionView的数据
-@protocol UIDataSourceModelAssociation
-- (nullable NSString *) modelIdentifierForElementAtIndexPath:(NSIndexPath *)idx inView:(UIView *)view;
-- (nullable NSIndexPath *) indexPathForElementWithModelIdentifier:(NSString *)identifier inView:(UIView *)view;
-@end
-
-#pragma mark -- State Restoration object protocols and methods --
-
-@protocol UIObjectRestoration;
-
-@protocol UIStateRestoring &amp;lt;NSObject&amp;gt;
-@optional
-
-@property (nonatomic, readonly, nullable) id&amp;lt;UIStateRestoring&amp;gt; restorationParent;
-
-@property (nonatomic, readonly, nullable) Class&amp;lt;UIObjectRestoration&amp;gt; objectRestorationClass;
-
-//这两个方式是用来保存和恢复当前页面中需要保存的数据的。
-- (void) encodeRestorableStateWithCoder:(NSCoder *)coder;
-- (void) decodeRestorableStateWithCoder:(NSCoder *)coder;
-
-//在所有的数据都恢复之后执行。
-- (void) applicationFinishedRestoringState;
-@end
-
-@protocol UIObjectRestoration
-+ (nullable id&amp;lt;UIStateRestoring&amp;gt;) objectWithRestorationIdentifierPath:(NSArray&amp;lt;NSString *&amp;gt; *)identifierComponents coder:(NSCoder *)coder;
-@end
-
-###API使用
-在实际的使用中，分为两种情况。
-
-以UINavigationController为根控制器。因为UINavigationController会自动记录子视图的层级，因此非常容易实现，这里不多说。Apple官方的demo也是基于UINavigationController的。
-以UITableViewController为根控制器。UITableViewController不会记录子视图的层级，因此需要对自己来定义。
-
-在这里，我们基于UITableViewController和UINavigationController为构架的普通APP为例子实现APP状态的恢复。
-一、首先需要实现APPDelegate的两个方法。
-/**
-该方法在APP进入后台，或者在前台被用户主动杀掉时执行。（如果被系统杀掉，或者用户在后台杀掉，则不会执行）。返回`YES`，通知APPDelegate，在APP进入后台时，需要保存
-State。
-*/
-- (BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder {
-    return YES;
-}
-
-/**
-如果APP是异常关闭（后台被杀等），那么在下一次启动时，会执行这个方法。返回`YES`，通知APPDelegate，保存的状态需要被恢复。执行顺序为：
-[AppDelegate application:willFinishLaunchingWithOptions:]
-[AppDelegate application:shouldRestoreApplicationState:]
-[AppDelegate application:didFinishLaunchingWithOptions:]
-*/
-- (BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder {
-    return YES;
-}
-
-二、需要在[AppDelegate application:didFinishLaunchingWithOptions:]方法中进行处理，并实现[AppDelegate application:willFinishLaunchingWithOptions:]方法。
-- (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    
-    return YES;
-}
-
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-    if (!self.window.rootViewController) {
-        TabBarController *tabBarC = [[TabBarController alloc] init];
-        self.window.rootViewController = tabBarC;
-    }
-    [self.window makeKeyAndVisible];
-    
-    return YES;
-}
-
-三、根控制器UITableViewController遵守并实现协议。
-#import &amp;quot;TabBarController.h&amp;quot;
-
-@interface TabBarController ()&amp;lt;UIViewControllerRestoration&amp;gt;
-
-@end
-
-@implementation TabBarController
-
-+ (UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray&amp;lt;NSString *&amp;gt; *)identifierComponents coder:(NSCoder *)coder {
-
-    TabBarController *tabBarC = [[TabBarController alloc] init];
-    [[UIApplication sharedApplication] delegate].window.rootViewController = tabBarC;
-    
-    return tabBarC;
-}
-
-@end
-
-四、UINavigationController准守并实现协议。
-#import &amp;quot;NavigationController.h&amp;quot;
-#import &amp;quot;TabBarController.h&amp;quot;
-#import &amp;quot;HomeController.h&amp;quot;
-#import &amp;quot;DynamicController.h&amp;quot;
-#import &amp;quot;MineController.h&amp;quot;
-
-@interface NavigationController ()&amp;lt;UIViewControllerRestoration&amp;gt;
-
-@end
-
-@implementation NavigationController
-
-- (instancetype)initWithRootViewController:(UIViewController *)rootViewController {
-    if (self = [super initWithRootViewController:rootViewController]) {
-        
-        UIViewController *viewController = self.viewControllers.firstObject;
-        if ([viewController isKindOfClass:[HomeController class]]) {
-            self.restorationIdentifier = @&amp;quot;home&amp;quot;;
-        }
-        if ([viewController isKindOfClass:[DynamicController class]]) {
-            self.restorationIdentifier = @&amp;quot;dynamic&amp;quot;;
-        }
-        if ([viewController isKindOfClass:[MineController class]]) {
-            self.restorationIdentifier = @&amp;quot;mine&amp;quot;;
-        }
-        
-        self.restorationClass = [self class];
-    }
-    return self;
-}
-
-
-+ (UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray&amp;lt;NSString *&amp;gt; *)identifierComponents coder:(NSCoder *)coder {
-
-    TabBarController *tabBarC = (TabBarController *)[[UIApplication sharedApplication] delegate].window.rootViewController;
-    
-    NSString *identifier = identifierComponents.lastObject;
-    NavigationController *navigationC = nil;
-    if ([identifier isEqualToString:@&amp;quot;home&amp;quot;]) {
-        navigationC = (NavigationController *)tabBarC.viewControllers[0];
-    }
-    else if ([identifier isEqualToString:@&amp;quot;dynamic&amp;quot;]) {
-        navigationC = (NavigationController *)tabBarC.viewControllers[1];
-    }
-    else if ([identifier isEqualToString:@&amp;quot;mine&amp;quot;]) {
-        navigationC = (NavigationController *)tabBarC.viewControllers[2];
-    }
-    
-    return navigationC;
-}
-
-@end
-
-五、UINavigationController的根控制器遵守并实现协议
-#import &amp;quot;HomeController.h&amp;quot;
-
-@interface HomeController ()&amp;lt;UIViewControllerRestoration&amp;gt;
-
-@end
-
-@implementation HomeController
-
-- (instancetype)init {
-    if (self = [super init]) {
-        self.restorationIdentifier = NSStringFromClass([self class]);
-        self.restorationClass = [self class];
-    }
-    return self;
-}
-
-
-+ (UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray&amp;lt;NSString *&amp;gt; *)identifierComponents coder:(NSCoder *)coder {
-//    UITabBarController *rootViewController = (TabBarController *)[UIApplication sharedApplication].delegate.window.rootViewController;
-
-    TabBarController *tabBarC = (TabBarController *)[[UIApplication sharedApplication] delegate].window.rootViewController;
-    NavigationController *navigationC = (NavigationController *)tabBarC.viewControllers[0];
-    HomeController *homeC = [navigationC.viewControllers firstObject];
-    
-    return homeC;
-}
-
-
-- (void)encodeRestorableStateWithCoder:(NSCoder *)coder {
-    [super encodeRestorableStateWithCoder:coder];
-    
-}
-
-
-- (void)decodeRestorableStateWithCoder:(NSCoder *)coder {
-    [super decodeRestorableStateWithCoder:coder];
-    
-}
-
-@end
-
-六、要恢复的视图遵守并实现协议
-#import &amp;quot;HomeDetailController.h&amp;quot;
-
-@interface HomeDetailController ()&amp;lt;UIViewControllerRestoration&amp;gt;
-
-@end
-
-@implementation HomeDetailController
-
-- (instancetype)init {
-    if (self = [super init]) {
-        self.restorationIdentifier = NSStringFromClass([self class]);
-        self.restorationClass = [self class];
-    }
-    return self;
-}
-
-
-+ (UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray&amp;lt;NSString *&amp;gt; *)identifierComponents coder:(NSCoder *)coder {
-    return [[self alloc] init];
-}
-
-
-- (void)encodeRestorableStateWithCoder:(NSCoder *)coder {
-    [super encodeRestorableStateWithCoder:coder];
-}
-
-
-- (void)decodeRestorableStateWithCoder:(NSCoder *)coder {
-    [super decodeRestorableStateWithCoder:coder];
-}
-
-
-- (void)applicationFinishedRestoringState {
-}
-
-到这里，基本上就实现了APP状态的恢复功能。不过还有一些小问题。如果是自定义了UINavigationController，在[UINavigationController pushViewController:animated:]方法中『自定义导航条返回按钮』，设置『跳转时隐藏底部导航条（hidesBottomBarWhenPushed）』等，那么在恢复APP状态之后，这些都会失效。因为在恢复状态的过程中，并没有调用[UINavigationController pushViewController:animated:]方法。目前我没有太好的解决办法，只能在自定义的基类中代码实现再次实现『自定义导航条返回按钮』等功能。
-赶时间的碰到看到这里就可以停止了。接下来主要是根据我的理解，解析一下恢复状态的过程。有兴趣的朋友可以看一下。
-参考文章
-如何实现UITabbarController 的State Restoration?
-另类的&amp;quot;APP常驻&amp;quot;——UIStateRestoration
-iOS的App实现状态恢复
-保存和恢复App的状态
-
-                                        </div>
-                                        
-                                            <a class="btn btn-text" href="https://codermali.github.io//post/ios-state-restoration">Read More ~</a>
-                            </div>
-                </div>
-            </article>
-            
-                <!-- 翻页 -->
-                
-                </div>
-                <!--  -->
-                <div class="main-container-middle"></div>
-                <!--  -->
-                <div id="sidebar" class="main-container-right">
-
-                    <!-- 个人信息 -->
-                    
-    <div class="id_card i-card">
-        <div class="id_card-avatar" style="background-image: url(https://codermali.github.io//images/avatar.png?v=1563527404091)">
-        </div>
-        <h1 class="id_card-title">
-            malide Library
-        </h1>
-        <h2 class="id_card-description">
-            人生如逆旅，我亦是行人。
-        </h2>
-        <!--  -->
-        <div class="id_card-sns">
-            <!-- github -->
-            
-                <a href="https://github.com/codermali/" target="_blank" rel="noopener noreferrer"><i
-                class="fa fa-github"></i></a>
-                
-                    <!-- twitter -->
-                    
-                            <!-- weibo -->
-                            
-                                    <!-- facebook -->
-                                    
-
-        </div>
-    </div>
-    
-
-                        <!-- 公告栏 -->
-                        
-
-                </div>
-            </div>
-
-
-
-            <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
-  <a class="rss" href="https://codermali.github.io//atom.xml" target="_blank">RSS</a>
+<div class="pagination-container">
+  
+  
 </div>
 
-<script>
-  hljs.initHighlightingOnLoad()
-</script>
+
+      </div>
+
+      <div class="site-footer">
+  <div class="slogan">人生如逆旅，我亦是行人。</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://codermali.github.io//atom.xml" target="_blank">RSS</a>
+</div>
+
 
     </div>
-    <script>
-        $('#sidebar').stickySidebar({
-            topSpacing: 80,
-            // bottomSpacing: 60
-        });
-    </script>
-</body>
+    <script type="application/javascript">
 
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
 </html>
