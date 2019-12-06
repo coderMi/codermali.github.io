@@ -1,18 +1,15 @@
-
 <!DOCTYPE html>
 <html>
   <head>
-    
-<meta charset="utf-8" >
+    <meta charset="utf-8" >
 
 <title>Mac 系统重装指南 | malide Library</title>
 <meta name="description" content="人生如逆旅，我亦是行人。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://codermali.github.io//favicon.ico?v=1575626721747">
+<link rel="shortcut icon" href="https://codermali.github.io//favicon.ico?v=1575626792084">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://codermali.github.io//styles/main.css">
 
@@ -27,82 +24,85 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
 
 
   </head>
   <body>
     <div id="app" class="main">
-      <div class="site-header-container">
-  <div class="site-header">
-    <div class="left">
-      <a href="https://codermali.github.io/">
-        <img class="avatar" src="https://codermali.github.io//images/avatar.png?v=1575626721747" alt="" width="32px" height="32px">
-      </a>
-      <a href="https://codermali.github.io/">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://codermali.github.io/">
+        <img src="https://codermali.github.io//images/avatar.png?v=1575626792084" class="site-logo">
         <h1 class="site-title">malide Library</h1>
       </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
     </div>
-    <div class="right">
-      <transition name="fade">
-        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
-      </transition>
-    </div>
-  </div>
-</div>
-
-<transition name="fade">
-  <div class="menu-container" style="display: none;" v-show="menuVisible">
-    <div class="menu-list">
+    <div>
       
         
-          <a href="/" class="menu purple-link">
+          <a href="/" class="site-nav">
             首页
           </a>
         
       
         
-          <a href="/archives" class="menu purple-link">
+          <a href="/archives" class="site-nav">
             归档
           </a>
         
       
         
-          <a href="/tags" class="menu purple-link">
+          <a href="/tags" class="site-nav">
             标签
           </a>
         
       
         
-          <a href="/post/about" class="menu purple-link">
+          <a href="/post/about" class="site-nav">
             关于
           </a>
         
       
     </div>
   </div>
-</transition>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      人生如逆旅，我亦是行人。
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://codermali.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
 
 
-      <div class="content-container">
-        <div class="post-detail">
-          
-          <h2 class="post-title">Mac 系统重装指南</h2>
-          <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 2019-06-24</span>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Mac 系统重装指南</h2>
+            <div class="post-date">2019-06-24</div>
             
-              <span>
-                <i class="icon-pricetags-outline"></i>
-                
-                  <a href="https://codermali.github.io//tag/KU_zYv-Gf">
-                    MacOS
-                    
-                  </a>
-                
-              </span>
-            
-          </div>
-          <div class="post-content">
-            <h2 id="前言">前言</h2>
+            <div class="post-content">
+              <h2 id="前言">前言</h2>
 <p>最近公司入职了一个新的iOS开发，趁着这个时机，把旧电脑安排给了新员工，然后换了一台新 MacBook Pro。这样，就涉及到资料的备份和转移，还好以往我把公司资料直接保存在icloud，这就省了很多时间。但是除了资料，mac上的开发环境、配置等等就需要重新配置了。</p>
 <p>回想一下，重装电脑很多次了，每次都要查资料，重新配置。一方面是太麻烦了，另一方面，这样也会把自己很多配置文件丢失，比如：Xcode中的snips，ssh方面的常用的服务器，git和svn中的配置等等。因此希望将这次系统重装流程记录下来，并建立一个备份的资料库，作为自己的积累。</p>
 <p>本文基于 <strong>macOS 10.14.5</strong> 。</p>
@@ -782,49 +782,46 @@ ssh登陆时，需要制定ip地址和登录名，例如<code>ssh 192.168.1.1@ro
 <h4 id="71-腾讯课堂">7.1、腾讯课堂</h4>
 <h4 id="72-欧路词典">7.2、欧路词典</h4>
 
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://codermali.github.io//tag/KU_zYv-Gf" class="tag">
+                    MacOS
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://codermali.github.io//post/wei-xin-zhi-fu">
+                  <h3 class="post-title">
+                    微信支付
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
           </div>
+
         </div>
-
-        
-          <div class="next-post">
-            <a class="purple-link" href="https://codermali.github.io//post/wei-xin-zhi-fu">
-              <h3 class="post-title">
-                下一篇：微信支付
-              </h3>
-            </a>
-          </div>
-          
       </div>
-
-      
-        
-          <div id="gitalk-container"></div>
-        
-
-        
-      
-
-      <div class="site-footer">
-  <div class="slogan">人生如逆旅，我亦是行人。</div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  </div>
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://codermali.github.io//atom.xml" target="_blank">RSS</a>
-</div>
-
-
     </div>
-    <script type="application/javascript">
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
 
 hljs.initHighlightingOnLoad()
 
