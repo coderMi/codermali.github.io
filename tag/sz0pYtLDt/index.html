@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://codermali.github.io//favicon.ico?v=1570777742338">
+<link rel="shortcut icon" href="https://codermali.github.io//favicon.ico?v=1575626467679">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://codermali.github.io//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="site-header">
     <div class="left">
       <a href="https://codermali.github.io/">
-        <img class="avatar" src="https://codermali.github.io//images/avatar.png?v=1570777742338" alt="" width="32px" height="32px">
+        <img class="avatar" src="https://codermali.github.io//images/avatar.png?v=1575626467679" alt="" width="32px" height="32px">
       </a>
       <a href="https://codermali.github.io/">
         <h1 class="site-title">malide Library</h1>
@@ -86,6 +86,51 @@
         </div>
 
         
+<section class="post-item">
+    <div class="content">
+      <a href="https://codermali.github.io//post/wei-xin-er-ci-fen-xiang">
+        <h2 class="post-title">微信二次分享</h2>
+      </a>
+      <div class="post-abstract">
+        <h4 id="前言">前言</h4>
+<p>在善执者行项目中，涉及了微信二次分享的功能。在使用过程中，多次重复出问题，导致分享文本变成链接。在这里做一个记录。</p>
+<h4 id="公众号配置">公众号配置</h4>
+<ol>
+<li>公众号需要认证。否则，接口调用不会报错，但是无效果。</li>
+<li>启用AppSecret</li>
+<li>设置IP白名单，将服务器ip添加到白名单中</li>
+<li>设置js接口安全域名。需要包含资源文件路径。</li>
+</ol>
+<h4 id="java后台">java后台</h4>
+<ol>
+<li>jsapi_ticket失效问题。jsapi_ticket需要缓存到本地，有效期为两个小时。</li>
+<li>重新打包上线时，需要清理缓存的jsapi_ticket和access_token。</li>
+<li>java需要提供给前端appId、时间戳、随机字符串、签名。</li>
+</ol>
+<h4 id="前端">前端</h4>
+<ol>
+<li>前端方面需要做的是接受后台提供的appId、时间戳、随机字符串、签名，注入代码中。</li>
+</ol>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-12-06</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://codermali.github.io//tag/sz0pYtLDt">
+                Manager
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
 <section class="post-item">
     <div class="content">
       <a href="https://codermali.github.io//post/ying-yong-zhuan-rang">

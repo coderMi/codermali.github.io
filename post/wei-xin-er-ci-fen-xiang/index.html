@@ -5,7 +5,7 @@
     
 <meta charset="utf-8" >
 
-<title>微信支付 | malide Library</title>
+<title>微信二次分享 | malide Library</title>
 <meta name="description" content="人生如逆旅，我亦是行人。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -86,15 +86,15 @@
       <div class="content-container">
         <div class="post-detail">
           
-          <h2 class="post-title">微信支付</h2>
+          <h2 class="post-title">微信二次分享</h2>
           <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 2019-06-21</span>
+            <span><i class="icon-calendar-outline"></i> 2019-12-06</span>
             
               <span>
                 <i class="icon-pricetags-outline"></i>
                 
-                  <a href="https://codermali.github.io//tag/oFw_688GE">
-                    Wechat
+                  <a href="https://codermali.github.io//tag/sz0pYtLDt">
+                    Manager
                     
                   </a>
                 
@@ -102,39 +102,39 @@
             
           </div>
           <div class="post-content">
-            <h3 id="微信支付">微信支付</h3>
-<h5 id="接入微信支付首先需要注册微信商户号">接入微信支付首先需要注册微信商户号。</h5>
+            <h4 id="前言">前言</h4>
+<p>在善执者行项目中，涉及了微信二次分享的功能。在使用过程中，多次重复出问题，导致分享文本变成链接。在这里做一个记录。</p>
+<h4 id="公众号配置">公众号配置</h4>
 <ol>
-<li>打开 <a href="https://pay.weixin.qq.com/index.php/core/home/login?return_url=%2F">微信支付</a> 首页，选择「成为商家，选择「注册微信支付商户号」，然后绑定管理员微信。</li>
-<li>完成以上操作后，进入申请流程。分为三个步骤：创建申请单，填写商户信息，确认提交。
-<ul>
-<li>创建申请单中，需要输入管理员的各种信息；</li>
-<li>填写商户信息过程中，可以选择四个类型：个体工商户，企业，党政、机关及事业单位，其他组织。我选择的是企业，需要三证合一的营业执照，法人身份证，对公账户，经营信息以及结算规则。
-<ul>
-<li>在这个过程中，我碰到一个问题。在填写经营信息时，我选择的经营场景是APP，微信提示需要提供APP首页截图、尾页截图、应用内截图、支付页截图各1张。但是目前我们的APP是并没有开发完成。因此，只能使用其他方式先注册，在APP开发完成之后，再进行更换。</li>
-</ul>
-</li>
-<li>确认提交，主要是对提交资料的一个确认，并提交审核。</li>
-</ul>
-</li>
-<li>资料提交成功之后，需要进行账户验证。有两种方式：
+<li>公众号需要认证。否则，接口调用不会报错，但是无效果。</li>
+<li>启用AppSecret</li>
+<li>设置IP白名单，将服务器ip添加到白名单中</li>
+<li>设置js接口安全域名。需要包含资源文件路径。</li>
+</ol>
+<h4 id="java后台">java后台</h4>
 <ol>
-<li>使用法人微信认证。</li>
-<li>使用公账汇款。
-<ul>
-<li>使用公账汇款，会有延迟。</li>
-</ul>
-</li>
+<li>jsapi_ticket失效问题。jsapi_ticket需要缓存到本地，有效期为两个小时。</li>
+<li>重新打包上线时，需要清理缓存的jsapi_ticket和access_token。</li>
+<li>java需要提供给前端appId、时间戳、随机字符串、签名。</li>
 </ol>
-</li>
-<li>账户验证通过之后，需要等待微信审核结果。我们公司公账是招商银行账户，48小时内有结果。<a href="http://kf.qq.com/faq/161223BfIRVz161223zA3ieY.html">点击查看具体</a></li>
+<h4 id="前端">前端</h4>
+<ol>
+<li>前端方面需要做的是接受后台提供的appId、时间戳、随机字符串、签名，注入代码中。</li>
 </ol>
-<h3 id="支付宝支付">支付宝支付</h3>
+<!-- more -->
 
           </div>
         </div>
 
         
+          <div class="next-post">
+            <a class="purple-link" href="https://codermali.github.io//post/a-li-yun-centos-68-ji-chu-huan-jing-pei-zhi-2-mysql">
+              <h3 class="post-title">
+                下一篇： 阿里云 CentOS 6.8 基础环境配置(2) -- mysql
+              </h3>
+            </a>
+          </div>
+          
       </div>
 
       
