@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>善执者行APP在移动网络下链接超时 | malide Library</title>
+<meta name="description" content="人生如逆旅，我亦是行人。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://codermali.github.io//favicon.ico?v=1581528354642">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://codermali.github.io//styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://codermali.github.io/">
+        <img src="https://codermali.github.io//images/avatar.png?v=1581528354642" class="site-logo">
+        <h1 class="site-title">malide Library</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      人生如逆旅，我亦是行人。
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://codermali.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">善执者行APP在移动网络下链接超时</h2>
+            <div class="post-date">2020-02-13</div>
+            
+            <div class="post-content">
+              <h1 id="善执者行app在移动网络下链接超时">善执者行APP在移动网络下链接超时</h1>
+<h2 id="前言">前言</h2>
+<p>善执者行app，最近出了一个比较特别的问题。就是在移动的网络条件（4G，宽带）下，链接阿里云服务器经常超时；而在联通、电信的网络下，一切正常。</p>
+<h3 id="起因">起因</h3>
+<p>起初，有用户反馈app用不了，连接特别慢。经过测试后，并没有问题。初步判定是该用户所用网络波动导致。<br>
+但是之后，该用户不断反馈这个问题。特别提到在发布文章的时候，经常连不上，并且有视频为证。</p>
+<h3 id="第一次排查">第一次排查</h3>
+<p>我依然没有太认真，不过毕竟有人这么认真的反馈。我开始思考。<br>
+于是我和技术梳理了一下发布文章的流程。首先，进入发布页面，有两种方式输入内容：1，输入微信公众号文章链接，后台根据公众号文章链接，抓取公众号文章内容，再将内容传递回到app，用于展示，并供用户编辑；用户编辑完成，点击发布按钮；2，用户手动输入标题和正文，编辑完成之后点击发布按钮。点击发布按钮之后，app将内容提交到后台，由后台提交到阿里云内容过滤平台，进行校验，校验通过后，将文章保存到云数据库，并提取文章内文字作为简述，流程完成。</p>
+<p>在之前的开发中，后台方面并没有使用多线程方面的技术，所有操作全部在主线程进行。</p>
+<p>现在，我们将一些耗时且不是需要立刻完成的操作放到子线程进行，即提取文章内文字的操作，节省后台处理时间。</p>
+<p>之后过了一周，一直没有反馈。我以为已经解决。</p>
+<h3 id="第二次排查">第二次排查</h3>
+<p>半个月后，用户又来反馈这个问题，并指出一直没有解决。</p>
+<p>在这里我必须检讨一下自己，确实每太当真。所以这次我很认真的和客户电话沟通了一番，收集了手机型号，系统版本，app版本，使用区域等条件。然后碰巧有一个朋友完美符合条件，一番测试，没能复现。。。</p>
+<p>这个真的没辙，无法复现，根本没法测啊，更别提修复了。</p>
+<p>之后两天一直没能取得进展。所以我养成了一个习惯，过一会儿就会把app打开试试。然后发现，在我家wifi的网络下，居然打不开app。这下打开了我的思路，不过是网络运营商的问题吧。我家是移动的宽带。然后我又在移动4G的情况下，重复测试。多次测试之后，问题重现了。之后托几个使用移动宽带的朋友测试，有的是延迟，有的就是无法连接。和用户确认网络条件后，确认是移动网络的问题。</p>
+<p>这种情况着实棘手，在网上并不能找到类似的资料。然后我首先联系移动客服，客服态度非常好，详细的了解了我的问题，并表示会向上反映这个问题。。。我考虑了下，估计没用。</p>
+<p>之后联系了阿里云客服。发现并没有这个选项，只能提交工单。</p>
+<p>我将自己的问题描述之后，提交了工单。几个来回沟通之后，客服表示需要我进行MTR双向测试，我表示我很懵逼。</p>
+<p>小公司就有这个问题，因为我只是很业余的服务器运维。查了一番资料之后大概明白了，很简单，在服务器和电脑上分别安装mtr，然后通过命令行测试就行了。</p>
+<h4 id="macos-安装mtr">MacOS 安装mtr</h4>
+<p>由于本人电脑已经安装了homebrew，直接使用homebrew安装即可。<br>
+系统版本：MacOS Catalina v10.15.3<br>
+homebrew版本：v2.2.5</p>
+<pre><code>No changes to formulae.
+~ ➤ brew install mtr
+Updating Homebrew...
+==&gt; Downloading https://homebrew.bintray.com/bottles/mtr-0.93_1.catalina.bottle.1.tar.gz
+Already downloaded: /Users/mali/Library/Caches/Homebrew/downloads/96e2aca6b9453485b1c6b01464485574b3adc342f6a9e387592014e9d65eba17--mtr-0.93_1.catalina.bottle.1.tar.gz
+==&gt; Pouring mtr-0.93_1.catalina.bottle.1.tar.gz
+Error: The `brew link` step did not complete successfully
+The formula built, but is not symlinked into /usr/local
+Could not symlink sbin/mtr
+/usr/local/sbin is not writable.
+
+You can try again using:
+  brew link mtr
+
+==&gt; Caveats
+mtr requires root privileges so you will need to run `sudo mtr`.
+You should be certain that you trust any software you grant root privileges.
+==&gt; Summary
+🍺  /usr/local/Cellar/mtr/0.93_1: 12 files, 196.5KB
+~ ➤
+</code></pre>
+<p>试过网络上各种方法，无法解决。决心重新安装homebrew</p>
+<pre><code>彻底删除homebrew
+ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)&quot;
+重新安装homebrew
+/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+</code></pre>
+<p>重装之后，安装mtr成功。但是使用时报错</p>
+<pre><code>sbin ➤ sudo mtr www.baidu.com
+sudo: mtr: command not found
+sbin ➤ mtr 119.23.201.61
+</code></pre>
+<p>解决方式很简单，就是将 <strong>/usr/local/sbin</strong> 路径下的 <code>mtr</code> 和 <code>mtr-packet</code> 两个文件复制到 <strong>/usr/local/bin/</strong> 路径下。</p>
+<h4 id="注意不能直接使用mtr命令会因为没有权限导致失败报错如下">注意，不能直接使用<code>mtr</code>命令，会因为没有权限导致失败，报错如下：</h4>
+<pre><code>sbin ➤ mtr 119.23.201.61
+mtr-packet: Failure to open IPv4 sockets
+mtr-packet: Failure to open IPv6 sockets
+mtr: Failure to start mtr-packet: Invalid argument
+sbin ➤ 
+</code></pre>
+<h4 id="centos72-安装mtr">CentOS7.2 安装mtr</h4>
+<p>直接使用yum安装即可</p>
+<pre><code>yum  install mtr -y 
+</code></pre>
+<h3 id="结果">结果</h3>
+<p>我自己并不能看懂mtr双向测试的记录。所以我直接截图提交给了阿里云技术客服。根据后续的沟通，我了解到延迟是在广东河源地区移动网络产生，这个是由于网络运营商的问题，阿里云也没有特别好的办法，只能等待移动来修复。</p>
+<p>我推测可能是因为布置5G网络导致的问题。</p>
+<p>暂时告一段落。</p>
+<p>涉及资料：<br>
+<a href="https://wsgzao.github.io/post/mtr/">如何使用 MTR 诊断网络问题</a></p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://codermali.github.io//tag/rZGS0_0tg" class="tag">
+                    Project
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://codermali.github.io//post/wei-xin-er-ci-fen-xiang">
+                  <h3 class="post-title">
+                    微信二次分享
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '752c701fdf6ef210c23a',
+        clientSecret: '8e5773eb378696737a9b8496cbf440d43f17b44a',
+        repo: 'codermali.github.io',
+        owner: 'codermali',
+        admin: ['codermali'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
